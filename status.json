@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-19T12:24:20.979570+08:00",
-  "generated_at_display": "2026-05-19 12:24:20",
+  "generated_at": "2026-05-19T14:41:22.629581+08:00",
+  "generated_at_display": "2026-05-19 14:41:22",
   "counts": {
-    "ok": 15,
+    "ok": 19,
     "error": 0,
     "pending": 0,
     "paused": 0,
@@ -10,9 +10,9 @@
     "events_info": 0
   },
   "summary": {
-    "lp_price": 1.16515,
+    "lp_price": 1.16446,
     "lp_outside": false,
-    "lp_log_age_minutes": 4,
+    "lp_log_age_minutes": 1,
     "watchlist_last_run_date": "2026-05-19"
   },
   "tasks": [
@@ -24,7 +24,7 @@
       "schedule": "daily 18:00",
       "last_time": "2026-05-18T18:00:06+08:00",
       "last_time_display": "2026-05-18 18:00:06",
-      "age": "18 小时前",
+      "age": "20 小时前",
       "brief": "配置与状态备份已完成"
     },
     {
@@ -35,7 +35,7 @@
       "schedule": "daily 18:30",
       "last_time": "2026-05-18T18:30:04+08:00",
       "last_time_display": "2026-05-18 18:30:04",
-      "age": "17 小时前",
+      "age": "20 小时前",
       "brief": "本地密文刷新正常"
     },
     {
@@ -46,8 +46,30 @@
       "schedule": "weekdays 09:00",
       "last_time": "2026-05-19T09:01:30+08:00",
       "last_time_display": "2026-05-19 09:01:30",
-      "age": "3 小时前",
+      "age": "5 小时前",
       "brief": "市场简报已生成并推送"
+    },
+    {
+      "name": "每日监管日报",
+      "group": "健康检查",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "daily 09:15",
+      "last_time": "2026-05-19T09:15:59+08:00",
+      "last_time_display": "2026-05-19 09:15:59",
+      "age": "5 小时前",
+      "brief": "每日监管日报已完成"
+    },
+    {
+      "name": "Twitter 热点推送",
+      "group": "每日内容",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "daily 11:10",
+      "last_time": "",
+      "last_time_display": "-",
+      "age": "-",
+      "brief": "Twitter 热点推送任务已加载"
     },
     {
       "name": "RootData 周提醒",
@@ -57,7 +79,7 @@
       "schedule": "Monday 10:00",
       "last_time": "2026-05-18T10:00:04+08:00",
       "last_time_display": "2026-05-18 10:00:04",
-      "age": "26 小时前",
+      "age": "28 小时前",
       "brief": "本周 RootData 提醒已处理"
     },
     {
@@ -68,7 +90,7 @@
       "schedule": "Monday 10:45",
       "last_time": "2026-05-18T10:48:40+08:00",
       "last_time_display": "2026-05-18 10:48:40",
-      "age": "25 小时前",
+      "age": "27 小时前",
       "brief": "本周 Pre-watchlist 周报已完成"
     },
     {
@@ -79,7 +101,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-05-17T12:31:13+08:00",
       "last_time_display": "2026-05-17 12:31:13",
-      "age": "47 小时前",
+      "age": "2 天前",
       "brief": "安全检查最近一次通过"
     },
     {
@@ -176,10 +198,32 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 09:20 and 18:10",
-      "last_time": "2026-05-19T12:24:06+08:00",
-      "last_time_display": "2026-05-19 12:24:06",
-      "age": "15 秒前",
+      "last_time": "2026-05-19T12:24:23+08:00",
+      "last_time_display": "2026-05-19 12:24:23",
+      "age": "2 小时前",
       "brief": "远程状态页自动发布"
+    },
+    {
+      "name": "RapidAPI 续费提醒",
+      "group": "提醒",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "2026-05-23 09:00",
+      "last_time": "",
+      "last_time_display": "-",
+      "age": "-",
+      "brief": "等待续费提醒触发"
+    },
+    {
+      "name": "GitHub PAT 续期提醒",
+      "group": "提醒",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "2027-03-04 09:00",
+      "last_time": "",
+      "last_time_display": "-",
+      "age": "-",
+      "brief": "等待 PAT 续期提醒触发"
     }
   ],
   "events": [],
