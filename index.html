@@ -17,9 +17,11 @@
       --bad: #c2413a;
       --pending: #5266d6;
       --paused: #7a8495;
+      --warn-bg: #fff7ed;
+      --warn-line: #fed7aa;
     }
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #111418; --fg: #e8edf4; --muted: #a2adbb; --panel: #191e24; --line: #303844; }
+      :root { --bg: #111418; --fg: #e8edf4; --muted: #a2adbb; --panel: #191e24; --line: #303844; --warn-bg: #24180f; --warn-line: #7c4a18; }
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.45; }
@@ -48,6 +50,10 @@
     .dot.paused { background: var(--paused); }
     .pill { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; margin: 0; color: white; background: var(--pending); }
     .pill.error { background: var(--bad); }
+    .pill.pending { background: var(--pending); }
+    .freshness { display: inline-block; margin-top: 8px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+    .freshness.stale { border-color: var(--warn-line); background: var(--warn-bg); color: var(--fg); }
+    .attention table, .attention .task-card { border-color: var(--warn-line); }
     .mobile-list { display: none; }
     .task-card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
     .task-card + .task-card { margin-top: 8px; }
@@ -73,16 +79,19 @@
 </head>
 <body>
   <header>
-    <div class="hero"><span class="dot ok"></span><h1>July 自动化状态 · 全部正常</h1></div>
-    <div class="muted">生成时间 2026-05-19 12:16:58 · 远程脱敏版 · 不含本机路径、PID、token 或原始日志</div>
+    <div class="hero"><span class="dot error"></span><h1>July 自动化状态 · 1 项需要关注</h1></div>
+    <div class="muted">生成时间 2026-05-19 12:23:51 · 远程脱敏版 · 不含本机路径、PID、token 或原始日志</div>
+    <div id="freshness" class="freshness" data-generated-at="2026-05-19T12:23:51.640516+08:00">正在判断快照新鲜度</div>
   </header>
   <main>
     <div class="grid">
-      <div class="card"><div class="label">任务总数</div><strong>14</strong><p>14 项正常</p></div>
-      <div class="card"><div class="label">需要关注</div><strong>0</strong><p>异常 / 待确认 / 错误事件</p></div>
-      <div class="card"><div class="label">LP 监控</div><strong>区间内</strong><p>价格 1.16515 · 日志 6 分钟前</p></div>
+      <div class="card"><div class="label">任务总数</div><strong>15</strong><p>14 项正常</p></div>
+      <div class="card"><div class="label">需要关注</div><strong>1</strong><p>异常 / 待确认 / 错误事件</p></div>
+      <div class="card"><div class="label">LP 监控</div><strong>区间内</strong><p>价格 1.16515 · 日志 3 分钟前</p></div>
       <div class="card"><div class="label">项目跟踪</div><strong>今日已执行</strong><p>最近记录 2026-05-19</p></div>
     </div>
+
+    <section class='attention'><h2>需要关注</h2><table class='event-table'><tr><th>级别</th><th>来源</th><th>内容</th></tr><tr><td><span class='pill error'>异常</span></td><td class='name'>远程状态页发布</td><td>需要查看本地面板或日报</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='pill error'>异常</span><strong>远程状态页发布</strong></div><p>需要查看本地面板或日报</p></article></div></section>
 
     <section>
       <h2>事件与提醒</h2>
@@ -90,26 +99,53 @@
       <div class="mobile-list"><article class='task-card'><div class='muted'>暂无事件。</div></article></div>
     </section>
 
-    <section><h2>每日内容</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>市场简报<span>每日内容</span></td><td>2026-05-19 09:01:30<span>3 小时前</span></td><td>运行正常</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>项目跟踪日报<span>每日内容</span></td><td>2026-05-19<span>日报状态记录</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>市场简报</strong></div><div class='muted'>每日内容</div><div class='task-meta'><span>2026-05-19 09:01:30</span><span>3 小时前</span></div><p>运行正常</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>项目跟踪日报</strong></div><div class='muted'>每日内容</div><div class='task-meta'><span>2026-05-19</span><span>日报状态记录</span></div><p>运行正常</p></article></div></section>
-<section><h2>常驻</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>LP 监控<span>常驻</span></td><td>常驻运行<span>由 launchd 保持</span></td><td>常驻运行中</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>保持电脑运行<span>常驻</span></td><td>常驻运行<span>由 launchd 保持</span></td><td>常驻运行中</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>LP 监控</strong></div><div class='muted'>常驻</div><div class='task-meta'><span>常驻运行</span><span>由 launchd 保持</span></div><p>常驻运行中</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>保持电脑运行</strong></div><div class='muted'>常驻</div><div class='task-meta'><span>常驻运行</span><span>由 launchd 保持</span></div><p>常驻运行中</p></article></div></section>
-<section><h2>健康检查</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>内存压力监控<span>健康检查</span></td><td>周期运行<span>每 5 分钟</span></td><td>周期检查正常</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>本地状态面板刷新<span>健康检查</span></td><td>周期运行<span>每 5 分钟</span></td><td>周期检查正常</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>项目跟踪健康检查<span>健康检查</span></td><td>-<span>-</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>内存压力监控</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>周期检查正常</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地状态面板刷新</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>周期检查正常</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>项目跟踪健康检查</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>-</span><span>-</span></div><p>运行正常</p></article></div></section>
-<section><h2>周任务</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>Pre-watchlist 周报<span>周任务</span></td><td>2026-05-18 10:48:40<span>25 小时前</span></td><td>运行正常</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>RootData 周提醒<span>周任务</span></td><td>2026-05-18 10:00:04<span>26 小时前</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>Pre-watchlist 周报</strong></div><div class='muted'>周任务</div><div class='task-meta'><span>2026-05-18 10:48:40</span><span>25 小时前</span></div><p>运行正常</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>RootData 周提醒</strong></div><div class='muted'>周任务</div><div class='task-meta'><span>2026-05-18 10:00:04</span><span>26 小时前</span></div><p>运行正常</p></article></div></section>
-<section><h2>基础设施</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>GitHub 配置备份<span>基础设施</span></td><td>2026-05-18 18:00:06<span>18 小时前</span></td><td>运行正常</td></tr>
-<tr><td><span class='dot ok'></span>正常</td><td class='name'>本地密文刷新<span>基础设施</span></td><td>2026-05-18 18:30:04<span>17 小时前</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>GitHub 配置备份</strong></div><div class='muted'>基础设施</div><div class='task-meta'><span>2026-05-18 18:00:06</span><span>18 小时前</span></div><p>运行正常</p></article>
-<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地密文刷新</strong></div><div class='muted'>基础设施</div><div class='task-meta'><span>2026-05-18 18:30:04</span><span>17 小时前</span></div><p>运行正常</p></article></div></section>
-<section><h2>安全</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>每周安全检查<span>安全</span></td><td>2026-05-17 12:31:13<span>47 小时前</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>每周安全检查</strong></div><div class='muted'>安全</div><div class='task-meta'><span>2026-05-17 12:31:13</span><span>47 小时前</span></div><p>运行正常</p></article></div></section>
-<section><h2>备份/共享</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>团队 Skill 周更<span>备份/共享</span></td><td>2026-05-17 11:30:07<span>2 天前</span></td><td>运行正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>团队 Skill 周更</strong></div><div class='muted'>备份/共享</div><div class='task-meta'><span>2026-05-17 11:30:07</span><span>2 天前</span></div><p>运行正常</p></article></div></section>
-<section><h2>网络</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>本地 VPN 刷新<span>网络</span></td><td>周期运行<span>每 5 分钟</span></td><td>周期检查正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地 VPN 刷新</strong></div><div class='muted'>网络</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>周期检查正常</p></article></div></section>
+    <section><h2>每日内容</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>市场简报<span>每日内容</span></td><td>2026-05-19 09:01:30<span>3 小时前</span></td><td>市场简报已生成并推送</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>项目跟踪日报<span>每日内容</span></td><td>2026-05-19<span>日报状态记录</span></td><td>项目跟踪日报已完成</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>市场简报</strong></div><div class='muted'>每日内容</div><div class='task-meta'><span>2026-05-19 09:01:30</span><span>3 小时前</span></div><p>市场简报已生成并推送</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>项目跟踪日报</strong></div><div class='muted'>每日内容</div><div class='task-meta'><span>2026-05-19</span><span>日报状态记录</span></div><p>项目跟踪日报已完成</p></article></div></section>
+<section><h2>常驻</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>LP 监控<span>常驻</span></td><td>常驻运行<span>由 launchd 保持</span></td><td>LP 区间与采集任务运行中</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>保持电脑运行<span>常驻</span></td><td>常驻运行<span>由 launchd 保持</span></td><td>电脑保持唤醒</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>LP 监控</strong></div><div class='muted'>常驻</div><div class='task-meta'><span>常驻运行</span><span>由 launchd 保持</span></div><p>LP 区间与采集任务运行中</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>保持电脑运行</strong></div><div class='muted'>常驻</div><div class='task-meta'><span>常驻运行</span><span>由 launchd 保持</span></div><p>电脑保持唤醒</p></article></div></section>
+<section><h2>健康检查</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>内存压力监控<span>健康检查</span></td><td>周期运行<span>每 5 分钟</span></td><td>内存压力监控正常</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>本地状态面板刷新<span>健康检查</span></td><td>周期运行<span>每 5 分钟</span></td><td>本地状态面板自动刷新</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>项目跟踪健康检查<span>健康检查</span></td><td>-<span>-</span></td><td>项目跟踪链路健康</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>内存压力监控</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>内存压力监控正常</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地状态面板刷新</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>本地状态面板自动刷新</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>项目跟踪健康检查</strong></div><div class='muted'>健康检查</div><div class='task-meta'><span>-</span><span>-</span></div><p>项目跟踪链路健康</p></article></div></section>
+<section><h2>周任务</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>Pre-watchlist 周报<span>周任务</span></td><td>2026-05-18 10:48:40<span>25 小时前</span></td><td>本周 Pre-watchlist 周报已完成</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>RootData 周提醒<span>周任务</span></td><td>2026-05-18 10:00:04<span>26 小时前</span></td><td>本周 RootData 提醒已处理</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>Pre-watchlist 周报</strong></div><div class='muted'>周任务</div><div class='task-meta'><span>2026-05-18 10:48:40</span><span>25 小时前</span></div><p>本周 Pre-watchlist 周报已完成</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>RootData 周提醒</strong></div><div class='muted'>周任务</div><div class='task-meta'><span>2026-05-18 10:00:04</span><span>26 小时前</span></div><p>本周 RootData 提醒已处理</p></article></div></section>
+<section><h2>基础设施</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot error'></span>异常</td><td class='name'>远程状态页发布<span>基础设施</span></td><td>-<span>-</span></td><td>需要查看本地面板或日报</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>GitHub 配置备份<span>基础设施</span></td><td>2026-05-18 18:00:06<span>18 小时前</span></td><td>配置与状态备份已完成</td></tr>
+<tr><td><span class='dot ok'></span>正常</td><td class='name'>本地密文刷新<span>基础设施</span></td><td>2026-05-18 18:30:04<span>17 小时前</span></td><td>本地密文刷新正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot error'></span>异常</span><strong>远程状态页发布</strong></div><div class='muted'>基础设施</div><div class='task-meta'><span>-</span><span>-</span></div><p>需要查看本地面板或日报</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>GitHub 配置备份</strong></div><div class='muted'>基础设施</div><div class='task-meta'><span>2026-05-18 18:00:06</span><span>18 小时前</span></div><p>配置与状态备份已完成</p></article>
+<article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地密文刷新</strong></div><div class='muted'>基础设施</div><div class='task-meta'><span>2026-05-18 18:30:04</span><span>17 小时前</span></div><p>本地密文刷新正常</p></article></div></section>
+<section><h2>安全</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>每周安全检查<span>安全</span></td><td>2026-05-17 12:31:13<span>47 小时前</span></td><td>安全检查最近一次通过</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>每周安全检查</strong></div><div class='muted'>安全</div><div class='task-meta'><span>2026-05-17 12:31:13</span><span>47 小时前</span></div><p>安全检查最近一次通过</p></article></div></section>
+<section><h2>备份/共享</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>团队 Skill 周更<span>备份/共享</span></td><td>2026-05-17 11:30:07<span>2 天前</span></td><td>团队 Skill 共享更新正常</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>团队 Skill 周更</strong></div><div class='muted'>备份/共享</div><div class='task-meta'><span>2026-05-17 11:30:07</span><span>2 天前</span></div><p>团队 Skill 共享更新正常</p></article></div></section>
+<section><h2>网络</h2><table class='task-table'><tr><th>状态</th><th>任务</th><th>最近成功/尝试</th><th>说明</th></tr><tr><td><span class='dot ok'></span>正常</td><td class='name'>本地 VPN 刷新<span>网络</span></td><td>周期运行<span>每 5 分钟</span></td><td>本地 VPN 刷新任务存活</td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='status-line'><span class='dot ok'></span>正常</span><strong>本地 VPN 刷新</strong></div><div class='muted'>网络</div><div class='task-meta'><span>周期运行</span><span>每 5 分钟</span></div><p>本地 VPN 刷新任务存活</p></article></div></section>
   </main>
+  <script>
+    (function () {
+      var el = document.getElementById("freshness");
+      if (!el) return;
+      var generatedAt = el.getAttribute("data-generated-at");
+      var then = new Date(generatedAt);
+      if (Number.isNaN(then.getTime())) {
+        el.textContent = "快照时间未知";
+        el.classList.add("stale");
+        return;
+      }
+      var minutes = Math.max(0, Math.floor((Date.now() - then.getTime()) / 60000));
+      if (minutes < 15) {
+        el.textContent = "刚刚更新";
+      } else if (minutes < 120) {
+        el.textContent = minutes + " 分钟前更新";
+      } else if (minutes < 1440) {
+        el.textContent = "超过 2 小时未更新";
+        el.classList.add("stale");
+      } else {
+        el.textContent = "超过 24 小时未更新";
+        el.classList.add("stale");
+      }
+    })();
+  </script>
 </body>
 </html>
