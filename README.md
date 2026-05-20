@@ -4,6 +4,10 @@
 
 ## 远端入口
 
+[https://july.nibajie.cc/](https://july.nibajie.cc/)
+
+备用入口：
+
 [https://julywa.github.io/automation-status-page/](https://julywa.github.io/automation-status-page/)
 
 ## 内容说明
@@ -16,4 +20,5 @@
 
 - `index.html`：GitHub Pages 状态页。
 - `status.json`：脱敏后的结构化状态快照。
+- `CNAME`：GitHub Pages 自定义域名配置。
 - `.nojekyll`：确保 GitHub Pages 按静态文件直接发布。
