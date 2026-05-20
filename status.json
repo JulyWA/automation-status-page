@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-05-20T09:20:03.398778+08:00",
-  "generated_at_display": "2026-05-20 09:20:03",
+  "generated_at": "2026-05-20T13:55:31.513124+08:00",
+  "generated_at_display": "2026-05-20 13:55:31",
   "counts": {
     "ok": 19,
     "error": 0,
-    "pending": 0,
+    "pending": 1,
     "paused": 0,
     "events_error": 0,
     "events_info": 0
   },
   "summary": {
-    "lp_price": 1.16082,
+    "lp_price": 1.16042,
     "lp_outside": true,
-    "lp_log_age_minutes": 9,
+    "lp_log_age_minutes": 5,
     "watchlist_last_run_date": "2026-05-20"
   },
   "tasks": [
@@ -24,7 +24,7 @@
       "schedule": "daily 18:00",
       "last_time": "2026-05-19T18:00:11+08:00",
       "last_time_display": "2026-05-19 18:00:11",
-      "age": "15 小时前",
+      "age": "19 小时前",
       "brief": "配置与状态备份已完成"
     },
     {
@@ -35,7 +35,7 @@
       "schedule": "daily 18:30",
       "last_time": "2026-05-19T18:30:02+08:00",
       "last_time_display": "2026-05-19 18:30:02",
-      "age": "14 小时前",
+      "age": "19 小时前",
       "brief": "本地密文刷新正常"
     },
     {
@@ -46,7 +46,7 @@
       "schedule": "weekdays 09:00",
       "last_time": "2026-05-20T09:01:04+08:00",
       "last_time_display": "2026-05-20 09:01:04",
-      "age": "18 分钟前",
+      "age": "4 小时前",
       "brief": "市场简报已生成并推送"
     },
     {
@@ -57,7 +57,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-05-20T09:16:21+08:00",
       "last_time_display": "2026-05-20 09:16:21",
-      "age": "3 分钟前",
+      "age": "4 小时前",
       "brief": "每日监管日报已完成"
     },
     {
@@ -72,6 +72,17 @@
       "brief": "Twitter 热点推送任务已加载"
     },
     {
+      "name": "X 全网搜索热点",
+      "group": "每日内容",
+      "status": "pending",
+      "status_label": "待确认",
+      "schedule": "daily 09:40",
+      "last_time": "",
+      "last_time_display": "-",
+      "age": "-",
+      "brief": "等待首次自然触发或状态确认"
+    },
+    {
       "name": "RootData 周提醒",
       "group": "周任务",
       "status": "ok",
@@ -79,7 +90,7 @@
       "schedule": "Monday 10:00",
       "last_time": "2026-05-18T10:00:04+08:00",
       "last_time_display": "2026-05-18 10:00:04",
-      "age": "47 小时前",
+      "age": "2 天前",
       "brief": "本周 RootData 提醒已处理"
     },
     {
@@ -90,7 +101,7 @@
       "schedule": "Monday 10:45",
       "last_time": "2026-05-18T10:48:40+08:00",
       "last_time_display": "2026-05-18 10:48:40",
-      "age": "46 小时前",
+      "age": "2 天前",
       "brief": "本周 Pre-watchlist 周报已完成"
     },
     {
@@ -101,7 +112,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-05-17T12:31:13+08:00",
       "last_time_display": "2026-05-17 12:31:13",
-      "age": "2 天前",
+      "age": "3 天前",
       "brief": "安全检查最近一次通过"
     },
     {
@@ -112,7 +123,7 @@
       "schedule": "Sunday 11:30",
       "last_time": "2026-05-17T11:30:07+08:00",
       "last_time_display": "2026-05-17 11:30:07",
-      "age": "2 天前",
+      "age": "3 天前",
       "brief": "团队 Skill 共享更新正常"
     },
     {
@@ -198,9 +209,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 09:20 and 18:10",
-      "last_time": "2026-05-19T18:10:09+08:00",
-      "last_time_display": "2026-05-19 18:10:09",
-      "age": "15 小时前",
+      "last_time": "2026-05-20T09:20:07+08:00",
+      "last_time_display": "2026-05-20 09:20:07",
+      "age": "4 小时前",
       "brief": "远程状态页自动发布"
     },
     {
@@ -227,5 +238,12 @@
     }
   ],
   "events": [],
-  "attention": []
+  "attention": [
+    {
+      "level": "pending",
+      "level_label": "待确认",
+      "source": "X 全网搜索热点",
+      "message": "等待首次自然触发或状态确认"
+    }
+  ]
 }
