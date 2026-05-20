@@ -67,11 +67,12 @@
     .freshness { display: inline-block; margin-top: 8px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; color: var(--muted); }
     .freshness.stale { border-color: var(--bad); background: var(--soft-bad); color: var(--fg); }
     .attention .task-card { border-color: color-mix(in srgb, var(--bad), var(--line) 45%); }
-    .controls { display: flex; justify-content: flex-end; gap: 10px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+    .controls { display: flex; justify-content: flex-start; gap: 10px; align-items: center; padding: 2px 0 0; }
     input, select, button { height: 36px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--fg); padding: 0 10px; font: inherit; }
-    .segmented { display: flex; gap: 6px; flex-wrap: wrap; }
+    .segmented { display: flex; gap: 7px; flex-wrap: wrap; }
     .segmented button { cursor: pointer; }
     .segmented button.active { border-color: var(--pending); background: var(--soft-pending); }
+    .segmented button span { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; margin-left: 6px; border-radius: 999px; background: color-mix(in srgb, var(--panel-strong), var(--fg) 5%); color: var(--muted); font-size: 11px; }
     .dashboard-shell { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "content"; gap: 18px; align-items: start; margin-top: 22px; }
     .dashboard-shell.detail-open { grid-template-columns: minmax(0, 1fr) 280px; grid-template-areas: "content detail"; }
     .content-column { grid-area: content; min-width: 0; }
@@ -127,7 +128,7 @@
       .task-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
       .controls { justify-content: stretch; }
       .segmented { width: 100%; }
-      .segmented button { flex: 1; }
+      .segmented button { flex: 0 0 auto; }
       .event-table { display: none; }
       .mobile-list { display: block; }
       h1 { font-size: 22px; }
@@ -146,8 +147,8 @@
     <div class="banner error">
       <div>
         <div class="hero"><span class="dot error"></span><h1>有任务需要关注</h1></div>
-        <div class="muted">1 项需要关注 · 生成时间 2026-05-20 16:18:51 · 远程脱敏版</div>
-        <div id="freshness" class="freshness" data-generated-at="2026-05-20T16:18:51.386153+08:00">正在判断快照新鲜度</div>
+        <div class="muted">1 项需要关注 · 生成时间 2026-05-20 16:22:23 · 远程脱敏版</div>
+        <div id="freshness" class="freshness" data-generated-at="2026-05-20T16:22:23.712884+08:00">正在判断快照新鲜度</div>
       </div>
     </div>
   </header>
@@ -166,8 +167,7 @@
       <div class="section-heading"><h2>任务列表</h2><span id="resultCount">20 项</span></div>
       <div class="controls">
         <div class="segmented" aria-label="状态筛选">
-          <button type="button" class="active" data-filter="all">全部</button>
-          <button type="button" data-filter="attention">仅看需要关注</button>
+          <button type='button' class='active' data-filter='all'>全部</button><button type='button' data-filter='attention'>仅看需要关注</button><button type='button' data-filter='group' data-group='每日内容'>每日内容<span>4</span></button><button type='button' data-filter='group' data-group='常驻'>常驻<span>2</span></button><button type='button' data-filter='group' data-group='健康检查'>健康检查<span>4</span></button><button type='button' data-filter='group' data-group='周任务'>周任务<span>2</span></button><button type='button' data-filter='group' data-group='提醒'>提醒<span>2</span></button><button type='button' data-filter='group' data-group='基础设施'>基础设施<span>3</span></button><button type='button' data-filter='group' data-group='安全'>安全<span>1</span></button><button type='button' data-filter='group' data-group='备份/共享'>备份/共享<span>1</span></button><button type='button' data-filter='group' data-group='网络'>网络<span>1</span></button>
         </div>
       </div>
       <div id="emptyState" class="empty-state">没有匹配的任务。</div>
@@ -195,7 +195,7 @@
 <article class='task-card' data-status='ok' data-attention='0' data-group='提醒' data-name='RapidAPI 续费提醒' data-status-label='正常' data-last='-' data-age='-' data-schedule='2026-05-23 09:00' data-brief='等待续费提醒触发'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>RapidAPI 续费提醒</h3></div><span class='group-chip'>提醒</span></div><p class='brief'>等待续费提醒触发</p><div class='task-meta'><span><b>最近成功/尝试</b>-</span><span><b>距现在</b>-</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>2026-05-23 09:00</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>等待续费提醒触发</dd></dl></details></article></div></section>
 <section class='task-group' id='group-5' data-group-section='基础设施'><div class='section-heading'><h2>基础设施</h2><span>3 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='基础设施' data-name='GitHub 配置备份' data-status-label='正常' data-last='2026-05-19 18:00:11' data-age='22 小时前' data-schedule='daily 18:00' data-brief='配置与状态备份已完成'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>GitHub 配置备份</h3></div><span class='group-chip'>基础设施</span></div><p class='brief'>配置与状态备份已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-19 18:00:11</span><span><b>距现在</b>22 小时前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>daily 18:00</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>配置与状态备份已完成</dd></dl></details></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='基础设施' data-name='本地密文刷新' data-status-label='正常' data-last='2026-05-19 18:30:02' data-age='21 小时前' data-schedule='daily 18:30' data-brief='本地密文刷新正常'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地密文刷新</h3></div><span class='group-chip'>基础设施</span></div><p class='brief'>本地密文刷新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-19 18:30:02</span><span><b>距现在</b>21 小时前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>daily 18:30</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>本地密文刷新正常</dd></dl></details></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='基础设施' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-20 16:13:46' data-age='5 分钟前' data-schedule='daily 09:20 and 18:10' data-brief='远程状态页自动发布'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>基础设施</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-20 16:13:46</span><span><b>距现在</b>5 分钟前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>daily 09:20 and 18:10</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>远程状态页自动发布</dd></dl></details></article></div></section>
+<article class='task-card' data-status='ok' data-attention='0' data-group='基础设施' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-20 16:18:55' data-age='3 分钟前' data-schedule='daily 09:20 and 18:10' data-brief='远程状态页自动发布'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>基础设施</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-20 16:18:55</span><span><b>距现在</b>3 分钟前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>daily 09:20 and 18:10</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>远程状态页自动发布</dd></dl></details></article></div></section>
 <section class='task-group' id='group-6' data-group-section='安全'><div class='section-heading'><h2>安全</h2><span>1 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='安全' data-name='每周安全检查' data-status-label='正常' data-last='2026-05-17 12:31:13' data-age='3 天前' data-schedule='Sunday 12:30' data-brief='安全检查最近一次通过'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>每周安全检查</h3></div><span class='group-chip'>安全</span></div><p class='brief'>安全检查最近一次通过</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-17 12:31:13</span><span><b>距现在</b>3 天前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>Sunday 12:30</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>安全检查最近一次通过</dd></dl></details></article></div></section>
 <section class='task-group' id='group-7' data-group-section='备份/共享'><div class='section-heading'><h2>备份/共享</h2><span>1 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='备份/共享' data-name='团队 Skill 周更' data-status-label='正常' data-last='2026-05-17 11:30:07' data-age='3 天前' data-schedule='Sunday 11:30' data-brief='团队 Skill 共享更新正常'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>团队 Skill 周更</h3></div><span class='group-chip'>备份/共享</span></div><p class='brief'>团队 Skill 共享更新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-17 11:30:07</span><span><b>距现在</b>3 天前</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>Sunday 11:30</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>团队 Skill 共享更新正常</dd></dl></details></article></div></section>
 <section class='task-group' id='group-8' data-group-section='网络'><div class='section-heading'><h2>网络</h2><span>1 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='网络' data-name='本地 VPN 刷新' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='本地 VPN 刷新任务存活'><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地 VPN 刷新</h3></div><span class='group-chip'>网络</span></div><p class='brief'>本地 VPN 刷新任务存活</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span><span><b>距现在</b>每 5 分钟</span></div><details><summary>展开详情</summary><dl><dt>调度</dt><dd>every 5 min</dd><dt>状态</dt><dd>正常</dd><dt>说明</dt><dd>本地 VPN 刷新任务存活</dd></dl></details></article></div></section>
@@ -224,7 +224,7 @@
         </div>
         <div class="panel-summary">
           <h3>当前快照</h3>
-          <p>生成时间 2026-05-20 16:18:51</p>
+          <p>生成时间 2026-05-20 16:22:23</p>
           <p>19 项正常，0 项异常，1 项待确认。</p>
         </div>
       </aside>
@@ -259,6 +259,7 @@
       var result = document.getElementById("resultCount");
       var empty = document.getElementById("emptyState");
       var mode = "all";
+      var selectedGroup = "";
       var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
       var cards = Array.prototype.slice.call(document.querySelectorAll(".task-card[data-status]"));
       var shell = document.querySelector(".dashboard-shell");
@@ -267,6 +268,7 @@
         cards.forEach(function (card) {
           var ok = true;
           if (mode === "attention" && card.getAttribute("data-attention") !== "1") ok = false;
+          if (mode === "group" && card.getAttribute("data-group") !== selectedGroup) ok = false;
           card.hidden = !ok;
           if (ok) visible += 1;
         });
@@ -279,6 +281,7 @@
       buttons.forEach(function (button) {
         button.addEventListener("click", function () {
           mode = button.getAttribute("data-filter");
+          selectedGroup = button.getAttribute("data-group") || "";
           buttons.forEach(function (b) { b.classList.toggle("active", b === button); });
           applyFilters();
         });
