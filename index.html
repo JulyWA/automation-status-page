@@ -99,6 +99,13 @@
     .task-card:hover { border-color: color-mix(in srgb, var(--pending), var(--line) 55%); background: color-mix(in srgb, var(--panel), var(--panel-strong) 35%); }
     .task-card.selected { border-color: var(--pending); background: color-mix(in srgb, var(--soft-pending), var(--panel) 68%); }
     .task-card[hidden], .task-group[hidden] { display: none; }
+    .reminder-card { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
+    .reminder-row { appearance: none; width: 100%; height: auto; min-height: 42px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px; background: transparent; color: var(--fg); text-align: left; cursor: pointer; box-shadow: none; }
+    .reminder-row:last-child { border-bottom: 0; }
+    .reminder-row:hover { background: color-mix(in srgb, var(--panel), var(--panel-strong) 35%); }
+    .reminder-row.selected { background: color-mix(in srgb, var(--soft-pending), var(--panel) 72%); }
+    .reminder-row span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .reminder-row time { color: var(--muted); font-size: 12px; white-space: nowrap; }
     .task-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
     .status-line { white-space: nowrap; }
     .group-chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 7px; color: var(--muted); font-size: 11px; white-space: nowrap; }
@@ -127,6 +134,7 @@
       .detail-panel { position: static; }
       .detail-panel { min-height: 0; }
       .task-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .reminder-row { grid-template-columns: 1fr; gap: 2px; align-items: start; }
       .list-heading { align-items: flex-start; flex-direction: column; }
       .list-left { align-items: flex-start; flex-direction: column; gap: 8px; }
       .list-actions { justify-content: flex-start; width: 100%; }
@@ -155,8 +163,8 @@
             <span class="dot status-dot ok"></span>
             <span class="status-title">全部系统正常</span>
             <span id="resultCount" class="count">19 项</span>
-            <span class="status-meta">生成 2026-05-21 15:15:51</span>
-            <span id="freshness" class="freshness" data-generated-at="2026-05-21T15:15:51.343685+08:00">正在判断快照新鲜度</span>
+            <span class="status-meta">生成 2026-05-21 15:22:20</span>
+            <span id="freshness" class="freshness" data-generated-at="2026-05-21T15:22:20.128682+08:00">正在判断快照新鲜度</span>
           </div>
         </div>
         <div class="list-actions">
@@ -188,8 +196,8 @@
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='X 全网搜索热点' data-status-label='正常' data-last='2026-05-21 09:46:24' data-age='5 小时前' data-schedule='daily 09:40' data-brief='运行正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>X 全网搜索热点</h3></div><span class='group-chip'>每日</span></div><p class='brief'>运行正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:46:24</span><span><b>距现在</b>5 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='市场简报' data-status-label='正常' data-last='2026-05-21 09:01:25' data-age='6 小时前' data-schedule='weekdays 09:00' data-brief='市场简报已生成并推送' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>市场简报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>市场简报已生成并推送</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:01:25</span><span><b>距现在</b>6 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='本地密文刷新' data-status-label='正常' data-last='2026-05-20 18:30:01' data-age='20 小时前' data-schedule='daily 18:30' data-brief='本地密文刷新正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地密文刷新</h3></div><span class='group-chip'>每日</span></div><p class='brief'>本地密文刷新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-20 18:30:01</span><span><b>距现在</b>20 小时前</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='每日监管日报' data-status-label='正常' data-last='2026-05-21 09:16:23' data-age='5 小时前' data-schedule='daily 09:15' data-brief='每日监管日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>每日监管日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>每日监管日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:16:23</span><span><b>距现在</b>5 小时前</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 15:06:16' data-age='9 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 15:06:16</span><span><b>距现在</b>9 分钟前</span></div></article>
+<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='每日监管日报' data-status-label='正常' data-last='2026-05-21 09:16:23' data-age='6 小时前' data-schedule='daily 09:15' data-brief='每日监管日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>每日监管日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>每日监管日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:16:23</span><span><b>距现在</b>6 小时前</span></div></article>
+<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 15:15:53' data-age='6 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 15:15:53</span><span><b>距现在</b>6 分钟前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪日报' data-status-label='正常' data-last='2026-05-21' data-age='日报状态记录' data-schedule='weekdays 08:00' data-brief='项目跟踪日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>项目跟踪日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21</span><span><b>距现在</b>日报状态记录</span></div></article></div></section>
 <section class='task-group' id='group-1' data-group-section='每周'><div class='section-heading'><h2>每周</h2><span>4 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='Pre-watchlist 周报' data-status-label='正常' data-last='2026-05-18 10:48:40' data-age='3 天前' data-schedule='Monday 10:45' data-brief='本周 Pre-watchlist 周报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>Pre-watchlist 周报</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 Pre-watchlist 周报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-18 10:48:40</span><span><b>距现在</b>3 天前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='RootData 周提醒' data-status-label='正常' data-last='2026-05-18 10:00:04' data-age='3 天前' data-schedule='Monday 10:00' data-brief='本周 RootData 提醒已处理' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>RootData 周提醒</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 RootData 提醒已处理</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-18 10:00:04</span><span><b>距现在</b>3 天前</span></div></article>
@@ -200,8 +208,7 @@
 <article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='内存压力监控' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='内存压力监控正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>内存压力监控</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>内存压力监控正常</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span><span><b>距现在</b>每 5 分钟</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='本地 VPN 刷新' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='本地 VPN 刷新任务存活' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地 VPN 刷新</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>本地 VPN 刷新任务存活</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span><span><b>距现在</b>每 5 分钟</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='本地状态面板刷新' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='本地状态面板自动刷新' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地状态面板刷新</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>本地状态面板自动刷新</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span><span><b>距现在</b>每 5 分钟</span></div></article></div></section>
-<section class='task-group' id='group-3' data-group-section='单次'><div class='section-heading'><h2>单次</h2><span>2 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='单次' data-name='GitHub 凭证续期提醒' data-status-label='正常' data-last='-' data-age='-' data-schedule='2027-03-04 09:00' data-brief='等待 GitHub 凭证续期提醒触发' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>GitHub 凭证续期提醒</h3></div><span class='group-chip'>单次</span></div><p class='brief'>等待 GitHub 凭证续期提醒触发</p><div class='task-meta'><span><b>最近成功/尝试</b>-</span><span><b>距现在</b>-</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='单次' data-name='RapidAPI 续费提醒' data-status-label='正常' data-last='-' data-age='-' data-schedule='2026-05-23 09:00' data-brief='等待续费提醒触发' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>RapidAPI 续费提醒</h3></div><span class='group-chip'>单次</span></div><p class='brief'>等待续费提醒触发</p><div class='task-meta'><span><b>最近成功/尝试</b>-</span><span><b>距现在</b>-</span></div></article></div></section>
+<section class='task-group' id='group-3' data-group-section='单次'><div class='section-heading'><h2>单次</h2><span>2 项</span></div><div class='reminder-card'><button type='button' class='reminder-row task-card' data-status='ok' data-attention='0' data-group='单次' data-name='GitHub 凭证续期提醒' data-status-label='正常' data-last='-' data-age='-' data-schedule='2027-03-04 09:00' data-brief='等待 GitHub 凭证续期提醒触发' data-issue=''><span>GitHub 凭证续期提醒</span><time>2027-03-04 09:00</time></button><button type='button' class='reminder-row task-card' data-status='ok' data-attention='0' data-group='单次' data-name='RapidAPI 续费提醒' data-status-label='正常' data-last='-' data-age='-' data-schedule='2026-05-23 09:00' data-brief='等待续费提醒触发' data-issue=''><span>RapidAPI 续费提醒</span><time>2026-05-23 09:00</time></button></div></section>
       </div>
       
       <aside class="detail-panel" aria-label="任务详情面板">
@@ -228,7 +235,7 @@
         </div>
         <div class="panel-summary">
           <h3>当前快照</h3>
-          <p>生成时间 2026-05-21 15:15:51</p>
+          <p>生成时间 2026-05-21 15:22:20</p>
           <p>19 项正常，0 项异常，0 项待确认。</p>
         </div>
       </aside>
