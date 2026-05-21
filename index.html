@@ -29,15 +29,13 @@
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.45; }
-    header { padding: 14px 28px 4px; background: var(--bg); }
-    main { padding: 8px 28px 36px; max-width: 1380px; margin: 0 auto; }
+    main { padding: 18px 28px 36px; max-width: 1380px; margin: 0 auto; }
     h1 { margin: 0 0 4px; font-size: 26px; font-weight: 760; letter-spacing: 0; }
     h2 { font-size: 17px; margin: 0 0 10px; }
     h3 { margin: 3px 0 0; font-size: 15px; line-height: 1.25; }
     section { margin-top: 18px; }
     .muted, td span { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
-    .banner { max-width: 1380px; margin: 0 auto; display: flex; justify-content: flex-end; }
-    .status-bubble { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 34px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; background: var(--soft-ok); box-shadow: var(--shadow); font-size: 12px; color: var(--muted); }
+    .status-bubble { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 30px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; background: var(--soft-ok); box-shadow: var(--shadow); font-size: 12px; color: var(--muted); }
     .status-bubble.error { background: var(--soft-bad); border-color: color-mix(in srgb, var(--bad), var(--line) 50%); }
     .status-title { color: var(--fg); font-weight: 700; font-size: 13px; white-space: nowrap; }
     .status-meta { white-space: nowrap; }
@@ -56,7 +54,7 @@
     .pill { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; margin: 0; color: white; background: var(--pending); }
     .pill.error { background: var(--bad); }
     .pill.pending { background: var(--pending); }
-    .freshness { display: inline-block; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; color: var(--muted); }
+    .freshness { display: inline-block; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; color: var(--muted); }
     .freshness.stale { border-color: var(--bad); background: var(--soft-bad); color: var(--fg); }
     .attention .task-card { border-color: color-mix(in srgb, var(--bad), var(--line) 45%); }
     .controls { display: flex; justify-content: flex-end; gap: 8px; align-items: center; padding: 0; }
@@ -90,9 +88,10 @@
     .panel-summary p { margin: 6px 0; }
     .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
     .section-heading span { color: var(--muted); font-size: 12px; }
-    .list-heading { align-items: flex-end; }
+    .list-heading { align-items: center; }
     .list-heading h2 { margin: 0 0 2px; }
-    .list-heading .count { color: var(--muted); font-size: 12px; }
+    .list-heading .count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .list-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
     .task-group { margin-top: 16px; }
     .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 10px; }
     .task-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; min-height: 118px; box-shadow: var(--shadow); cursor: pointer; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
@@ -116,15 +115,15 @@
     .empty-state { display: none; margin-top: 12px; padding: 14px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); }
     .mobile-list { display: none; }
     @media (max-width: 760px) {
-      header, main { padding-left: 16px; padding-right: 16px; }
-      .banner { justify-content: flex-start; }
-      .status-bubble { width: 100%; border-radius: 12px; justify-content: flex-start; flex-wrap: wrap; }
+      main { padding-left: 16px; padding-right: 16px; }
+      .status-bubble { border-radius: 12px; justify-content: flex-start; flex-wrap: wrap; }
       .status-meta { white-space: normal; }
       .dashboard-shell, .dashboard-shell.detail-open { grid-template-columns: 1fr; grid-template-areas: "content" "detail"; }
       .detail-panel { position: static; }
       .detail-panel { min-height: 0; }
       .task-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
       .list-heading { align-items: flex-start; flex-direction: column; }
+      .list-actions { justify-content: flex-start; width: 100%; }
       .controls { justify-content: flex-start; width: 100%; }
       .segmented { width: 100%; }
       .segmented button { flex: 0 0 auto; }
@@ -139,25 +138,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="banner ok">
-      <div class="status-bubble ok">
-        <span class="dot status-dot ok"></span>
-        <span class="status-title">全部系统正常</span>
-        <span class="status-meta">生成 2026-05-21 14:52:51</span>
-        <span id="freshness" class="freshness" data-generated-at="2026-05-21T14:52:51.042189+08:00">正在判断快照新鲜度</span>
-      </div>
-    </div>
-  </header>
   <main>
     
 
     <section>
       <div class="section-heading list-heading">
-        <div>
-          <h2>任务列表</h2>
-          <span id="resultCount" class="count">20 项</span>
-        </div>
+        <h2>任务列表</h2>
+        <div class="list-actions">
+      <div class="status-bubble ok">
+        <span class="dot status-dot ok"></span>
+        <span class="status-title">全部系统正常</span>
+            <span id="resultCount" class="count">20 项</span>
+        <span class="status-meta">生成 2026-05-21 14:56:56</span>
+        <span id="freshness" class="freshness" data-generated-at="2026-05-21T14:56:56.869048+08:00">正在判断快照新鲜度</span>
+      </div>
         <div class="controls">
           <div class="segmented" aria-label="状态筛选">
             <button type='button' class='active' data-filter='all'>全部</button><button type='button' data-filter='attention'>仅看需要关注</button><button type='button' data-filter='group' data-group='每日'>每日<span>9</span></button><button type='button' data-filter='group' data-group='每周'>每周<span>4</span></button><button type='button' data-filter='group' data-group='常驻'>常驻<span>5</span></button><button type='button' data-filter='group' data-group='单次'>单次<span>2</span></button>
@@ -179,7 +173,7 @@
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='市场简报' data-status-label='正常' data-last='2026-05-21 09:01:25' data-age='5 小时前' data-schedule='weekdays 09:00' data-brief='市场简报已生成并推送' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>市场简报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>市场简报已生成并推送</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:01:25</span><span><b>距现在</b>5 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='本地密文刷新' data-status-label='正常' data-last='2026-05-20 18:30:01' data-age='20 小时前' data-schedule='daily 18:30' data-brief='本地密文刷新正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地密文刷新</h3></div><span class='group-chip'>每日</span></div><p class='brief'>本地密文刷新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-20 18:30:01</span><span><b>距现在</b>20 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='每日监管日报' data-status-label='正常' data-last='2026-05-21 09:16:23' data-age='5 小时前' data-schedule='daily 09:15' data-brief='每日监管日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>每日监管日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>每日监管日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:16:23</span><span><b>距现在</b>5 小时前</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 14:48:11' data-age='4 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 14:48:11</span><span><b>距现在</b>4 分钟前</span></div></article>
+<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 14:52:53' data-age='4 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 14:52:53</span><span><b>距现在</b>4 分钟前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪健康检查' data-status-label='正常' data-last='-' data-age='-' data-schedule='weekdays 08:20' data-brief='项目跟踪链路健康' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>项目跟踪健康检查</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪链路健康</p><div class='task-meta'><span><b>最近成功/尝试</b>-</span><span><b>距现在</b>-</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪日报' data-status-label='正常' data-last='2026-05-21' data-age='日报状态记录' data-schedule='weekdays 08:00' data-brief='项目跟踪日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>项目跟踪日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21</span><span><b>距现在</b>日报状态记录</span></div></article></div></section>
 <section class='task-group' id='group-1' data-group-section='每周'><div class='section-heading'><h2>每周</h2><span>4 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='Pre-watchlist 周报' data-status-label='正常' data-last='2026-05-18 10:48:40' data-age='3 天前' data-schedule='Monday 10:45' data-brief='本周 Pre-watchlist 周报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>Pre-watchlist 周报</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 Pre-watchlist 周报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-18 10:48:40</span><span><b>距现在</b>3 天前</span></div></article>
@@ -219,7 +213,7 @@
         </div>
         <div class="panel-summary">
           <h3>当前快照</h3>
-          <p>生成时间 2026-05-21 14:52:51</p>
+          <p>生成时间 2026-05-21 14:56:56</p>
           <p>20 项正常，0 项异常，0 项待确认。</p>
         </div>
       </aside>
