@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-21T15:06:14.315526+08:00",
-  "generated_at_display": "2026-05-21 15:06:14",
+  "generated_at": "2026-05-21T15:15:51.343685+08:00",
+  "generated_at_display": "2026-05-21 15:15:51",
   "counts": {
-    "ok": 20,
+    "ok": 19,
     "error": 0,
     "pending": 0,
     "paused": 0,
@@ -10,7 +10,7 @@
     "events_info": 0
   },
   "kpis": {
-    "task_total": 20,
+    "task_total": 19,
     "attention_count": 0,
     "today_executed": 4,
     "future_waiting": 2,
@@ -20,7 +20,7 @@
   "summary": {
     "lp_price": 1.16251,
     "lp_outside": true,
-    "lp_log_age_minutes": 6,
+    "lp_log_age_minutes": 5,
     "watchlist_last_run_date": "2026-05-21"
   },
   "tasks": [
@@ -194,19 +194,6 @@
       "needs_attention": false
     },
     {
-      "name": "项目跟踪健康检查",
-      "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
-      "schedule": "weekdays 08:20",
-      "last_time": "",
-      "last_time_display": "-",
-      "age": "-",
-      "brief": "项目跟踪链路健康",
-      "issue_location": "",
-      "needs_attention": false
-    },
-    {
       "name": "内存压力监控",
       "group": "常驻",
       "status": "ok",
@@ -251,9 +238,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 09:20, 10:05 and 18:10",
-      "last_time": "2026-05-21T15:00:59+08:00",
-      "last_time_display": "2026-05-21 15:00:59",
-      "age": "5 分钟前",
+      "last_time": "2026-05-21T15:06:16+08:00",
+      "last_time_display": "2026-05-21 15:06:16",
+      "age": "9 分钟前",
       "brief": "远程状态页自动发布",
       "issue_location": "",
       "needs_attention": false
