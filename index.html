@@ -30,7 +30,7 @@
     [hidden] { display: none !important; }
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.45; }
     header { padding: 24px 32px 18px; background: linear-gradient(180deg, var(--panel-strong), var(--panel)); border-bottom: 1px solid var(--line); }
-    main { padding: 22px 28px 36px; max-width: 1380px; margin: 0 auto; }
+    main { padding: 18px 28px 36px; max-width: 1380px; margin: 0 auto; }
     h1 { margin: 0 0 4px; font-size: 26px; font-weight: 760; letter-spacing: 0; }
     h2 { font-size: 17px; margin: 0 0 10px; }
     h3 { margin: 3px 0 0; font-size: 15px; line-height: 1.25; }
@@ -42,15 +42,6 @@
     .hero .dot { width: 13px; height: 13px; }
     .banner-count { text-align: right; }
     .banner-count strong { font-size: 30px; display: block; }
-    .grid { display: grid; grid-template-columns: repeat(5, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
-    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 78px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: color-mix(in srgb, var(--ok), transparent 20%); }
-    .card.attention-metric::before { background: var(--pending); }
-    .card.waiting-metric::before { background: color-mix(in srgb, var(--pending), var(--ok) 30%); }
-    .card.rate-metric::before { background: color-mix(in srgb, var(--ok), #3aa7ff 35%); }
-    .card strong { display: block; font-size: 24px; margin-top: 3px; }
-    .card p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
-    .card .label { color: var(--muted); font-size: 12px; }
     table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
     th { color: var(--muted); font-weight: 650; background: color-mix(in srgb, var(--panel), var(--bg) 35%); }
@@ -68,13 +59,13 @@
     .freshness { display: inline-block; margin-top: 8px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; color: var(--muted); }
     .freshness.stale { border-color: var(--bad); background: var(--soft-bad); color: var(--fg); }
     .attention .task-card { border-color: color-mix(in srgb, var(--bad), var(--line) 45%); }
-    .controls { display: flex; justify-content: flex-start; gap: 10px; align-items: center; padding: 2px 0 0; }
+    .controls { display: flex; justify-content: flex-end; gap: 8px; align-items: center; padding: 0; }
     input, select, button { height: 36px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--fg); padding: 0 10px; font: inherit; }
-    .segmented { display: flex; gap: 7px; flex-wrap: wrap; }
-    .segmented button { cursor: pointer; }
+    .segmented { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+    .segmented button { cursor: pointer; height: 28px; border-radius: 999px; padding: 0 8px; font-size: 12px; }
     .segmented button.active { border-color: var(--pending); background: var(--soft-pending); }
-    .segmented button span { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; margin-left: 6px; border-radius: 999px; background: color-mix(in srgb, var(--panel-strong), var(--fg) 5%); color: var(--muted); font-size: 11px; }
-    .dashboard-shell { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "content"; gap: 16px; align-items: start; margin-top: 18px; }
+    .segmented button span { display: inline-flex; align-items: center; justify-content: center; min-width: 16px; height: 16px; margin-left: 4px; border-radius: 999px; background: color-mix(in srgb, var(--panel-strong), var(--fg) 5%); color: var(--muted); font-size: 10px; }
+    .dashboard-shell { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "content"; gap: 16px; align-items: start; margin-top: 14px; }
     .dashboard-shell.detail-open { grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "content detail"; }
     .content-column { grid-area: content; min-width: 0; }
     .detail-panel { grid-area: detail; position: sticky; top: 18px; align-self: start; }
@@ -97,6 +88,9 @@
     .panel-summary p { margin: 6px 0; }
     .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
     .section-heading span { color: var(--muted); font-size: 12px; }
+    .list-heading { align-items: flex-end; }
+    .list-heading h2 { margin: 0 0 2px; }
+    .list-heading .count { color: var(--muted); font-size: 12px; }
     .task-group { margin-top: 16px; }
     .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 10px; }
     .task-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; min-height: 118px; box-shadow: var(--shadow); cursor: pointer; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
@@ -123,22 +117,19 @@
       header, main { padding-left: 16px; padding-right: 16px; }
       .banner { grid-template-columns: 1fr; border-radius: 10px; }
       .banner-count { text-align: left; }
-      .grid { grid-template-columns: 1fr 1fr; }
       .dashboard-shell, .dashboard-shell.detail-open { grid-template-columns: 1fr; grid-template-areas: "content" "detail"; }
       .detail-panel { position: static; }
       .detail-panel { min-height: 0; }
       .task-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .controls { justify-content: stretch; }
+      .list-heading { align-items: flex-start; flex-direction: column; }
+      .controls { justify-content: flex-start; width: 100%; }
       .segmented { width: 100%; }
       .segmented button { flex: 0 0 auto; }
       .event-table { display: none; }
       .mobile-list { display: block; }
       h1 { font-size: 22px; }
-      .card strong { font-size: 24px; }
     }
     @media (max-width: 420px) {
-      .grid { grid-template-columns: 1fr; gap: 10px; }
-      .card { padding: 12px; min-height: 112px; }
       .task-top { align-items: flex-start; }
       .task-meta { grid-template-columns: 1fr; gap: 2px; }
     }
@@ -149,27 +140,24 @@
     <div class="banner ok">
       <div>
         <div class="hero"><span class="dot ok"></span><h1>全部系统正常</h1></div>
-        <div class="muted">全部自动化任务处于可读状态 · 生成时间 2026-05-21 14:37:43 · 远程脱敏版</div>
-        <div id="freshness" class="freshness" data-generated-at="2026-05-21T14:37:43.500102+08:00">正在判断快照新鲜度</div>
+        <div class="muted">全部自动化任务处于可读状态 · 生成时间 2026-05-21 14:44:03 · 远程脱敏版</div>
+        <div id="freshness" class="freshness" data-generated-at="2026-05-21T14:44:03.796841+08:00">正在判断快照新鲜度</div>
       </div>
     </div>
   </header>
   <main>
-    <div class="grid">
-      <div class="card"><div class="label">任务总数</div><strong>20</strong><p>20 项正常</p></div>
-      <div class="card attention-metric"><div class="label">需要关注</div><strong>0</strong><p>异常 / 待确认 / 错误事件</p></div>
-      <div class="card"><div class="label">今日已执行</div><strong>4</strong><p>按最近成功时间计算</p></div>
-      <div class="card waiting-metric"><div class="label">等待触发</div><strong>2</strong><p>未来提醒或首次触发</p></div>
-      <div class="card rate-metric"><div class="label">24 小时成功率</div><strong>100%</strong><p>6 次有记录尝试</p></div>
-    </div>
-
     
 
     <section>
-      <div class="section-heading"><h2>任务列表</h2><span id="resultCount">20 项</span></div>
-      <div class="controls">
-        <div class="segmented" aria-label="状态筛选">
-          <button type='button' class='active' data-filter='all'>全部</button><button type='button' data-filter='attention'>仅看需要关注</button><button type='button' data-filter='group' data-group='每日'>每日<span>9</span></button><button type='button' data-filter='group' data-group='每周'>每周<span>4</span></button><button type='button' data-filter='group' data-group='常驻'>常驻<span>5</span></button><button type='button' data-filter='group' data-group='单次'>单次<span>2</span></button>
+      <div class="section-heading list-heading">
+        <div>
+          <h2>任务列表</h2>
+          <span id="resultCount" class="count">20 项</span>
+        </div>
+        <div class="controls">
+          <div class="segmented" aria-label="状态筛选">
+            <button type='button' class='active' data-filter='all'>全部</button><button type='button' data-filter='attention'>仅看需要关注</button><button type='button' data-filter='group' data-group='每日'>每日<span>9</span></button><button type='button' data-filter='group' data-group='每周'>每周<span>4</span></button><button type='button' data-filter='group' data-group='常驻'>常驻<span>5</span></button><button type='button' data-filter='group' data-group='单次'>单次<span>2</span></button>
+          </div>
         </div>
       </div>
       <div id="emptyState" class="empty-state">没有匹配的任务。</div>
@@ -187,7 +175,7 @@
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='市场简报' data-status-label='正常' data-last='2026-05-21 09:01:25' data-age='5 小时前' data-schedule='weekdays 09:00' data-brief='市场简报已生成并推送' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>市场简报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>市场简报已生成并推送</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:01:25</span><span><b>距现在</b>5 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='本地密文刷新' data-status-label='正常' data-last='2026-05-20 18:30:01' data-age='20 小时前' data-schedule='daily 18:30' data-brief='本地密文刷新正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>本地密文刷新</h3></div><span class='group-chip'>每日</span></div><p class='brief'>本地密文刷新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-20 18:30:01</span><span><b>距现在</b>20 小时前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='每日监管日报' data-status-label='正常' data-last='2026-05-21 09:16:23' data-age='5 小时前' data-schedule='daily 09:15' data-brief='每日监管日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>每日监管日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>每日监管日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 09:16:23</span><span><b>距现在</b>5 小时前</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 14:26:30' data-age='11 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 14:26:30</span><span><b>距现在</b>11 分钟前</span></div></article>
+<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-21 14:37:46' data-age='6 分钟前' data-schedule='daily 09:20, 10:05 and 18:10' data-brief='远程状态页自动发布' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>远程状态页自动发布</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21 14:37:46</span><span><b>距现在</b>6 分钟前</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪健康检查' data-status-label='正常' data-last='-' data-age='-' data-schedule='weekdays 08:20' data-brief='项目跟踪链路健康' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>项目跟踪健康检查</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪链路健康</p><div class='task-meta'><span><b>最近成功/尝试</b>-</span><span><b>距现在</b>-</span></div></article>
 <article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪日报' data-status-label='正常' data-last='2026-05-21' data-age='日报状态记录' data-schedule='weekdays 08:00' data-brief='项目跟踪日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>项目跟踪日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-21</span><span><b>距现在</b>日报状态记录</span></div></article></div></section>
 <section class='task-group' id='group-1' data-group-section='每周'><div class='section-heading'><h2>每周</h2><span>4 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='Pre-watchlist 周报' data-status-label='正常' data-last='2026-05-18 10:48:40' data-age='3 天前' data-schedule='Monday 10:45' data-brief='本周 Pre-watchlist 周报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span>正常</span><h3>Pre-watchlist 周报</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 Pre-watchlist 周报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-18 10:48:40</span><span><b>距现在</b>3 天前</span></div></article>
@@ -227,7 +215,7 @@
         </div>
         <div class="panel-summary">
           <h3>当前快照</h3>
-          <p>生成时间 2026-05-21 14:37:43</p>
+          <p>生成时间 2026-05-21 14:44:03</p>
           <p>20 项正常，0 项异常，0 项待确认。</p>
         </div>
       </aside>
