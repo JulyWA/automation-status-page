@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-21T15:22:20.128682+08:00",
-  "generated_at_display": "2026-05-21 15:22:20",
+  "generated_at": "2026-05-21T15:27:18.004233+08:00",
+  "generated_at_display": "2026-05-21 15:27:18",
   "counts": {
     "ok": 19,
     "error": 0,
@@ -12,15 +12,15 @@
   "kpis": {
     "task_total": 19,
     "attention_count": 0,
-    "today_executed": 4,
+    "today_executed": 5,
     "future_waiting": 2,
     "success_rate_24h": 1.0,
-    "attempts_24h": 6
+    "attempts_24h": 7
   },
   "summary": {
     "lp_price": 1.16081,
     "lp_outside": true,
-    "lp_log_age_minutes": 2,
+    "lp_log_age_minutes": 6,
     "watchlist_last_run_date": "2026-05-21"
   },
   "tasks": [
@@ -82,10 +82,10 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 11:10",
-      "last_time": "",
-      "last_time_display": "-",
-      "age": "-",
-      "brief": "Twitter 热点推送任务已加载",
+      "last_time": "2026-05-21T11:16:29+08:00",
+      "last_time_display": "2026-05-21 11:16:29",
+      "age": "4 小时前",
+      "brief": "Twitter 热点日报已推送",
       "issue_location": "",
       "needs_attention": false
     },
@@ -238,9 +238,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 09:20, 10:05 and 18:10",
-      "last_time": "2026-05-21T15:15:53+08:00",
-      "last_time_display": "2026-05-21 15:15:53",
-      "age": "6 分钟前",
+      "last_time": "2026-05-21T15:22:22+08:00",
+      "last_time_display": "2026-05-21 15:22:22",
+      "age": "4 分钟前",
       "brief": "远程状态页自动发布",
       "issue_location": "",
       "needs_attention": false
