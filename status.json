@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-26T15:41:15.971641+08:00",
-  "generated_at_display": "2026-05-26 15:41:15",
+  "generated_at": "2026-05-26T15:43:20.302471+08:00",
+  "generated_at_display": "2026-05-26 15:43:20",
   "counts": {
     "ok": 19,
     "error": 1,
@@ -20,21 +20,21 @@
   "summary": {
     "lp_price": 1.16366,
     "lp_outside": true,
-    "lp_log_age_minutes": 1,
+    "lp_log_age_minutes": 3,
     "watchlist_last_run_date": "2026-05-26"
   },
   "options_arb": {
     "available": true,
-    "stable": 14,
-    "new": 132,
+    "stable": 16,
+    "new": 126,
     "cross": 0,
     "top_apr": 2.0,
     "top_text": "OKX BTC 平价套利",
-    "focus": "OKX 13 条",
-    "updated_at": "2026-05-26T15:41:15.073648",
-    "updated_at_display": "2026-05-26T15:41:15.073648",
-    "age": "1 秒前",
-    "brief": "持续 14 / 新机会 132 / 跨所 0",
+    "focus": "OKX 15 条",
+    "updated_at": "2026-05-26T15:43:17.907386",
+    "updated_at_display": "2026-05-26T15:43:17.907386",
+    "age": "2 秒前",
+    "brief": "持续 16 / 新机会 126 / 跨所 0",
     "opportunities": [
       {
         "title": "OKX BTC 平价套利",
@@ -101,6 +101,29 @@
           },
           {
             "label": "买入 BTC-USD-270326-85000-P，VWAP $161.70",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "apr": 1.8,
+        "net": 9511.81,
+        "capital": 924602.36,
+        "bps": 102.87,
+        "size": 11.4,
+        "days": 213.0,
+        "updated_at": "2026-05-26 15:43:17",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-261225-65000-C，VWAP $170.46",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-261225-65000-P，VWAP $45.32",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -331,6 +354,29 @@
           },
           {
             "label": "买入 ETH-USD-270326-1400-P，VWAP $13.43",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "apr": 0.3,
+        "net": 2667.19,
+        "capital": 2320177.88,
+        "bps": 11.5,
+        "size": 987.4,
+        "days": 122.0,
+        "updated_at": "2026-05-26 15:43:17",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-260925-2100-C，VWAP $25.66",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-260925-2100-P，VWAP $25.65",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -575,9 +621,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-05-26T15:36:15+08:00",
-      "last_time_display": "2026-05-26 15:36:15",
-      "age": "5 分钟前",
+      "last_time": "2026-05-26T15:41:18+08:00",
+      "last_time_display": "2026-05-26 15:41:18",
+      "age": "2 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
