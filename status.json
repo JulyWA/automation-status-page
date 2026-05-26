@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-26T15:56:26.267297+08:00",
-  "generated_at_display": "2026-05-26 15:56:26",
+  "generated_at": "2026-05-26T15:59:23.687997+08:00",
+  "generated_at_display": "2026-05-26 15:59:23",
   "counts": {
     "ok": 23,
     "error": 0,
@@ -20,21 +20,21 @@
   "summary": {
     "lp_price": 1.16366,
     "lp_outside": true,
-    "lp_log_age_minutes": 6,
+    "lp_log_age_minutes": 9,
     "watchlist_last_run_date": "2026-05-26"
   },
   "options_arb": {
     "available": true,
-    "stable": 5,
-    "new": 145,
+    "stable": 15,
+    "new": 134,
     "cross": 0,
     "top_apr": 2.1,
     "top_text": "Deribit BTC 平价套利",
-    "focus": "OKX 3 条",
-    "updated_at": "2026-05-26T15:56:12.617304",
-    "updated_at_display": "2026-05-26T15:56:12.617304",
-    "age": "13 秒前",
-    "brief": "持续 5 / 新机会 145 / 跨所 0",
+    "focus": "OKX 13 条",
+    "updated_at": "2026-05-26T15:58:47.182139",
+    "updated_at_display": "2026-05-26T15:58:47.182139",
+    "age": "36 秒前",
+    "brief": "持续 15 / 新机会 134 / 跨所 0",
     "opportunities": [
       {
         "title": "Deribit BTC 平价套利",
@@ -58,6 +58,31 @@
           {
             "label": "买入 BTC-25DEC26-102000-P，VWAP $26813.18",
             "url": "https://www.deribit.com/options"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 2.0,
+        "net": 17469.75,
+        "capital": 1026416.38,
+        "bps": 170.2,
+        "size": 11.79,
+        "days": 304.0,
+        "updated_at": "2026-05-26 15:56:51",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-270326-75000-C，VWAP $136.47",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-270326-75000-P，VWAP $103.89",
+            "url": "https://www.okx.com/trade-option"
           }
         ]
       },
@@ -93,20 +118,220 @@
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 1.0,
-        "net": 927.5,
-        "capital": 343542.02,
-        "bps": 27.0,
-        "size": 3.97,
-        "days": 94.0,
-        "updated_at": "2026-05-26 15:47:07",
+        "apr": 2.0,
+        "net": 22507.99,
+        "capital": 1963552.28,
+        "bps": 114.63,
+        "size": 23.09,
+        "days": 213.0,
+        "updated_at": "2026-05-26 15:56:51",
         "links": [
           {
-            "label": "卖出 BTC-USD-260828-84000-C，VWAP $28.72",
+            "label": "卖出 BTC-USD-261225-75000-C，VWAP $111.20",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-260828-84000-P，VWAP $99.48",
+            "label": "买入 BTC-USD-261225-75000-P，VWAP $83.70",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.5,
+        "net": 4456.48,
+        "capital": 359504.63,
+        "bps": 123.96,
+        "size": 139.4,
+        "days": 304.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-270326-2200-C，VWAP $41.52",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-270326-2200-P，VWAP $48.73",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.3,
+        "net": 16654.82,
+        "capital": 3843183.93,
+        "bps": 43.34,
+        "size": 45.86,
+        "days": 122.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260925-78000-C，VWAP $62.70",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260925-78000-P，VWAP $71.93",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.3,
+        "net": 4365.18,
+        "capital": 583587.46,
+        "bps": 74.8,
+        "size": 233.3,
+        "days": 213.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-261225-2200-C，VWAP $32.44",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-261225-2200-P，VWAP $40.98",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.2,
+        "net": 14501.28,
+        "capital": 3696927.4,
+        "bps": 39.23,
+        "size": 44.9,
+        "days": 122.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260925-75000-C，VWAP $77.64",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260925-75000-P，VWAP $57.27",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 2262.93,
+        "capital": 345718.88,
+        "bps": 65.46,
+        "size": 4.38,
+        "days": 213.0,
+        "updated_at": "2026-05-26 15:56:51",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-261225-55000-C，VWAP $245.56",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-261225-55000-P，VWAP $22.62",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 261.13,
+        "capital": 29703.23,
+        "bps": 87.91,
+        "size": 10.4,
+        "days": 304.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-270326-2600-C，VWAP $28.55",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-270326-2600-P，VWAP $76.45",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 274.31,
+        "capital": 31269.42,
+        "bps": 87.72,
+        "size": 10.4,
+        "days": 304.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-270326-2800-C，VWAP $23.74",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-270326-2800-P，VWAP $91.51",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.0,
+        "net": 2087.55,
+        "capital": 610289.6,
+        "bps": 34.21,
+        "size": 4.71,
+        "days": 122.0,
+        "updated_at": "2026-05-26 15:56:51",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260925-130000-C，VWAP $1.32",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260925-130000-P，VWAP $529.04",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -119,19 +344,44 @@
         "hedge": "none",
         "status": "stable",
         "apr": 0.6,
-        "net": 7141.09,
-        "capital": 6655160.68,
-        "bps": 10.73,
-        "size": 82.39,
+        "net": 2146.51,
+        "capital": 2156519.79,
+        "bps": 9.95,
+        "size": 26.98,
         "days": 66.0,
-        "updated_at": "2026-05-26 15:47:07",
+        "updated_at": "2026-05-26 15:58:47",
         "links": [
           {
-            "label": "卖出 BTC-USD-260731-76000-C，VWAP $49.66",
+            "label": "卖出 BTC-USD-260731-74000-C，VWAP $61.13",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-260731-76000-P，VWAP $41.90",
+            "label": "买入 BTC-USD-260731-74000-P，VWAP $33.20",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 0.5,
+        "net": 3412.87,
+        "capital": 4180870.09,
+        "bps": 8.16,
+        "size": 51.75,
+        "days": 66.0,
+        "updated_at": "2026-05-26 15:58:47",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260731-76000-C，VWAP $49.58",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260731-76000-P，VWAP $41.80",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -378,9 +628,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-05-26T15:51:26+08:00",
-      "last_time_display": "2026-05-26 15:51:26",
-      "age": "5 分钟前",
+      "last_time": "2026-05-26T15:56:29+08:00",
+      "last_time_display": "2026-05-26 15:56:29",
+      "age": "2 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
