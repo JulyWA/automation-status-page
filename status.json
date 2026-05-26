@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-26T15:36:12.742503+08:00",
-  "generated_at_display": "2026-05-26 15:36:12",
+  "generated_at": "2026-05-26T15:41:15.971641+08:00",
+  "generated_at_display": "2026-05-26 15:41:15",
   "counts": {
-    "ok": 18,
-    "error": 2,
+    "ok": 19,
+    "error": 1,
     "pending": 0,
     "paused": 0,
     "events_error": 0,
@@ -11,53 +11,31 @@
   },
   "kpis": {
     "task_total": 20,
-    "attention_count": 2,
+    "attention_count": 1,
     "today_executed": 4,
     "future_waiting": 0,
-    "success_rate_24h": 0.8333,
+    "success_rate_24h": 1.0,
     "attempts_24h": 6
   },
   "summary": {
     "lp_price": 1.16366,
     "lp_outside": true,
-    "lp_log_age_minutes": 5,
+    "lp_log_age_minutes": 1,
     "watchlist_last_run_date": "2026-05-26"
   },
   "options_arb": {
     "available": true,
-    "stable": 25,
-    "new": 126,
+    "stable": 14,
+    "new": 132,
     "cross": 0,
-    "top_apr": 2.1,
+    "top_apr": 2.0,
     "top_text": "OKX BTC 平价套利",
-    "focus": "OKX 24 条",
-    "updated_at": "2026-05-26T15:35:40.121334",
-    "updated_at_display": "2026-05-26T15:35:40.121334",
-    "age": "32 秒前",
-    "brief": "持续 25 / 新机会 126 / 跨所 0",
+    "focus": "OKX 13 条",
+    "updated_at": "2026-05-26T15:41:15.073648",
+    "updated_at_display": "2026-05-26T15:41:15.073648",
+    "age": "1 秒前",
+    "brief": "持续 14 / 新机会 132 / 跨所 0",
     "opportunities": [
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 2.1,
-        "net": 68245.3,
-        "capital": 3919558.17,
-        "size": 43.72,
-        "days": 304.0,
-        "updated_at": "2026-05-26 15:34:09",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-80000-C，VWAP $113.20",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-80000-P，VWAP $130.60",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
       {
         "title": "OKX BTC 平价套利",
         "venue": "OKX",
@@ -66,6 +44,7 @@
         "apr": 2.0,
         "net": 56908.56,
         "capital": 3342129.91,
+        "bps": 170.28,
         "size": 34.83,
         "days": 304.0,
         "updated_at": "2026-05-26 15:34:09",
@@ -88,6 +67,7 @@
         "apr": 2.0,
         "net": 15356.24,
         "capital": 1326673.93,
+        "bps": 115.75,
         "size": 7.9,
         "days": 213.0,
         "updated_at": "2026-05-26 15:22:39",
@@ -110,6 +90,7 @@
         "apr": 1.9,
         "net": 52774.24,
         "capital": 3263352.57,
+        "bps": 161.72,
         "size": 35.18,
         "days": 304.0,
         "updated_at": "2026-05-26 15:34:09",
@@ -129,63 +110,20 @@
         "venue": "OKX",
         "asset": "BTC",
         "kind": "平价套利",
-        "apr": 1.9,
-        "net": 63422.44,
-        "capital": 3943450.99,
-        "size": 45.29,
-        "days": 304.0,
-        "updated_at": "2026-05-26 15:34:09",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-75000-C，VWAP $135.79",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-75000-P，VWAP $104.79",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.8,
-        "net": 47006.09,
-        "capital": 4370681.88,
-        "size": 48.19,
+        "apr": 1.6,
+        "net": 44968.71,
+        "capital": 4787648.5,
+        "bps": 93.93,
+        "size": 56.3,
         "days": 213.0,
-        "updated_at": "2026-05-26 15:35:40",
+        "updated_at": "2026-05-26 15:39:19",
         "links": [
           {
-            "label": "卖出 BTC-USD-261225-85000-C，VWAP $67.79",
+            "label": "卖出 BTC-USD-261225-75000-C，VWAP $109.43",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-261225-85000-P，VWAP $141.13",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.5,
-        "net": 45064.42,
-        "capital": 5030227.92,
-        "size": 59.13,
-        "days": 213.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-261225-75000-C，VWAP $109.39",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-261225-75000-P，VWAP $84.61",
+            "label": "买入 BTC-USD-261225-75000-P，VWAP $84.72",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -198,6 +136,7 @@
         "apr": 1.4,
         "net": 32460.26,
         "capital": 4087573.05,
+        "bps": 79.41,
         "size": 43.33,
         "days": 213.0,
         "updated_at": "2026-05-26 15:30:03",
@@ -220,6 +159,7 @@
         "apr": 1.3,
         "net": 1483.82,
         "capital": 188981.91,
+        "bps": 78.52,
         "size": 1.85,
         "days": 213.0,
         "updated_at": "2026-05-26 15:20:47",
@@ -239,85 +179,20 @@
         "venue": "OKX",
         "asset": "BTC",
         "kind": "平价套利",
-        "apr": 1.3,
-        "net": 4223.32,
-        "capital": 542816.32,
-        "size": 6.88,
-        "days": 213.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-261225-55000-C，VWAP $246.20",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-261225-55000-P，VWAP $22.88",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.3,
-        "net": 8754.98,
-        "capital": 1127937.46,
-        "size": 13.9,
-        "days": 213.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-261225-65000-C，VWAP $168.83",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-261225-65000-P，VWAP $45.37",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
         "apr": 1.2,
-        "net": 2200.12,
-        "capital": 217450.13,
+        "net": 2257.24,
+        "capital": 217358.13,
+        "bps": 103.85,
         "size": 2.75,
         "days": 304.0,
-        "updated_at": "2026-05-26 15:35:40",
+        "updated_at": "2026-05-26 15:37:43",
         "links": [
           {
-            "label": "卖出 BTC-USD-270326-50000-C，VWAP $299.83",
+            "label": "卖出 BTC-USD-270326-50000-C，VWAP $299.70",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-270326-50000-P，VWAP $24.89",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.2,
-        "net": 5281.04,
-        "capital": 1326987.86,
-        "size": 16.36,
-        "days": 122.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-260925-72000-C，VWAP $95.39",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-260925-72000-P，VWAP $45.02",
+            "label": "买入 BTC-USD-270326-50000-P，VWAP $24.88",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -330,6 +205,7 @@
         "apr": 1.2,
         "net": 1525.72,
         "capital": 222319.72,
+        "bps": 68.63,
         "size": 1.85,
         "days": 213.0,
         "updated_at": "2026-05-26 15:30:03",
@@ -352,6 +228,7 @@
         "apr": 1.0,
         "net": 4268.32,
         "capital": 491180.89,
+        "bps": 86.9,
         "size": 214.3,
         "days": 304.0,
         "updated_at": "2026-05-26 15:34:09",
@@ -367,50 +244,6 @@
         ]
       },
       {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.0,
-        "net": 6258.94,
-        "capital": 1796686.45,
-        "size": 22.34,
-        "days": 122.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-260925-70000-C，VWAP $108.09",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-260925-70000-P，VWAP $38.15",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 1.0,
-        "net": 2945.45,
-        "capital": 516843.62,
-        "size": 6.65,
-        "days": 213.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-261225-45000-C，VWAP $332.74",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-261225-45000-P，VWAP $11.11",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
         "title": "OKX ETH 平价套利",
         "venue": "OKX",
         "asset": "ETH",
@@ -418,6 +251,7 @@
         "apr": 0.9,
         "net": 10738.67,
         "capital": 1938313.09,
+        "bps": 55.4,
         "size": 773.3,
         "days": 213.0,
         "updated_at": "2026-05-26 15:34:09",
@@ -438,30 +272,9 @@
         "asset": "BTC",
         "kind": "平价套利",
         "apr": 0.9,
-        "net": 12096.44,
-        "capital": 3822530.64,
-        "size": 44.32,
-        "days": 122.0,
-        "updated_at": "2026-05-26 15:32:11",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-260925-82000-C，VWAP $46.26",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-260925-82000-P，VWAP $96.38",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 0.9,
         "net": 1379.33,
         "capital": 258250.9,
+        "bps": 53.41,
         "size": 1.85,
         "days": 213.0,
         "updated_at": "2026-05-26 15:30:03",
@@ -484,6 +297,7 @@
         "apr": 0.8,
         "net": 651.66,
         "capital": 305365.94,
+        "bps": 21.34,
         "size": 3.9,
         "days": 94.0,
         "updated_at": "2026-05-26 15:20:47",
@@ -499,28 +313,6 @@
         ]
       },
       {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "apr": 0.6,
-        "net": 1071.07,
-        "capital": 725251.3,
-        "size": 9.24,
-        "days": 94.0,
-        "updated_at": "2026-05-26 15:20:47",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-260828-66000-C，VWAP $127.11",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-260828-66000-P，VWAP $19.14",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
         "title": "OKX ETH 平价套利",
         "venue": "OKX",
         "asset": "ETH",
@@ -528,6 +320,7 @@
         "apr": 0.5,
         "net": 452.44,
         "capital": 101330.92,
+        "bps": 44.65,
         "size": 45.5,
         "days": 304.0,
         "updated_at": "2026-05-26 15:35:40",
@@ -550,6 +343,7 @@
         "apr": 0.2,
         "net": 1890.29,
         "capital": 2318296.83,
+        "bps": 8.15,
         "size": 962.8,
         "days": 122.0,
         "updated_at": "2026-05-26 15:28:07",
@@ -560,28 +354,6 @@
           },
           {
             "label": "买入 ETH-USD-260925-2200-P，VWAP $31.35",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX ETH 平价套利",
-        "venue": "OKX",
-        "asset": "ETH",
-        "kind": "平价套利",
-        "apr": 0.2,
-        "net": 1249.32,
-        "capital": 1750090.75,
-        "size": 760.5,
-        "days": 122.0,
-        "updated_at": "2026-05-26 15:11:42",
-        "links": [
-          {
-            "label": "卖出 ETH-USD-260925-2000-C，VWAP $30.70",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 ETH-USD-260925-2000-P，VWAP $20.62",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -800,15 +572,15 @@
     {
       "name": "远程状态页发布",
       "group": "每日",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-05-26T15:26:11+08:00",
-      "last_time_display": "2026-05-26 15:26:11",
-      "age": "10 分钟前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-05-26T15:36:15+08:00",
+      "last_time_display": "2026-05-26 15:36:15",
+      "age": "5 分钟前",
+      "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "自动化任务",
@@ -852,15 +624,6 @@
   ],
   "events": [],
   "attention": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "远程状态页发布",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
     {
       "level": "error",
       "level_label": "异常",
