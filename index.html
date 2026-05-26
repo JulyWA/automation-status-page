@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="refresh" content="300">
-  <title>July 自动化状态</title>
+  <title>期权套利远端面板</title>
   <style>
     :root {
       color-scheme: dark light;
@@ -29,332 +29,130 @@
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.45; }
-    main { padding: 18px 28px 36px; max-width: 1380px; margin: 0 auto; }
+    main { padding: 18px 28px 72px; max-width: 1480px; margin: 0 auto; }
     h1 { margin: 0 0 4px; font-size: 26px; font-weight: 760; letter-spacing: 0; }
     h2 { font-size: 17px; margin: 0 0 10px; }
-    h3 { margin: 0; font-size: 15px; line-height: 1.25; }
     section { margin-top: 18px; }
-    .muted, td span { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
-    .status-bubble { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 30px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; background: var(--soft-ok); box-shadow: var(--shadow); font-size: 12px; color: var(--muted); }
-    .status-bubble.error { background: var(--soft-bad); border-color: color-mix(in srgb, var(--bad), var(--line) 50%); }
-    .status-title { color: var(--fg); font-weight: 700; font-size: 13px; white-space: nowrap; }
-    .status-meta { white-space: nowrap; }
-    .status-dot { width: 9px; height: 9px; margin: 0; flex: 0 0 auto; }
+    .muted, td span { color: var(--muted); font-size: 12px; }
+    .topbar { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; }
+    .subtitle { margin: 0; color: var(--muted); font-size: 13px; }
+    .kpis { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 8px; }
+    .kpi { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 10px 12px; }
+    .kpi strong { display: block; font-size: 22px; }
+    .kpi span { color: var(--muted); font-size: 12px; }
     table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
     th { color: var(--muted); font-weight: 650; background: color-mix(in srgb, var(--panel), var(--bg) 35%); }
     tr:last-child td { border-bottom: 0; }
-    .name { font-weight: 650; }
+    .money { color: var(--ok); font-weight: 700; }
+    td a { display: inline-flex; max-width: 100%; min-height: 24px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; margin: 3px 4px 0 0; color: var(--fg); text-decoration: none; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    td a:hover { border-color: var(--pending); background: var(--soft-pending); }
+    .empty { text-align: center; color: var(--muted); padding: 28px; }
     .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin: 0 8px 0 0; vertical-align: middle; }
     .dot.ok { background: var(--ok); animation: pulse 2.4s ease-in-out infinite; }
     .dot.error { background: var(--bad); animation: pulse 1.8s ease-in-out infinite; }
     .dot.pending { background: var(--pending); }
-    .dot.paused { background: var(--paused); }
     @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 5px color-mix(in srgb, currentColor, transparent 80%); } }
-    .pill { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; margin: 0; color: white; background: var(--pending); }
+    .pill { display: inline-block; border-radius: 999px; padding: 2px 7px; font-size: 11px; margin: 0 6px 0 0; color: white; background: var(--pending); }
+    .pill.ok { background: var(--ok); }
     .pill.error { background: var(--bad); }
     .pill.pending { background: var(--pending); }
-    .freshness { display: inline-block; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; color: var(--muted); }
-    .freshness.stale { border-color: var(--bad); background: var(--soft-bad); color: var(--fg); }
-    .attention .task-card { border-color: color-mix(in srgb, var(--bad), var(--line) 45%); }
-    .controls { display: flex; justify-content: flex-end; gap: 8px; align-items: center; padding: 0; }
-    input, select, button { height: 36px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--fg); padding: 0 10px; font: inherit; }
-    .segmented { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
-    .segmented button { cursor: pointer; height: 28px; border-radius: 999px; padding: 0 8px; font-size: 12px; }
-    .segmented button.active { border-color: var(--pending); background: var(--soft-pending); }
-    .segmented button span { display: inline-flex; align-items: center; justify-content: center; min-width: 16px; height: 16px; margin-left: 4px; border-radius: 999px; background: color-mix(in srgb, var(--panel-strong), var(--fg) 5%); color: var(--muted); font-size: 10px; }
-    .dashboard-shell { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "content"; gap: 16px; align-items: start; margin-top: 14px; }
-    .dashboard-shell.detail-open { grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "content detail"; }
-    .content-column { grid-area: content; min-width: 0; }
-    .detail-panel { grid-area: detail; position: sticky; top: 18px; align-self: start; }
-    .panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; color: var(--muted); font-size: 12px; }
-    .panel-head span { color: var(--fg); font-weight: 700; font-size: 14px; }
-    .panel-close { width: 26px; height: 26px; min-width: 26px; padding: 0; border-radius: 999px; display: inline-grid; place-items: center; color: var(--muted); background: transparent; line-height: 1; cursor: pointer; }
-    .panel-close:hover { color: var(--fg); background: var(--panel-strong); }
-    .detail-panel { display: none; min-height: 360px; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--panel), transparent 7%); box-shadow: var(--shadow); padding: 18px; }
-    .detail-panel.active { display: block; }
-    .detail-empty { min-height: 250px; display: grid; place-items: center; text-align: center; align-content: center; color: var(--muted); }
-    .detail-empty h2 { color: var(--fg); margin-top: 12px; }
-    .detail-empty p { max-width: 230px; margin: 0 auto; font-size: 13px; }
-    .orb { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--panel-strong); border: 1px solid var(--line); color: var(--pending); font-size: 24px; }
-    .detail-kicker { display: block; color: var(--muted); margin-bottom: 10px; letter-spacing: 0; }
-    .detail-content h2 { margin: 12px 0 8px; }
-    .detail-content p { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
-    .detail-status { display: inline-flex; align-items: center; min-height: 26px; border-radius: 999px; padding: 2px 9px; background: var(--soft-ok); color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok), var(--line) 60%); font-size: 12px; }
-    .detail-status.error { background: var(--soft-bad); color: var(--bad); border-color: color-mix(in srgb, var(--bad), var(--line) 55%); }
-    .detail-status.pending { background: var(--soft-pending); color: var(--pending); border-color: color-mix(in srgb, var(--pending), var(--line) 55%); }
     .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
     .section-heading span { color: var(--muted); font-size: 12px; }
-    .list-heading { align-items: center; }
-    .list-heading h2 { margin: 0 0 2px; }
-    .list-heading .count { color: var(--muted); font-size: 12px; white-space: nowrap; }
-    .list-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
-    .list-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
-    .task-group { margin-top: 16px; }
-    .task-grid { display: grid; gap: 4px; }
-    .task-card { display: grid; grid-template-columns: minmax(250px, .95fr) minmax(220px, 1.6fr) minmax(168px, .7fr); align-items: center; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; min-height: 44px; box-shadow: none; cursor: pointer; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
-    .task-card:hover { border-color: color-mix(in srgb, var(--pending), var(--line) 55%); background: color-mix(in srgb, var(--panel), var(--panel-strong) 35%); }
-    .task-card.selected { border-color: var(--pending); background: color-mix(in srgb, var(--soft-pending), var(--panel) 68%); }
-    .task-card[hidden], .task-group[hidden] { display: none; }
-    .task-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
-    .task-top > div { display: flex; align-items: center; gap: 8px; min-width: 0; }
-    .status-line { white-space: nowrap; }
-    .group-chip { display: none; border: 1px solid var(--line); border-radius: 999px; padding: 1px 7px; color: var(--muted); font-size: 11px; white-space: nowrap; }
-    .brief { margin: 0; font-size: 12px; min-height: 0; color: color-mix(in srgb, var(--fg), var(--muted) 35%); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .issue { margin: 0; border: 1px solid color-mix(in srgb, var(--pending), var(--line) 55%); border-radius: 999px; padding: 2px 8px; background: var(--soft-pending); color: var(--fg); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .issue b { display: none; }
-    .task-meta { display: grid; gap: 4px; margin-top: 0; color: var(--muted); font-size: 11px; border-top: 0; padding-top: 0; justify-self: end; text-align: right; }
-    .task-meta span { display: flex; align-items: baseline; justify-content: flex-end; gap: 8px; min-width: 0; }
-    .task-meta b { color: var(--fg); font-size: 10px; font-weight: 650; white-space: nowrap; }
-    dl { display: grid; grid-template-columns: 70px 1fr; gap: 6px 10px; margin: 8px 0 0; font-size: 12px; }
-    dt { color: var(--muted); }
-    dd { margin: 0; }
-    .uptime-grid { display: grid; grid-template-columns: repeat(14, 1fr); gap: 5px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
-    .uptime-cell { height: 18px; border-radius: 4px; background: var(--ok); }
-    .uptime-cell.empty { background: color-mix(in srgb, var(--muted), transparent 75%); }
-    .empty-state { display: none; min-height: 46vh; place-items: start center; padding: 140px 16px 40px; color: var(--muted); width: 100%; }
-    .empty-card { border: 1px dashed var(--line); border-radius: 14px; padding: 18px 20px; text-align: center; background: color-mix(in srgb, var(--panel), transparent 35%); box-shadow: var(--shadow); }
-    .empty-card strong { display: block; color: var(--fg); font-size: 15px; margin-bottom: 4px; }
-    .empty-card p { margin: 0 0 12px; font-size: 12px; }
-    .empty-card button { height: 30px; border-radius: 999px; font-size: 12px; cursor: pointer; }
-    .mobile-list { display: none; }
+    .task-float { position: fixed; right: 18px; bottom: 18px; z-index: 30; display: grid; justify-items: end; gap: 8px; max-width: min(360px, calc(100vw - 32px)); }
+    .task-chip { display: inline-flex; align-items: center; gap: 8px; height: 34px; border-radius: 999px; padding: 0 11px; border: 1px solid var(--line); background: color-mix(in srgb, var(--panel), transparent 4%); color: var(--fg); box-shadow: var(--shadow); cursor: pointer; font-size: 12px; }
+    .task-chip b { font-size: 13px; }
+    .task-chip span:not(.dot) { color: var(--muted); white-space: nowrap; }
+    .task-float.ok .task-chip { border-color: color-mix(in srgb, var(--ok), var(--line) 48%); }
+    .task-float.error .task-chip { border-color: color-mix(in srgb, var(--bad), var(--line) 48%); }
+    .task-popover { width: 330px; max-height: min(520px, calc(100vh - 90px)); overflow: auto; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--panel), transparent 2%); box-shadow: var(--shadow); padding: 12px; font-size: 12px; }
+    .task-pop-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+    .task-pop-head span, .task-mini small { color: var(--muted); }
+    .task-mini { display: grid; gap: 4px; padding: 8px 0; border-top: 1px solid var(--line); }
+    .task-mini:first-of-type { border-top: 0; }
+    .task-mini strong { font-size: 12px; }
+    .task-mini p { margin: 0; color: color-mix(in srgb, var(--fg), var(--muted) 35%); }
     @media (max-width: 760px) {
       main { padding-left: 16px; padding-right: 16px; }
-      .status-bubble { border-radius: 12px; justify-content: flex-start; flex-wrap: wrap; }
-      .status-meta { white-space: normal; }
-      .dashboard-shell, .dashboard-shell.detail-open { grid-template-columns: 1fr; grid-template-areas: "content" "detail"; }
-      .detail-panel { position: static; }
-      .detail-panel { min-height: 0; }
-      .task-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .task-card { display: block; border-radius: 10px; padding: 11px 12px; min-height: 118px; }
-      .task-top { align-items: flex-start; }
-      .task-top > div { display: block; }
-      .group-chip { display: inline-flex; }
-      .brief { margin: 7px 0; min-height: 34px; white-space: normal; overflow: visible; }
-      .issue { margin: 7px 0; border-radius: 8px; padding: 7px 9px; white-space: normal; overflow: visible; }
-      .issue b { display: block; color: var(--muted); font-size: 11px; margin-bottom: 2px; }
-      .task-meta { gap: 6px; margin-top: 7px; border-top: 1px solid var(--line); padding-top: 7px; justify-self: stretch; text-align: left; }
-      .task-meta span { justify-content: flex-start; }
-      .list-heading { align-items: flex-start; flex-direction: column; }
-      .list-left { align-items: flex-start; flex-direction: column; gap: 8px; }
-      .list-actions { justify-content: flex-start; width: 100%; }
-      .controls { justify-content: flex-start; width: 100%; }
-      .segmented { width: 100%; }
-      .segmented button { flex: 0 0 auto; }
-      .event-table { display: none; }
-      .mobile-list { display: block; }
+      .topbar { display: block; }
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      table { min-width: 980px; }
+      section.table-section { overflow-x: auto; }
+      .task-float { right: 12px; bottom: 12px; }
+      .task-popover { width: min(330px, calc(100vw - 24px)); }
       h1 { font-size: 22px; }
-    }
-    @media (max-width: 420px) {
-      .task-top { align-items: flex-start; }
-      .task-meta { gap: 2px; }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class='attention'><h2>需要关注</h2><table class='event-table'><tr><th>级别</th><th>来源</th><th>问题位置</th><th>内容</th></tr><tr><td><span class='pill error'>异常</span></td><td class='name'>自动化任务</td><td>launchd 未加载</td><td>launchd 未加载：需要查看本地面板或日报<span>自检：自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。</span><span>建议：点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。</span></td></tr></table><div class='mobile-list'><article class='task-card'><div class='task-top'><span class='pill error'>异常</span><strong>自动化任务</strong></div><p>launchd 未加载：需要查看本地面板或日报</p><div class='issue'><b>问题位置</b>launchd 未加载</div><p class='brief'>自检：自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。</p><p class='brief'>建议：点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。</p></article></div></section>
-
-    <section>
-      <div class="section-heading list-heading">
-        <div class="list-left">
-          <h2>任务列表</h2>
-          <div class="status-bubble error">
-            <span class="dot status-dot error"></span>
-            <span class="status-title">有任务需要关注</span>
-            <span id="resultCount" class="count">20 项</span>
-            <span class="status-meta">生成 2026-05-26 15:26:08</span>
-            <span id="freshness" class="freshness" data-generated-at="2026-05-26T15:26:08.507792+08:00">正在判断快照新鲜度</span>
-          </div>
-        </div>
-        <div class="list-actions">
-          <div class="controls">
-            <div class="segmented" aria-label="状态筛选">
-              <button type='button' class='active' data-filter='all'>全部</button><button type='button' data-filter='attention'>仅看需要关注</button><button type='button' data-filter='group' data-group='每日'>每日<span>7</span></button><button type='button' data-filter='group' data-group='每周'>每周<span>4</span></button><button type='button' data-filter='group' data-group='常驻'>常驻<span>6</span></button><button type='button' data-filter='group' data-group='其他'>其他<span>3</span></button>
-            </div>
-          </div>
-        </div>
+    <header class="topbar">
+      <div>
+        <h1>期权套利远端面板</h1>
+        <p class="subtitle">生成 2026-05-26 15:34:35 · 默认展示持续机会，按年化从高到低排序。</p>
       </div>
+    </header>
+
+    <section class="kpis" aria-label="期权套利摘要">
+      <div class="kpi"><strong>26</strong><span>持续机会</span></div>
+      <div class="kpi"><strong>130</strong><span>新机会</span></div>
+      <div class="kpi"><strong>0</strong><span>跨所持续</span></div>
+      <div class="kpi"><strong>2.1%</strong><span>最高年化</span></div>
     </section>
 
-    <div class="dashboard-shell">
-      <div class="content-column">
-        <div id="emptyState" class="empty-state">
-          <div class="empty-card">
-            <strong>没有匹配的任务</strong>
-            <p>当前筛选条件下没有需要展示的任务。</p>
-            <button type="button" id="showAllFromEmpty">查看全部</button>
-          </div>
-        </div>
-
-        
-
-        
-
-        <section class='task-group' id='group-0' data-group-section='每日'><div class='section-heading'><h2>每日</h2><span>7 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='项目跟踪日报' data-status-label='正常' data-last='2026-05-25 07:53:31' data-age='31 小时前' data-schedule='weekdays 07:50' data-brief='项目跟踪日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>项目跟踪日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>项目跟踪日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-25 07:53:31</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='X 全网搜索热点' data-status-label='正常' data-last='2026-05-26 08:15:40' data-age='7 小时前' data-schedule='weekdays 08:05' data-brief='X 全网搜索日报已生成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>X 全网搜索热点</h3></div><span class='group-chip'>每日</span></div><p class='brief'>X 全网搜索日报已生成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-26 08:15:40</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='市场简报' data-status-label='正常' data-last='2026-05-26 08:56:18' data-age='6 小时前' data-schedule='weekdays 08:55' data-brief='市场简报已生成并推送' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>市场简报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>市场简报已生成并推送</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-26 08:56:18</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='每日监管日报' data-status-label='正常' data-last='2026-05-26 09:16:19' data-age='6 小时前' data-schedule='daily 09:15' data-brief='每日监管日报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>每日监管日报</h3></div><span class='group-chip'>每日</span></div><p class='brief'>每日监管日报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-26 09:16:19</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='GitHub 配置备份' data-status-label='正常' data-last='2026-05-25 18:05:06' data-age='21 小时前' data-schedule='weekdays 18:05' data-brief='配置与状态备份已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>GitHub 配置备份</h3></div><span class='group-chip'>每日</span></div><p class='brief'>配置与状态备份已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-25 18:05:06</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='本地密文刷新' data-status-label='正常' data-last='2026-05-25 18:30:04' data-age='20 小时前' data-schedule='weekdays 18:30' data-brief='本地密文刷新正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>本地密文刷新</h3></div><span class='group-chip'>每日</span></div><p class='brief'>本地密文刷新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-25 18:30:04</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每日' data-name='远程状态页发布' data-status-label='正常' data-last='2026-05-26 15:21:08' data-age='5 分钟前' data-schedule='every 5 min if changed' data-brief='当前正常；最近一次失败 2026-05-25 17:03:13' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>远程状态页发布</h3></div><span class='group-chip'>每日</span></div><p class='brief'>当前正常；最近一次失败 2026-05-25 17:03:13</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-26 15:21:08</span></div></article></div></section>
-<section class='task-group' id='group-1' data-group-section='每周'><div class='section-heading'><h2>每周</h2><span>4 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='RootData 周提醒' data-status-label='正常' data-last='2026-05-25 08:35:05' data-age='30 小时前' data-schedule='Monday 08:35' data-brief='本周 RootData 提醒已处理' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>RootData 周提醒</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 RootData 提醒已处理</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-25 08:35:05</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='Pre-watchlist 周报' data-status-label='正常' data-last='2026-05-25 08:44:32' data-age='30 小时前' data-schedule='Monday 08:40' data-brief='本周 Pre-watchlist 周报已完成' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>Pre-watchlist 周报</h3></div><span class='group-chip'>每周</span></div><p class='brief'>本周 Pre-watchlist 周报已完成</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-25 08:44:32</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='团队 Skill 周更' data-status-label='正常' data-last='2026-05-24 11:30:06' data-age='2 天前' data-schedule='Sunday 11:30' data-brief='团队 Skill 共享更新正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>团队 Skill 周更</h3></div><span class='group-chip'>每周</span></div><p class='brief'>团队 Skill 共享更新正常</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-24 11:30:06</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='每周' data-name='每周安全检查' data-status-label='正常' data-last='2026-05-24 12:30:19' data-age='2 天前' data-schedule='Sunday 12:30' data-brief='安全检查最近一次通过' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>每周安全检查</h3></div><span class='group-chip'>每周</span></div><p class='brief'>安全检查最近一次通过</p><div class='task-meta'><span><b>最近成功/尝试</b>2026-05-24 12:30:19</span></div></article></div></section>
-<section class='task-group' id='group-2' data-group-section='常驻'><div class='section-heading'><h2>常驻</h2><span>6 项</span></div><div class='task-grid'><article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='LP 监控' data-status-label='正常' data-last='常驻运行' data-age='系统保持' data-schedule='always running' data-brief='LP 区间与采集任务运行中' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>LP 监控</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>LP 区间与采集任务运行中</p><div class='task-meta'><span><b>最近成功/尝试</b>常驻运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='保持电脑运行' data-status-label='正常' data-last='常驻运行' data-age='系统保持' data-schedule='always running' data-brief='电脑保持唤醒' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>保持电脑运行</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>电脑保持唤醒</p><div class='task-meta'><span><b>最近成功/尝试</b>常驻运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='内存压力监控' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='内存压力监控正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>内存压力监控</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>内存压力监控正常</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='本地 VPN 刷新' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='本地 VPN 刷新任务存活' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>本地 VPN 刷新</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>本地 VPN 刷新任务存活</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='本地修复服务' data-status-label='正常' data-last='常驻运行' data-age='系统保持' data-schedule='always running' data-brief='本地修复服务保持可用' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>本地修复服务</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>本地修复服务保持可用</p><div class='task-meta'><span><b>最近成功/尝试</b>常驻运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='常驻' data-name='本地管理面板' data-status-label='正常' data-last='周期运行' data-age='每 5 分钟' data-schedule='every 5 min' data-brief='本地控制台保持可用' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>本地管理面板</h3></div><span class='group-chip'>常驻</span></div><p class='brief'>本地控制台保持可用</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article></div></section>
-<section class='task-group' id='group-3' data-group-section='其他'><div class='section-heading'><h2>其他</h2><span>3 项</span></div><div class='task-grid'><article class='task-card' data-status='error' data-attention='1' data-group='其他' data-name='自动化任务' data-status-label='异常' data-last='周期运行' data-age='weekdays 09:00-17:30 每 10 分钟; combined Derive+Deribit observation' data-schedule='weekdays 09:00-17:30 every 10 min; combined Derive+Deribit observation' data-brief='需要查看本地面板或日报' data-issue='launchd 未加载'><div class='task-top'><div><span class='status-line'><span class='dot error'></span>异常</span><h3>自动化任务</h3></div><span class='group-chip'>其他</span></div><p class='brief'>需要查看本地面板或日报</p><div class='issue'><b>问题位置</b>launchd 未加载</div><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='其他' data-name='自动化任务' data-status-label='正常' data-last='周期运行' data-age='always running; arb alerts realtime; observation weekdays 09:00-17:30 每 10 分钟' data-schedule='always running; arb alerts realtime; observation weekdays 09:00-17:30 every 10 min' data-brief='周期检查正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>自动化任务</h3></div><span class='group-chip'>其他</span></div><p class='brief'>周期检查正常</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article>
-<article class='task-card' data-status='ok' data-attention='0' data-group='其他' data-name='自动化任务' data-status-label='正常' data-last='周期运行' data-age='always running; arb alerts realtime; observation weekdays 09:00-17:30 每 10 分钟' data-schedule='always running; arb alerts realtime; observation weekdays 09:00-17:30 every 10 min' data-brief='周期检查正常' data-issue=''><div class='task-top'><div><span class='status-line'><span class='dot ok'></span></span><h3>自动化任务</h3></div><span class='group-chip'>其他</span></div><p class='brief'>周期检查正常</p><div class='task-meta'><span><b>最近成功/尝试</b>周期运行</span></div></article></div></section>
+    <section class="table-section">
+      <div class="section-heading">
+        <h2>可操作机会</h2>
+        <span>持续 26 / 新机会 130 / 跨所 0 · 26 秒前</span>
       </div>
-      
-      <aside class="detail-panel" aria-label="任务详情面板">
-        <div class="panel-head">
-          <span>只读诊断面板</span>
-          <button type="button" id="detailClose" class="panel-close" aria-label="收起详情面板">×</button>
-        </div>
-        <div id="detailEmpty" class="detail-empty">
-          <div class="orb">✦</div>
-          <h2>等待选择任务</h2>
-          <p>点击左侧任意任务卡片，可查看该任务的脱敏摘要、调度和最近运行时间。</p>
-        </div>
-        <div id="detailContent" class="detail-content" hidden>
-          <small class="detail-kicker">已选择任务</small>
-          <span id="detailStatus" class="detail-status">正常</span>
-          <h2 id="detailName">任务名称</h2>
-          <p id="detailBrief">任务说明</p>
-          <dl>
-            <dt>调度</dt><dd id="detailSchedule">-</dd>
-            <dt>最近记录</dt><dd id="detailLast">-</dd>
-            <dt>距现在</dt><dd id="detailAge">-</dd>
-            <dt id="detailIssueLabel" hidden>问题位置</dt><dd id="detailIssue" hidden>-</dd>
-          </dl>
-        </div>
-      </aside>
-    
-    </div>
+      <table>
+        <thead>
+          <tr>
+            <th>交易所</th><th>币种</th><th>策略 / 盘口链接</th><th>净利润</th><th>年化</th><th>规模</th><th>资金占用</th><th>持仓天数</th><th>更新时间</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-270326-80000-C，VWAP $113.20</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-270326-80000-P，VWAP $130.60</a></span></td><td class='money'>$68245.3</td><td>2.1%</td><td>43.72</td><td class='money'>$3919558.17</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-270326-90000-C，VWAP $76.98</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-270326-90000-P，VWAP $193.64</a></span></td><td class='money'>$56908.56</td><td>2.0%</td><td>34.83</td><td class='money'>$3342129.91</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>Deribit</td><td>BTC</td><td>平价套利<span><a href='https://www.deribit.com/options' target='_blank' rel='noreferrer'>卖出 BTC-25DEC26-170000-C，VWAP $199.86</a><a href='https://www.deribit.com/options' target='_blank' rel='noreferrer'>买入 BTC-25DEC26-170000-P，VWAP $91361.25</a></span></td><td class='money'>$15356.24</td><td>2.0%</td><td>7.9</td><td class='money'>$1326673.93</td><td>213.0</td><td>2026-05-26 15:22:39</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-270326-85000-C，VWAP $93.69</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-270326-85000-P，VWAP $161.70</a></span></td><td class='money'>$52774.24</td><td>1.9%</td><td>35.18</td><td class='money'>$3263352.57</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-270326-75000-C，VWAP $135.79</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-270326-75000-P，VWAP $104.79</a></span></td><td class='money'>$63422.44</td><td>1.9%</td><td>45.29</td><td class='money'>$3943450.99</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>Deribit</td><td>BTC</td><td>平价套利<span><a href='https://www.deribit.com/options' target='_blank' rel='noreferrer'>卖出 BTC-25DEC26-78000-C，VWAP $9635.41</a><a href='https://www.deribit.com/options' target='_blank' rel='noreferrer'>买入 BTC-25DEC26-78000-P，VWAP $9960.55</a></span></td><td class='money'>$90547.98</td><td>1.9%</td><td>93.45</td><td class='money'>$8089005.34</td><td>213.0</td><td>2026-05-26 15:24:39</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-75000-C，VWAP $109.39</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-75000-P，VWAP $84.61</a></span></td><td class='money'>$45064.42</td><td>1.5%</td><td>59.13</td><td class='money'>$5030227.92</td><td>213.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-90000-C，VWAP $51.92</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-90000-P，VWAP $177.19</a></span></td><td class='money'>$32460.26</td><td>1.4%</td><td>43.33</td><td class='money'>$4087573.05</td><td>213.0</td><td>2026-05-26 15:30:03</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-100000-C，VWAP $30.63</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-100000-P，VWAP $255.76</a></span></td><td class='money'>$1483.82</td><td>1.3%</td><td>1.85</td><td class='money'>$188981.91</td><td>213.0</td><td>2026-05-26 15:20:47</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-55000-C，VWAP $246.20</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-55000-P，VWAP $22.88</a></span></td><td class='money'>$4223.32</td><td>1.3%</td><td>6.88</td><td class='money'>$542816.32</td><td>213.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-65000-C，VWAP $168.83</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-65000-P，VWAP $45.37</a></span></td><td class='money'>$8754.98</td><td>1.3%</td><td>13.9</td><td class='money'>$1127937.46</td><td>213.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260925-72000-C，VWAP $95.39</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260925-72000-P，VWAP $45.02</a></span></td><td class='money'>$5281.04</td><td>1.2%</td><td>16.36</td><td class='money'>$1326987.86</td><td>122.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-120000-C，VWAP $11.11</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-120000-P，VWAP $435.56</a></span></td><td class='money'>$1525.72</td><td>1.2%</td><td>1.85</td><td class='money'>$222319.72</td><td>213.0</td><td>2026-05-26 15:30:03</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-270326-50000-C，VWAP $299.86</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-270326-50000-P，VWAP $25.28</a></span></td><td class='money'>$2080.67</td><td>1.1%</td><td>2.75</td><td class='money'>$217578.16</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>ETH</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 ETH-USD-270326-1600-C，VWAP $71.62</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 ETH-USD-270326-1600-P，VWAP $19.78</a></span></td><td class='money'>$4268.32</td><td>1.0%</td><td>214.3</td><td class='money'>$491180.89</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260925-70000-C，VWAP $108.09</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260925-70000-P，VWAP $38.15</a></span></td><td class='money'>$6258.94</td><td>1.0%</td><td>22.34</td><td class='money'>$1796686.45</td><td>122.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-45000-C，VWAP $332.74</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-45000-P，VWAP $11.11</a></span></td><td class='money'>$2945.45</td><td>1.0%</td><td>6.65</td><td class='money'>$516843.62</td><td>213.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>ETH</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 ETH-USD-261225-2200-C，VWAP $32.47</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 ETH-USD-261225-2200-P，VWAP $41.23</a></span></td><td class='money'>$10738.67</td><td>0.9%</td><td>773.3</td><td class='money'>$1938313.09</td><td>213.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260925-82000-C，VWAP $46.26</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260925-82000-P，VWAP $96.38</a></span></td><td class='money'>$12096.44</td><td>0.9%</td><td>44.32</td><td class='money'>$3822530.64</td><td>122.0</td><td>2026-05-26 15:32:11</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-261225-140000-C，VWAP $4.60</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-261225-140000-P，VWAP $629.79</a></span></td><td class='money'>$1379.33</td><td>0.9%</td><td>1.85</td><td class='money'>$258250.9</td><td>213.0</td><td>2026-05-26 15:30:03</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260828-65000-C，VWAP $135.71</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260828-65000-P，VWAP $17.23</a></span></td><td class='money'>$651.66</td><td>0.8%</td><td>3.9</td><td class='money'>$305365.94</td><td>94.0</td><td>2026-05-26 15:20:47</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260731-78000-C，VWAP $39.99</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260731-78000-P，VWAP $51.77</a></span></td><td class='money'>$8405.74</td><td>0.7%</td><td>80.31</td><td class='money'>$6568697.97</td><td>66.0</td><td>2026-05-26 15:28:07</td></tr>
+<tr><td>OKX</td><td>BTC</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 BTC-USD-260828-66000-C，VWAP $127.11</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 BTC-USD-260828-66000-P，VWAP $19.14</a></span></td><td class='money'>$1071.07</td><td>0.6%</td><td>9.24</td><td class='money'>$725251.3</td><td>94.0</td><td>2026-05-26 15:20:47</td></tr>
+<tr><td>OKX</td><td>ETH</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 ETH-USD-270326-1400-C，VWAP $84.19</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 ETH-USD-270326-1400-P，VWAP $13.44</a></span></td><td class='money'>$410.2</td><td>0.5%</td><td>45.5</td><td class='money'>$101399.59</td><td>304.0</td><td>2026-05-26 15:34:09</td></tr>
+<tr><td>OKX</td><td>ETH</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 ETH-USD-260925-2200-C，VWAP $21.40</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 ETH-USD-260925-2200-P，VWAP $31.35</a></span></td><td class='money'>$1890.29</td><td>0.2%</td><td>962.8</td><td class='money'>$2318296.83</td><td>122.0</td><td>2026-05-26 15:28:07</td></tr>
+<tr><td>OKX</td><td>ETH</td><td>平价套利<span><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>卖出 ETH-USD-260925-2000-C，VWAP $30.70</a><a href='https://www.okx.com/trade-option' target='_blank' rel='noreferrer'>买入 ETH-USD-260925-2000-P，VWAP $20.62</a></span></td><td class='money'>$1249.32</td><td>0.2%</td><td>760.5</td><td class='money'>$1750090.75</td><td>122.0</td><td>2026-05-26 15:11:42</td></tr></tbody>
+      </table>
+    </section>
   </main>
+  <aside class='task-float error' aria-label='任务面板'><button type='button' id='taskToggle' class='task-chip'><span class='dot error'></span><b>任务面板</b><span>关注 2</span><span>20 项</span></button><div id='taskPopover' class='task-popover' hidden><div class='task-pop-head'><strong>任务面板</strong><span>远端状态</span></div><article class='task-mini'><div><span class='pill error'>异常</span><strong>远程状态页发布</strong></div><p>状态文件记录失败：需要查看本地面板或日报</p><small>状态文件记录失败</small></article><article class='task-mini'><div><span class='pill error'>异常</span><strong>自动化任务</strong></div><p>launchd 未加载：需要查看本地面板或日报</p><small>launchd 未加载</small></article></div></aside>
   <script>
     (function () {
-      var el = document.getElementById("freshness");
-      if (!el) return;
-      var generatedAt = el.getAttribute("data-generated-at");
-      var then = new Date(generatedAt);
-      if (Number.isNaN(then.getTime())) {
-        el.textContent = "快照时间未知";
-        el.classList.add("stale");
-        return;
-      }
-      var minutes = Math.max(0, Math.floor((Date.now() - then.getTime()) / 60000));
-      if (minutes < 15) {
-        el.textContent = "刚刚更新";
-      } else if (minutes < 120) {
-        el.textContent = minutes + " 分钟前更新";
-      } else if (minutes < 1440) {
-        el.textContent = "超过 2 小时未更新";
-        el.classList.add("stale");
-      } else {
-        el.textContent = "超过 24 小时未更新";
-        el.classList.add("stale");
-      }
-    })();
-    (function () {
-      var result = document.getElementById("resultCount");
-      var empty = document.getElementById("emptyState");
-      var mode = "all";
-      var selectedGroup = "";
-      var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
-      var allButton = buttons.find(function (button) { return button.getAttribute("data-filter") === "all"; });
-      var cards = Array.prototype.slice.call(document.querySelectorAll(".task-card[data-status]"));
-      var shell = document.querySelector(".dashboard-shell");
-      var showAllFromEmpty = document.getElementById("showAllFromEmpty");
-      function applyFilters() {
-        var visible = 0;
-        cards.forEach(function (card) {
-          var ok = true;
-          if (mode === "attention" && card.getAttribute("data-attention") !== "1") ok = false;
-          if (mode === "group" && card.getAttribute("data-group") !== selectedGroup) ok = false;
-          card.hidden = !ok;
-          if (ok) visible += 1;
-        });
-        document.querySelectorAll(".task-group").forEach(function (section) {
-          section.hidden = !section.querySelector(".task-card:not([hidden])");
-        });
-        result.textContent = visible + " 项";
-        empty.style.display = visible ? "none" : "grid";
-      }
-      buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          mode = button.getAttribute("data-filter");
-          selectedGroup = button.getAttribute("data-group") || "";
-          buttons.forEach(function (b) { b.classList.toggle("active", b === button); });
-          applyFilters();
-        });
+      var toggle = document.getElementById("taskToggle");
+      var popover = document.getElementById("taskPopover");
+      if (!toggle || !popover) return;
+      toggle.addEventListener("click", function () {
+        popover.hidden = !popover.hidden;
       });
-      if (showAllFromEmpty && allButton) {
-        showAllFromEmpty.addEventListener("click", function () {
-          allButton.click();
-        });
-      }
-      var detailEmpty = document.getElementById("detailEmpty");
-      var detailContent = document.getElementById("detailContent");
-      var detailPanel = document.querySelector(".detail-panel");
-      var detailStatus = document.getElementById("detailStatus");
-      var detailName = document.getElementById("detailName");
-      var detailBrief = document.getElementById("detailBrief");
-      var detailSchedule = document.getElementById("detailSchedule");
-      var detailLast = document.getElementById("detailLast");
-      var detailAge = document.getElementById("detailAge");
-      var detailIssue = document.getElementById("detailIssue");
-      var detailIssueLabel = document.getElementById("detailIssueLabel");
-      var detailClose = document.getElementById("detailClose");
-      function closeDetail() {
-        cards.forEach(function (card) { card.classList.remove("selected"); });
-        if (shell) shell.classList.remove("detail-open");
-        if (detailPanel) detailPanel.classList.remove("active");
-        if (detailEmpty) detailEmpty.hidden = false;
-        if (detailContent) detailContent.hidden = true;
-      }
-      if (detailClose) {
-        ["pointerdown", "click"].forEach(function (eventName) {
-          detailClose.addEventListener(eventName, function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            closeDetail();
-          });
-        });
-      }
-      if (detailPanel) {
-        detailPanel.addEventListener("click", function (event) {
-          event.stopPropagation();
-        });
-      }
-      cards.forEach(function (card) {
-        card.addEventListener("click", function (event) {
-          cards.forEach(function (other) { other.classList.toggle("selected", other === card); });
-          if (shell) shell.classList.add("detail-open");
-          if (detailPanel) detailPanel.classList.add("active");
-          detailEmpty.hidden = true;
-          detailContent.hidden = false;
-          detailStatus.textContent = card.getAttribute("data-status-label") || "-";
-          detailStatus.className = "detail-status " + (card.getAttribute("data-status") || "");
-          detailName.textContent = card.getAttribute("data-name") || "-";
-          detailBrief.textContent = card.getAttribute("data-brief") || "-";
-          detailSchedule.textContent = card.getAttribute("data-schedule") || "-";
-          detailLast.textContent = card.getAttribute("data-last") || "-";
-          detailAge.textContent = card.getAttribute("data-age") || "-";
-          var issue = card.getAttribute("data-issue") || "";
-          detailIssue.hidden = !issue;
-          detailIssueLabel.hidden = !issue;
-          detailIssue.textContent = issue || "-";
-        });
+      document.addEventListener("click", function (event) {
+        if (toggle.contains(event.target) || popover.contains(event.target)) return;
+        popover.hidden = true;
       });
-      applyFilters();
     })();
   </script>
 </body>
