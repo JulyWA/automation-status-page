@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-28T14:01:43.413919+08:00",
-  "generated_at_display": "2026-05-28 14:01:43",
+  "generated_at": "2026-05-28T14:06:48.690717+08:00",
+  "generated_at_display": "2026-05-28 14:06:48",
   "counts": {
     "ok": 23,
     "error": 0,
@@ -20,22 +20,47 @@
   "summary": {
     "lp_price": 1.16,
     "lp_outside": true,
-    "lp_log_age_minutes": 1,
+    "lp_log_age_minutes": 6,
     "watchlist_last_run_date": "2026-05-28"
   },
   "options_arb": {
     "available": true,
-    "stable": 76,
-    "new": 56,
+    "stable": 54,
+    "new": 79,
     "cross": 0,
-    "top_apr": 2.4,
+    "top_apr": 2.5,
     "top_text": "Deribit BTC 平价套利",
-    "focus": "OKX 46 条",
-    "updated_at": "2026-05-28T14:01:41.609340",
-    "updated_at_display": "2026-05-28T14:01:41.609340",
-    "age": "4 秒前",
-    "brief": "持续 76 / 新机会 56 / 跨所 0",
+    "focus": "Deribit 30 条",
+    "updated_at": "2026-05-28T14:06:42.810354",
+    "updated_at_display": "2026-05-28T14:06:42.810354",
+    "age": "8 秒前",
+    "brief": "持续 54 / 新机会 79 / 跨所 0",
     "opportunities": [
+      {
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 2.5,
+        "net": 19778.82,
+        "capital": 964727.04,
+        "bps": 205.02,
+        "size": 7.8,
+        "days": 302.1,
+        "updated_at": "2026-05-28 14:06:42",
+        "links": [
+          {
+            "label": "卖出 BTC-26MAR27-125000-C，VWAP $1421.11",
+            "url": "https://www.deribit.com/options"
+          },
+          {
+            "label": "买入 BTC-26MAR27-125000-P，VWAP $50805.71",
+            "url": "https://www.deribit.com/options"
+          }
+        ]
+      },
       {
         "title": "Deribit BTC 平价套利",
         "venue": "Deribit",
@@ -94,44 +119,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 2.4,
-        "net": 19616.51,
-        "capital": 982954.86,
-        "bps": 199.57,
+        "net": 19613.58,
+        "capital": 982957.82,
+        "bps": 199.54,
         "size": 8.25,
         "days": 302.1,
-        "updated_at": "2026-05-28 13:57:39",
+        "updated_at": "2026-05-28 14:06:13",
         "links": [
           {
             "label": "卖出 BTC-26MAR27-120000-C，VWAP $1713.40",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-120000-P，VWAP $46235.60",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 2.4,
-        "net": 19244.79,
-        "capital": 965259.57,
-        "bps": 199.37,
-        "size": 7.8,
-        "days": 302.1,
-        "updated_at": "2026-05-28 13:58:10",
-        "links": [
-          {
-            "label": "卖出 BTC-26MAR27-125000-C，VWAP $1421.12",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-26MAR27-125000-P，VWAP $50873.40",
+            "label": "买入 BTC-26MAR27-120000-P，VWAP $46235.74",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -269,19 +269,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 2.2,
-        "net": 89539.94,
-        "capital": 4861583.98,
-        "bps": 184.18,
-        "size": 56.25,
+        "net": 73717.9,
+        "capital": 4045564.99,
+        "bps": 182.22,
+        "size": 46.8,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-78000-C，VWAP $10136.74",
+            "label": "卖出 BTC-26MAR27-78000-C，VWAP $10135.70",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-78000-P，VWAP $13536.50",
+            "label": "买入 BTC-26MAR27-78000-P，VWAP $13566.46",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -294,19 +294,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 2.1,
-        "net": 101155.69,
-        "capital": 5712071.11,
-        "bps": 177.09,
-        "size": 67.8,
+        "net": 96927.98,
+        "capital": 5570349.98,
+        "bps": 174.01,
+        "size": 66.1,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-74000-C，VWAP $11856.18",
+            "label": "卖出 BTC-26MAR27-74000-C，VWAP $11853.41",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-74000-P，VWAP $11357.18",
+            "label": "买入 BTC-26MAR27-74000-P，VWAP $11394.32",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -319,19 +319,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 2.1,
-        "net": 93320.18,
-        "capital": 5346413.74,
-        "bps": 174.55,
-        "size": 62.65,
+        "net": 78357.58,
+        "capital": 4532275.64,
+        "bps": 172.89,
+        "size": 53.1,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-76000-C，VWAP $10943.26",
+            "label": "卖出 BTC-26MAR27-76000-C，VWAP $10945.24",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-76000-P，VWAP $12446.15",
+            "label": "买入 BTC-26MAR27-76000-P，VWAP $12476.35",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -344,19 +344,44 @@
         "hedge": "none",
         "status": "stable",
         "apr": 2.1,
-        "net": 95804.39,
-        "capital": 5607467.93,
-        "bps": 170.85,
-        "size": 67.35,
+        "net": 96840.38,
+        "capital": 5648634.71,
+        "bps": 171.44,
+        "size": 67.85,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-72000-C，VWAP $12796.33",
+            "label": "卖出 BTC-26MAR27-72000-C，VWAP $12794.31",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-72000-P，VWAP $10366.96",
+            "label": "买入 BTC-26MAR27-72000-P，VWAP $10374.56",
+            "url": "https://www.deribit.com/options"
+          }
+        ]
+      },
+      {
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 2.0,
+        "net": 11180.0,
+        "capital": 961327.05,
+        "bps": 116.3,
+        "size": 8.4,
+        "days": 211.1,
+        "updated_at": "2026-05-28 14:06:13",
+        "links": [
+          {
+            "label": "卖出 BTC-25DEC26-115000-C，VWAP $947.84",
+            "url": "https://www.deribit.com/options"
+          },
+          {
+            "label": "买入 BTC-25DEC26-115000-P，VWAP $41533.04",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -393,45 +418,20 @@
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 2.0,
-        "net": 10877.58,
-        "capital": 961324.15,
-        "bps": 113.15,
-        "size": 8.4,
-        "days": 211.1,
-        "updated_at": "2026-05-28 13:57:39",
-        "links": [
-          {
-            "label": "卖出 BTC-25DEC26-115000-C，VWAP $911.38",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-25DEC26-115000-P，VWAP $41532.91",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
         "apr": 1.9,
-        "net": 84407.57,
-        "capital": 5349271.1,
-        "bps": 157.79,
+        "net": 84706.2,
+        "capital": 5348795.88,
+        "bps": 158.36,
         "size": 65.0,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-70000-C，VWAP $13710.14",
+            "label": "卖出 BTC-26MAR27-70000-C，VWAP $13707.42",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-70000-P，VWAP $9404.82",
+            "label": "买入 BTC-26MAR27-70000-P，VWAP $9411.93",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -444,69 +444,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.9,
-        "net": 46896.52,
-        "capital": 2989064.66,
-        "bps": 156.89,
+        "net": 47045.24,
+        "capital": 2988794.0,
+        "bps": 157.41,
         "size": 37.3,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-65000-C，VWAP $16510.06",
+            "label": "卖出 BTC-26MAR27-65000-C，VWAP $16506.79",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-65000-P，VWAP $7244.12",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.9,
-        "net": 65228.11,
-        "capital": 4177523.93,
-        "bps": 156.14,
-        "size": 49.29,
-        "days": 302.1,
-        "updated_at": "2026-05-28 13:59:13",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-75000-C，VWAP $111.84",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-75000-P，VWAP $118.79",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.9,
-        "net": 57550.4,
-        "capital": 3697061.35,
-        "bps": 155.67,
-        "size": 45.9,
-        "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
-        "links": [
-          {
-            "label": "卖出 BTC-26MAR27-66000-C，VWAP $15916.27",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-26MAR27-66000-P，VWAP $7654.34",
+            "label": "买入 BTC-26MAR27-65000-P，VWAP $7251.29",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -519,69 +469,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.9,
-        "net": 77492.27,
-        "capital": 4985337.62,
-        "bps": 155.44,
-        "size": 61.25,
-        "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
-        "links": [
-          {
-            "label": "卖出 BTC-26MAR27-68000-C，VWAP $14774.01",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-26MAR27-68000-P，VWAP $8501.61",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.9,
-        "net": 46013.61,
-        "capital": 2974981.99,
-        "bps": 154.67,
-        "size": 30.5,
-        "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
-        "links": [
-          {
-            "label": "卖出 BTC-26MAR27-94000-C，VWAP $5184.27",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-26MAR27-94000-P，VWAP $24648.73",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.9,
-        "net": 45936.21,
-        "capital": 2973793.85,
-        "bps": 154.47,
+        "net": 46495.62,
+        "capital": 2973205.56,
+        "bps": 156.38,
         "size": 30.25,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-95000-C，VWAP $4962.66",
+            "label": "卖出 BTC-26MAR27-95000-C，VWAP $4961.68",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-95000-P，VWAP $25415.57",
+            "label": "买入 BTC-26MAR27-95000-P，VWAP $25410.55",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -594,45 +494,70 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.9,
-        "net": 47997.28,
-        "capital": 3134643.88,
-        "bps": 153.12,
-        "size": 33.15,
+        "net": 46480.84,
+        "capital": 2974393.45,
+        "bps": 156.27,
+        "size": 30.5,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-90000-C，VWAP $6136.42",
+            "label": "卖出 BTC-26MAR27-94000-C，VWAP $5180.26",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-90000-P，VWAP $21667.73",
+            "label": "买入 BTC-26MAR27-94000-P，VWAP $24643.86",
             "url": "https://www.deribit.com/options"
           }
         ]
       },
       {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
         "asset": "BTC",
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 1.8,
-        "net": 39076.86,
-        "capital": 3662768.81,
-        "bps": 106.69,
-        "size": 44.26,
-        "days": 211.1,
-        "updated_at": "2026-05-28 14:00:20",
+        "apr": 1.9,
+        "net": 56756.79,
+        "capital": 3697707.35,
+        "bps": 153.49,
+        "size": 45.9,
+        "days": 302.1,
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-USD-261225-75000-C，VWAP $87.44",
-            "url": "https://www.okx.com/trade-option"
+            "label": "卖出 BTC-26MAR27-66000-C，VWAP $15913.12",
+            "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-USD-261225-75000-P，VWAP $98.97",
-            "url": "https://www.okx.com/trade-option"
+            "label": "买入 BTC-26MAR27-66000-P，VWAP $7682.83",
+            "url": "https://www.deribit.com/options"
+          }
+        ]
+      },
+      {
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.9,
+        "net": 76519.15,
+        "capital": 4986127.76,
+        "bps": 153.46,
+        "size": 61.25,
+        "days": 302.1,
+        "updated_at": "2026-05-28 14:06:42",
+        "links": [
+          {
+            "label": "卖出 BTC-26MAR27-68000-C，VWAP $14771.09",
+            "url": "https://www.deribit.com/options"
+          },
+          {
+            "label": "买入 BTC-26MAR27-68000-P，VWAP $8528.93",
+            "url": "https://www.deribit.com/options"
           }
         ]
       },
@@ -644,19 +569,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.8,
-        "net": 45341.51,
-        "capital": 3006248.87,
-        "bps": 150.82,
+        "net": 45902.19,
+        "capital": 3005654.15,
+        "bps": 152.72,
         "size": 31.3,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-92000-C，VWAP $5626.98",
+            "label": "卖出 BTC-26MAR27-92000-C，VWAP $5625.87",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-92000-P，VWAP $23154.63",
+            "label": "买入 BTC-26MAR27-92000-P，VWAP $23150.05",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -669,19 +594,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.8,
-        "net": 49298.96,
-        "capital": 3296592.75,
-        "bps": 149.55,
-        "size": 36.45,
+        "net": 46148.89,
+        "capital": 3035694.14,
+        "bps": 152.02,
+        "size": 32.1,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-84000-C，VWAP $7916.14",
+            "label": "卖出 BTC-26MAR27-90000-C，VWAP $6136.79",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-84000-P，VWAP $17549.84",
+            "label": "买入 BTC-26MAR27-90000-P，VWAP $21692.67",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -694,19 +619,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.8,
-        "net": 47522.89,
-        "capital": 3195785.4,
-        "bps": 148.7,
-        "size": 34.3,
+        "net": 47050.79,
+        "capital": 3179457.25,
+        "bps": 147.98,
+        "size": 35.15,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-88000-C，VWAP $6683.72",
+            "label": "卖出 BTC-26MAR27-84000-C，VWAP $7914.75",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-88000-P，VWAP $20279.93",
+            "label": "买入 BTC-26MAR27-84000-P，VWAP $17576.74",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -719,19 +644,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.8,
-        "net": 50034.33,
-        "capital": 3374934.88,
-        "bps": 148.25,
-        "size": 37.85,
+        "net": 45372.44,
+        "capital": 3084438.09,
+        "bps": 147.1,
+        "size": 33.1,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-82000-C，VWAP $8608.34",
+            "label": "卖出 BTC-26MAR27-88000-C，VWAP $6682.91",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-82000-P，VWAP $16274.39",
+            "label": "买入 BTC-26MAR27-88000-P，VWAP $20308.20",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -744,19 +669,44 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.8,
-        "net": 47969.76,
-        "capital": 3240107.18,
-        "bps": 148.05,
-        "size": 35.3,
+        "net": 47729.95,
+        "capital": 3255025.49,
+        "bps": 146.63,
+        "size": 36.5,
         "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-26MAR27-86000-C，VWAP $7270.89",
+            "label": "卖出 BTC-26MAR27-82000-C，VWAP $8606.90",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-26MAR27-86000-P，VWAP $18896.08",
+            "label": "买入 BTC-26MAR27-82000-P，VWAP $16301.54",
+            "url": "https://www.deribit.com/options"
+          }
+        ]
+      },
+      {
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.8,
+        "net": 45702.35,
+        "capital": 3130412.69,
+        "bps": 145.99,
+        "size": 34.1,
+        "days": 302.1,
+        "updated_at": "2026-05-28 14:06:42",
+        "links": [
+          {
+            "label": "卖出 BTC-26MAR27-86000-C，VWAP $7265.50",
+            "url": "https://www.deribit.com/options"
+          },
+          {
+            "label": "买入 BTC-26MAR27-86000-P，VWAP $18923.72",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -768,71 +718,46 @@
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 1.7,
-        "net": 54734.77,
-        "capital": 3814679.54,
-        "bps": 143.48,
-        "size": 46.37,
-        "days": 302.1,
-        "updated_at": "2026-05-28 13:59:13",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-70000-C，VWAP $135.53",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-70000-P，VWAP $93.91",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "Deribit BTC 平价套利",
-        "venue": "Deribit",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.7,
-        "net": 49612.31,
-        "capital": 3470038.45,
-        "bps": 142.97,
-        "size": 39.45,
-        "days": 302.1,
-        "updated_at": "2026-05-28 14:01:41",
-        "links": [
-          {
-            "label": "卖出 BTC-26MAR27-80000-C，VWAP $9336.97",
-            "url": "https://www.deribit.com/options"
-          },
-          {
-            "label": "买入 BTC-26MAR27-80000-P，VWAP $15068.76",
-            "url": "https://www.deribit.com/options"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.7,
-        "net": 8525.08,
-        "capital": 863252.93,
-        "bps": 98.76,
-        "size": 7.85,
+        "apr": 1.8,
+        "net": 51476.89,
+        "capital": 5071537.2,
+        "bps": 101.5,
+        "size": 61.25,
         "days": 211.1,
-        "updated_at": "2026-05-28 13:59:13",
+        "updated_at": "2026-05-28 14:06:01",
         "links": [
           {
-            "label": "卖出 BTC-USD-261225-110000-C，VWAP $11.66",
+            "label": "卖出 BTC-USD-261225-75000-C，VWAP $87.47",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-261225-110000-P，VWAP $370.93",
+            "label": "买入 BTC-USD-261225-75000-P，VWAP $98.98",
             "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.7,
+        "net": 46991.83,
+        "capital": 3334308.64,
+        "bps": 140.93,
+        "size": 37.9,
+        "days": 302.1,
+        "updated_at": "2026-05-28 14:06:42",
+        "links": [
+          {
+            "label": "卖出 BTC-26MAR27-80000-C，VWAP $9335.40",
+            "url": "https://www.deribit.com/options"
+          },
+          {
+            "label": "买入 BTC-26MAR27-80000-P，VWAP $15099.24",
+            "url": "https://www.deribit.com/options"
           }
         ]
       },
@@ -862,52 +787,27 @@
         ]
       },
       {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
+        "title": "Deribit BTC 平价套利",
+        "venue": "Deribit",
         "asset": "BTC",
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 1.7,
-        "net": 11550.4,
-        "capital": 824791.27,
-        "bps": 140.04,
-        "size": 10.3,
-        "days": 302.1,
-        "updated_at": "2026-05-28 13:59:13",
+        "apr": 1.6,
+        "net": 26427.7,
+        "capital": 2833186.51,
+        "bps": 93.28,
+        "size": 25.75,
+        "days": 211.1,
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-USD-270326-65000-C，VWAP $163.05",
-            "url": "https://www.okx.com/trade-option"
+            "label": "卖出 BTC-25DEC26-110000-C，VWAP $1213.80",
+            "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-USD-270326-65000-P，VWAP $72.02",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.7,
-        "net": 45981.3,
-        "capital": 3333176.26,
-        "bps": 137.95,
-        "size": 36.61,
-        "days": 302.1,
-        "updated_at": "2026-05-28 13:59:13",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-85000-C，VWAP $74.09",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-85000-P，VWAP $181.70",
-            "url": "https://www.okx.com/trade-option"
+            "label": "买入 BTC-25DEC26-110000-P，VWAP $37149.42",
+            "url": "https://www.deribit.com/options"
           }
         ]
       },
@@ -919,19 +819,19 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.6,
-        "net": 8474.03,
-        "capital": 1619430.84,
-        "bps": 52.33,
-        "size": 19.15,
+        "net": 8533.35,
+        "capital": 1615151.88,
+        "bps": 52.83,
+        "size": 19.1,
         "days": 120.1,
-        "updated_at": "2026-05-28 13:59:13",
+        "updated_at": "2026-05-28 14:03:43",
         "links": [
           {
-            "label": "卖出 BTC-USD-260925-82000-C，VWAP $31.13",
+            "label": "卖出 BTC-USD-260925-82000-C，VWAP $31.14",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-260925-82000-P，VWAP $116.90",
+            "label": "买入 BTC-USD-260925-82000-P，VWAP $116.88",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -943,20 +843,20 @@
         "kind": "平价套利",
         "hedge": "none",
         "status": "stable",
-        "apr": 1.6,
-        "net": 25872.48,
-        "capital": 2833747.11,
-        "bps": 91.3,
-        "size": 25.75,
+        "apr": 1.5,
+        "net": 26658.43,
+        "capital": 3027038.15,
+        "bps": 88.07,
+        "size": 23.45,
         "days": 211.1,
-        "updated_at": "2026-05-28 14:01:41",
+        "updated_at": "2026-05-28 14:06:42",
         "links": [
           {
-            "label": "卖出 BTC-25DEC26-110000-C，VWAP $1214.04",
+            "label": "卖出 BTC-25DEC26-130000-C，VWAP $437.26",
             "url": "https://www.deribit.com/options"
           },
           {
-            "label": "买入 BTC-25DEC26-110000-P，VWAP $37156.77",
+            "label": "买入 BTC-25DEC26-130000-P，VWAP $56207.54",
             "url": "https://www.deribit.com/options"
           }
         ]
@@ -969,69 +869,169 @@
         "hedge": "none",
         "status": "stable",
         "apr": 1.5,
-        "net": 42543.38,
-        "capital": 3322395.35,
-        "bps": 128.05,
-        "size": 37.8,
-        "days": 302.1,
-        "updated_at": "2026-05-28 14:00:20",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-270326-80000-C，VWAP $91.27",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-270326-80000-P，VWAP $150.35",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.5,
-        "net": 37446.9,
-        "capital": 4223508.85,
-        "bps": 88.66,
-        "size": 52.56,
-        "days": 211.1,
-        "updated_at": "2026-05-28 13:59:13",
-        "links": [
-          {
-            "label": "卖出 BTC-USD-261225-70000-C，VWAP $111.74",
-            "url": "https://www.okx.com/trade-option"
-          },
-          {
-            "label": "买入 BTC-USD-261225-70000-P，VWAP $74.81",
-            "url": "https://www.okx.com/trade-option"
-          }
-        ]
-      },
-      {
-        "title": "OKX BTC 平价套利",
-        "venue": "OKX",
-        "asset": "BTC",
-        "kind": "平价套利",
-        "hedge": "none",
-        "status": "stable",
-        "apr": 1.5,
-        "net": 10175.4,
-        "capital": 806938.33,
-        "bps": 126.1,
-        "size": 10.3,
+        "net": 3372.63,
+        "capital": 269093.86,
+        "bps": 125.33,
+        "size": 3.5,
         "days": 302.1,
         "updated_at": "2026-05-28 13:59:13",
         "links": [
           {
-            "label": "卖出 BTC-USD-270326-60000-C，VWAP $194.39",
+            "label": "卖出 BTC-USD-270326-55000-C，VWAP $229.56",
             "url": "https://www.okx.com/trade-option"
           },
           {
-            "label": "买入 BTC-USD-270326-60000-P，VWAP $54.68",
+            "label": "买入 BTC-USD-270326-55000-P，VWAP $40.09",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.3,
+        "net": 7085.99,
+        "capital": 1676552.87,
+        "bps": 42.27,
+        "size": 22.04,
+        "days": 120.1,
+        "updated_at": "2026-05-28 14:06:01",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260925-65000-C，VWAP $114.95",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260925-65000-P，VWAP $31.66",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.2,
+        "net": 12676.97,
+        "capital": 1783296.32,
+        "bps": 71.09,
+        "size": 731.0,
+        "days": 211.1,
+        "updated_at": "2026-05-28 14:01:27",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-261225-2200-C，VWAP $26.11",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-261225-2200-P，VWAP $46.48",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.2,
+        "net": 2547.4,
+        "capital": 262332.14,
+        "bps": 97.11,
+        "size": 3.5,
+        "days": 302.1,
+        "updated_at": "2026-05-28 13:59:13",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-270326-45000-C，VWAP $307.90",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-270326-45000-P，VWAP $20.77",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 5357.44,
+        "capital": 807608.42,
+        "bps": 66.34,
+        "size": 10.8,
+        "days": 211.1,
+        "updated_at": "2026-05-28 13:59:13",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-261225-50000-C，VWAP $253.83",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-261225-50000-P，VWAP $19.03",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX BTC 平价套利",
+        "venue": "OKX",
+        "asset": "BTC",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 3328.94,
+        "capital": 886818.91,
+        "bps": 37.54,
+        "size": 6.85,
+        "days": 120.1,
+        "updated_at": "2026-05-28 13:59:13",
+        "links": [
+          {
+            "label": "卖出 BTC-USD-260925-130000-C，VWAP $0.66",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 BTC-USD-260925-130000-P，VWAP $565.88",
+            "url": "https://www.okx.com/trade-option"
+          }
+        ]
+      },
+      {
+        "title": "OKX ETH 平价套利",
+        "venue": "OKX",
+        "asset": "ETH",
+        "kind": "平价套利",
+        "hedge": "none",
+        "status": "stable",
+        "apr": 1.1,
+        "net": 13335.88,
+        "capital": 2047179.22,
+        "bps": 65.14,
+        "size": 882.5,
+        "days": 211.1,
+        "updated_at": "2026-05-28 14:06:01",
+        "links": [
+          {
+            "label": "卖出 ETH-USD-261225-2000-C，VWAP $33.91",
+            "url": "https://www.okx.com/trade-option"
+          },
+          {
+            "label": "买入 ETH-USD-261225-2000-P，VWAP $34.40",
             "url": "https://www.okx.com/trade-option"
           }
         ]
@@ -1047,7 +1047,7 @@
       "schedule": "weekdays 18:05",
       "last_time": "2026-05-27T18:05:08+08:00",
       "last_time_display": "2026-05-27 18:05:08",
-      "age": "19 小时前",
+      "age": "20 小时前",
       "brief": "配置与状态备份已完成",
       "issue_location": "",
       "needs_attention": false
@@ -1253,8 +1253,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-05-28T13:56:43+08:00",
-      "last_time_display": "2026-05-28 13:56:43",
+      "last_time": "2026-05-28T14:01:48+08:00",
+      "last_time_display": "2026-05-28 14:01:48",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
