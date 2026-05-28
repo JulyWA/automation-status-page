@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-29T01:32:41.795139+08:00",
-  "generated_at_display": "2026-05-29 01:32:41",
+  "generated_at": "2026-05-29T01:39:05.164114+08:00",
+  "generated_at_display": "2026-05-29 01:39:05",
   "counts": {
-    "ok": 23,
-    "error": 0,
+    "ok": 22,
+    "error": 1,
     "pending": 0,
     "paused": 0,
     "events_error": 0,
@@ -11,30 +11,30 @@
   },
   "kpis": {
     "task_total": 23,
-    "attention_count": 0,
+    "attention_count": 1,
     "today_executed": 1,
     "future_waiting": 0,
-    "success_rate_24h": 1.0,
+    "success_rate_24h": 0.8333,
     "attempts_24h": 6
   },
   "summary": {
     "lp_price": 1.16588,
     "lp_outside": false,
-    "lp_log_age_minutes": 32,
+    "lp_log_age_minutes": 39,
     "watchlist_last_run_date": "2026-05-28"
   },
   "options_arb": {
     "available": true,
-    "stable": 104,
-    "new": 101,
+    "stable": 107,
+    "new": 98,
     "cross": 0,
     "top_apr": 2.5,
     "top_text": "Deribit BTC 平价套利",
     "focus": "Deribit 61 条",
-    "updated_at": "2026-05-29T01:32:15.400521",
-    "updated_at_display": "2026-05-29T01:32:15.400521",
-    "age": "32 秒前",
-    "brief": "持续 104 / 新机会 101 / 跨所 0",
+    "updated_at": "2026-05-29T01:39:03.987128",
+    "updated_at_display": "2026-05-29T01:39:03.987128",
+    "age": "14 秒前",
+    "brief": "持续 107 / 新机会 98 / 跨所 0",
     "opportunities": [
       {
         "title": "Deribit BTC 平价套利",
@@ -1250,15 +1250,15 @@
     {
       "name": "远程状态页发布",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "every 5 min if changed",
       "last_time": "2026-05-29T01:27:41+08:00",
       "last_time_display": "2026-05-29 01:27:41",
-      "age": "5 分钟前",
-      "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "11 分钟前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "Derive 期权套利监控",
@@ -1340,6 +1340,16 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "远程状态页发布",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
