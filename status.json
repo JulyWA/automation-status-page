@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-06-15T11:46:35.579006+08:00",
-  "generated_at_display": "2026-06-15 11:46:35",
+  "generated_at": "2026-06-15T11:53:05.182083+08:00",
+  "generated_at_display": "2026-06-15 11:53:05",
   "counts": {
-    "ok": 17,
-    "error": 1,
+    "ok": 19,
+    "error": 0,
     "pending": 0,
     "paused": 6,
     "events_error": 0,
     "events_info": 0
   },
   "kpis": {
-    "task_total": 24,
-    "attention_count": 1,
-    "today_executed": 8,
+    "task_total": 25,
+    "attention_count": 0,
+    "today_executed": 9,
     "future_waiting": 0,
-    "success_rate_24h": 0.8889,
-    "attempts_24h": 9
+    "success_rate_24h": 1.0,
+    "attempts_24h": 10
   },
   "summary": {
     "lp_price": null,
@@ -104,6 +104,19 @@
       "needs_attention": false
     },
     {
+      "name": "G2 Feishu Live-Write",
+      "group": "每日",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "business hours every 30 min / off-hours every 60 min",
+      "last_time": "2026-06-15T11:30:04+08:00",
+      "last_time_display": "2026-06-15 11:30:04",
+      "age": "23 分钟前",
+      "brief": "G2 实时扫描飞书 live-write 正常",
+      "issue_location": "",
+      "needs_attention": false
+    },
+    {
       "name": "Uniswap LP 监控",
       "group": "常驻",
       "status": "paused",
@@ -184,15 +197,15 @@
     {
       "name": "X 单用户股票监控",
       "group": "每日",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "every 60 sec",
-      "last_time": "2026-06-15T11:43:08.111785+08:00",
-      "last_time_display": "2026-06-15 11:43:08",
-      "age": "3 分钟前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-06-15T11:53:00.662243+08:00",
+      "last_time_display": "2026-06-15 11:53:00",
+      "age": "4 秒前",
+      "brief": "当前正常；最近一次失败 2026-06-15 11:49:50",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "X 单用户监控巡检",
@@ -200,9 +213,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-15T11:43:49.895336+08:00",
-      "last_time_display": "2026-06-15 11:43:49",
-      "age": "2 分钟前",
+      "last_time": "2026-06-15T11:48:50.038495+08:00",
+      "last_time_display": "2026-06-15 11:48:50",
+      "age": "4 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -280,7 +293,7 @@
       "schedule": "weekdays 07:50",
       "last_time": "2026-06-15T07:52:50+08:00",
       "last_time_display": "2026-06-15 07:52:50",
-      "age": "3 小时前",
+      "age": "4 小时前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -343,8 +356,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-15T11:41:35+08:00",
-      "last_time_display": "2026-06-15 11:41:35",
+      "last_time": "2026-06-15T11:48:04+08:00",
+      "last_time_display": "2026-06-15 11:48:04",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -352,16 +365,6 @@
     }
   ],
   "events": [],
-  "attention": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "X 单用户股票监控",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    }
-  ],
+  "attention": [],
   "history": []
 }
