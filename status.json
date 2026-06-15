@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-15T13:53:45.983089+08:00",
-  "generated_at_display": "2026-06-15 13:53:45",
+  "generated_at": "2026-06-15T13:59:03.515741+08:00",
+  "generated_at_display": "2026-06-15 13:59:03",
   "counts": {
-    "ok": 17,
-    "error": 2,
+    "ok": 18,
+    "error": 1,
     "pending": 0,
     "paused": 6,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 25,
-    "attention_count": 2,
+    "attention_count": 1,
     "today_executed": 9,
     "future_waiting": 0,
-    "success_rate_24h": 0.7778,
+    "success_rate_24h": 0.8889,
     "attempts_24h": 9
   },
   "summary": {
@@ -72,7 +72,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-15T08:55:45+08:00",
       "last_time_display": "2026-06-15 08:55:45",
-      "age": "4 小时前",
+      "age": "5 小时前",
       "brief": "市场简报已生成并推送",
       "issue_location": "",
       "needs_attention": false
@@ -111,7 +111,7 @@
       "schedule": "business hours every 30 min / off-hours every 60 min",
       "last_time": "2026-06-15T13:00:05+08:00",
       "last_time_display": "2026-06-15 13:00:05",
-      "age": "53 分钟前",
+      "age": "58 分钟前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "近 26h 运行历史",
       "needs_attention": true
@@ -197,15 +197,15 @@
     {
       "name": "X 单用户股票监控",
       "group": "每日",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "every 60 sec",
-      "last_time": "2026-06-15T13:06:58.312165+08:00",
-      "last_time_display": "2026-06-15 13:06:58",
-      "age": "46 分钟前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-06-15T13:58:12.893661+08:00",
+      "last_time_display": "2026-06-15 13:58:12",
+      "age": "50 秒前",
+      "brief": "当前正常；最近一次失败 2026-06-15 13:53:03",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "X 单用户监控巡检",
@@ -213,9 +213,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-15T13:53:45.881572+08:00",
-      "last_time_display": "2026-06-15 13:53:45",
-      "age": "0 秒前",
+      "last_time": "2026-06-15T13:58:46.026433+08:00",
+      "last_time_display": "2026-06-15 13:58:46",
+      "age": "17 秒前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -356,8 +356,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-15T13:48:05+08:00",
-      "last_time_display": "2026-06-15 13:48:05",
+      "last_time": "2026-06-15T13:54:03+08:00",
+      "last_time_display": "2026-06-15 13:54:03",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -372,15 +372,6 @@
       "source": "G2 Feishu Live-Write",
       "message": "近 26h 运行历史：需要查看本地面板或日报",
       "issue_location": "近 26h 运行历史",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "X 单用户股票监控",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
     }
