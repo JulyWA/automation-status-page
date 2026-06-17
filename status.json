@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-17T09:31:26.928045+08:00",
-  "generated_at_display": "2026-06-17 09:31:26",
+  "generated_at": "2026-06-17T09:36:36.261479+08:00",
+  "generated_at_display": "2026-06-17 09:36:36",
   "counts": {
-    "ok": 19,
-    "error": 0,
+    "ok": 18,
+    "error": 1,
     "pending": 0,
     "paused": 6,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 25,
-    "attention_count": 0,
+    "attention_count": 1,
     "today_executed": 7,
     "future_waiting": 0,
-    "success_rate_24h": 1.0,
+    "success_rate_24h": 0.8889,
     "attempts_24h": 9
   },
   "summary": {
@@ -72,7 +72,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-17T08:55:44+08:00",
       "last_time_display": "2026-06-17 08:55:44",
-      "age": "35 分钟前",
+      "age": "40 分钟前",
       "brief": "市场简报已生成并推送",
       "issue_location": "",
       "needs_attention": false
@@ -85,7 +85,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-06-17T09:16:12+08:00",
       "last_time_display": "2026-06-17 09:16:12",
-      "age": "15 分钟前",
+      "age": "20 分钟前",
       "brief": "每日监管日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -106,15 +106,15 @@
     {
       "name": "G2 Feishu Live-Write",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "business hours every 30 min / off-hours every 60 min",
       "last_time": "2026-06-17T09:00:01+08:00",
       "last_time_display": "2026-06-17 09:00:01",
-      "age": "31 分钟前",
-      "brief": "G2 实时扫描飞书 live-write 正常",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "36 分钟前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "近 26h 运行历史",
+      "needs_attention": true
     },
     {
       "name": "Uniswap LP 监控",
@@ -202,7 +202,7 @@
       "schedule": "every 60 sec",
       "last_time": "2026-06-17T09:28:57.145208+08:00",
       "last_time_display": "2026-06-17 09:28:57",
-      "age": "2 分钟前",
+      "age": "7 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-17 07:28:19",
       "issue_location": "",
       "needs_attention": false
@@ -213,8 +213,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-17T09:29:38.276315+08:00",
-      "last_time_display": "2026-06-17 09:29:38",
+      "last_time": "2026-06-17T09:34:38.427666+08:00",
+      "last_time_display": "2026-06-17 09:34:38",
       "age": "1 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -356,8 +356,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-17T09:26:26+08:00",
-      "last_time_display": "2026-06-17 09:26:26",
+      "last_time": "2026-06-17T09:31:36+08:00",
+      "last_time_display": "2026-06-17 09:31:36",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -365,6 +365,16 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "G2 Feishu Live-Write",
+      "message": "近 26h 运行历史：需要查看本地面板或日报",
+      "issue_location": "近 26h 运行历史",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
