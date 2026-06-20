@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-20T09:42:36.770085+08:00",
-  "generated_at_display": "2026-06-20 09:42:36",
+  "generated_at": "2026-06-20T09:47:43.939613+08:00",
+  "generated_at_display": "2026-06-20 09:47:43",
   "counts": {
-    "ok": 18,
-    "error": 2,
+    "ok": 19,
+    "error": 1,
     "pending": 0,
     "paused": 6,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 26,
-    "attention_count": 2,
+    "attention_count": 1,
     "today_executed": 4,
     "future_waiting": 0,
-    "success_rate_24h": 0.8333,
+    "success_rate_24h": 1.0,
     "attempts_24h": 6
   },
   "summary": {
@@ -85,7 +85,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-06-20T09:15:07+08:00",
       "last_time_display": "2026-06-20 09:15:07",
-      "age": "27 分钟前",
+      "age": "32 分钟前",
       "brief": "每日监管日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -210,15 +210,15 @@
     {
       "name": "X 单用户股票监控",
       "group": "每日",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "every 60 sec",
-      "last_time": "2026-06-20T07:43:37.918484+08:00",
-      "last_time_display": "2026-06-20 07:43:37",
-      "age": "1 小时前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-06-20T09:44:02.698697+08:00",
+      "last_time_display": "2026-06-20 09:44:02",
+      "age": "3 分钟前",
+      "brief": "当前正常；最近一次失败 2026-06-20 08:43:59",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "X 单用户监控巡检",
@@ -226,9 +226,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-20T09:41:50.986233+08:00",
-      "last_time_display": "2026-06-20 09:41:50",
-      "age": "45 秒前",
+      "last_time": "2026-06-20T09:46:51.131484+08:00",
+      "last_time_display": "2026-06-20 09:46:51",
+      "age": "52 秒前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -369,8 +369,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-20T09:37:36+08:00",
-      "last_time_display": "2026-06-20 09:37:36",
+      "last_time": "2026-06-20T09:42:43+08:00",
+      "last_time_display": "2026-06-20 09:42:43",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -385,15 +385,6 @@
       "source": "G2 Feishu Live-Write",
       "message": "launchd 未加载：需要查看本地面板或日报",
       "issue_location": "launchd 未加载",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "X 单用户股票监控",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
     }
