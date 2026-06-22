@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T10:03:31.754651+08:00",
-  "generated_at_display": "2026-06-22 10:03:31",
+  "generated_at": "2026-06-22T10:08:45.074968+08:00",
+  "generated_at_display": "2026-06-22 10:08:45",
   "counts": {
-    "ok": 18,
-    "error": 1,
+    "ok": 19,
+    "error": 0,
     "pending": 0,
     "paused": 7,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 26,
-    "attention_count": 1,
+    "attention_count": 0,
     "today_executed": 9,
     "future_waiting": 0,
-    "success_rate_24h": 0.9,
+    "success_rate_24h": 1.0,
     "attempts_24h": 10
   },
   "summary": {
@@ -72,7 +72,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-22T09:27:48+08:00",
       "last_time_display": "2026-06-22 09:27:48",
-      "age": "35 分钟前",
+      "age": "40 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-22 08:55:09",
       "issue_location": "",
       "needs_attention": false
@@ -85,7 +85,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-06-22T09:15:16+08:00",
       "last_time_display": "2026-06-22 09:15:16",
-      "age": "48 分钟前",
+      "age": "53 分钟前",
       "brief": "每日监管日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -93,15 +93,15 @@
     {
       "name": "X 全网搜索热点",
       "group": "每日",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "weekdays 08:05",
-      "last_time": "2026-06-22T08:11:04.997022+08:00",
-      "last_time_display": "2026-06-22 08:11:04",
-      "age": "1 小时前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-06-22T10:08:22.039973+08:00",
+      "last_time_display": "2026-06-22 10:08:22",
+      "age": "23 秒前",
+      "brief": "X 全网搜索日报已生成",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "G2 Feishu Live-Write",
@@ -215,7 +215,7 @@
       "schedule": "every 60 sec",
       "last_time": "2026-06-22T09:51:22.312856+08:00",
       "last_time_display": "2026-06-22 09:51:22",
-      "age": "12 分钟前",
+      "age": "17 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-20 08:43:59",
       "issue_location": "",
       "needs_attention": false
@@ -226,9 +226,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-22T10:03:18.969706+08:00",
-      "last_time_display": "2026-06-22 10:03:18",
-      "age": "12 秒前",
+      "last_time": "2026-06-22T10:08:19.105598+08:00",
+      "last_time_display": "2026-06-22 10:08:19",
+      "age": "26 秒前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -254,7 +254,7 @@
       "schedule": "Monday 08:40",
       "last_time": "2026-06-22T09:51:51+08:00",
       "last_time_display": "2026-06-22 09:51:51",
-      "age": "11 分钟前",
+      "age": "16 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-22 09:41:33",
       "issue_location": "",
       "needs_attention": false
@@ -267,7 +267,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-06-22T09:37:43+08:00",
       "last_time_display": "2026-06-22 09:37:43",
-      "age": "25 分钟前",
+      "age": "31 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-21 12:30:09",
       "issue_location": "",
       "needs_attention": false
@@ -306,7 +306,7 @@
       "schedule": "weekdays 07:50",
       "last_time": "2026-06-22T10:00:39+08:00",
       "last_time_display": "2026-06-22 10:00:39",
-      "age": "2 分钟前",
+      "age": "8 分钟前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -369,8 +369,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-22T09:58:31+08:00",
-      "last_time_display": "2026-06-22 09:58:31",
+      "last_time": "2026-06-22T10:03:44+08:00",
+      "last_time_display": "2026-06-22 10:03:44",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -378,16 +378,6 @@
     }
   ],
   "events": [],
-  "attention": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "X 全网搜索热点",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    }
-  ],
+  "attention": [],
   "history": []
 }
