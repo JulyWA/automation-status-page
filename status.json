@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T09:37:47.645884+08:00",
-  "generated_at_display": "2026-06-22 09:37:47",
+  "generated_at": "2026-06-22T09:42:56.505212+08:00",
+  "generated_at_display": "2026-06-22 09:42:56",
   "counts": {
     "ok": 17,
     "error": 2,
@@ -72,7 +72,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-22T09:27:48+08:00",
       "last_time_display": "2026-06-22 09:27:48",
-      "age": "9 分钟前",
+      "age": "15 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-22 08:55:09",
       "issue_location": "",
       "needs_attention": false
@@ -85,7 +85,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-06-22T09:15:16+08:00",
       "last_time_display": "2026-06-22 09:15:16",
-      "age": "22 分钟前",
+      "age": "27 分钟前",
       "brief": "每日监管日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -215,7 +215,7 @@
       "schedule": "every 60 sec",
       "last_time": "2026-06-22T08:50:33.019899+08:00",
       "last_time_display": "2026-06-22 08:50:33",
-      "age": "47 分钟前",
+      "age": "52 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-20 08:43:59",
       "issue_location": "",
       "needs_attention": false
@@ -226,8 +226,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-22T09:33:18.074342+08:00",
-      "last_time_display": "2026-06-22 09:33:18",
+      "last_time": "2026-06-22T09:38:18.217546+08:00",
+      "last_time_display": "2026-06-22 09:38:18",
       "age": "4 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -267,7 +267,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-06-22T09:37:43+08:00",
       "last_time_display": "2026-06-22 09:37:43",
-      "age": "4 秒前",
+      "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-21 12:30:09",
       "issue_location": "",
       "needs_attention": false
@@ -369,8 +369,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-22T09:32:47+08:00",
-      "last_time_display": "2026-06-22 09:32:47",
+      "last_time": "2026-06-22T09:37:56+08:00",
+      "last_time_display": "2026-06-22 09:37:56",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -391,7 +391,7 @@
       "level": "error",
       "level_label": "异常",
       "source": "Pre-watchlist 周报",
-      "message": "wrapper 最近失败：",
+      "message": "wrapper 最近失败：...nance」或「升级 Variational」即可。\n[2026-06-15 08:44:55 CST] done ok (week=2026-W25)\n[2026-06-22 08:40:00 CST] start weekly pre-watchlist (2026-W26)\nFailed to authenticate. API Error: 401 Invalid authentic",
       "issue_location": "任务 wrapper 状态文件",
       "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
       "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
@@ -429,7 +429,7 @@
       "level": "error",
       "level_label": "异常",
       "source": "Pre-watchlist 周报",
-      "message": "wrapper 最近失败：",
+      "message": "wrapper 最近失败：...nance」或「升级 Variational」即可。\n[2026-06-15 08:44:55 CST] done ok (week=2026-W25)\n[2026-06-22 08:40:00 CST] start weekly pre-watchlist (2026-W26)\nFailed to authenticate. API Error: 401 Invalid authentic",
       "issue_location": "任务 wrapper 状态文件",
       "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
       "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
