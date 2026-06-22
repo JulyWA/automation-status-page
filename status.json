@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T08:51:24.691885+08:00",
-  "generated_at_display": "2026-06-22 08:51:24",
+  "generated_at": "2026-06-22T08:56:33.104176+08:00",
+  "generated_at_display": "2026-06-22 08:56:33",
   "counts": {
-    "ok": 16,
-    "error": 4,
+    "ok": 15,
+    "error": 5,
     "pending": 0,
     "paused": 6,
     "events_error": 1,
@@ -11,11 +11,11 @@
   },
   "kpis": {
     "task_total": 26,
-    "attention_count": 5,
+    "attention_count": 6,
     "today_executed": 5,
     "future_waiting": 0,
-    "success_rate_24h": 0.6667,
-    "attempts_24h": 9
+    "success_rate_24h": 0.6,
+    "attempts_24h": 10
   },
   "summary": {
     "lp_price": null,
@@ -67,15 +67,15 @@
     {
       "name": "市场简报",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-19T08:55:42+08:00",
       "last_time_display": "2026-06-19 08:55:42",
-      "age": "2 天前",
-      "brief": "市场简报已生成并推送",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "3 天前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "每日监管日报",
@@ -98,7 +98,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-06-22T08:11:04.997022+08:00",
       "last_time_display": "2026-06-22 08:11:04",
-      "age": "40 分钟前",
+      "age": "45 分钟前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "needs_attention": true
@@ -215,7 +215,7 @@
       "schedule": "every 60 sec",
       "last_time": "2026-06-22T08:50:33.019899+08:00",
       "last_time_display": "2026-06-22 08:50:33",
-      "age": "51 秒前",
+      "age": "6 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-20 08:43:59",
       "issue_location": "",
       "needs_attention": false
@@ -226,8 +226,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-22T08:48:16.819384+08:00",
-      "last_time_display": "2026-06-22 08:48:16",
+      "last_time": "2026-06-22T08:53:16.973103+08:00",
+      "last_time_display": "2026-06-22 08:53:16",
       "age": "3 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -241,7 +241,7 @@
       "schedule": "Monday 08:35",
       "last_time": "2026-06-22T08:35:02+08:00",
       "last_time_display": "2026-06-22 08:35:02",
-      "age": "16 分钟前",
+      "age": "21 分钟前",
       "brief": "本周 RootData 提醒已处理",
       "issue_location": "",
       "needs_attention": false
@@ -369,8 +369,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-22T08:46:24+08:00",
-      "last_time_display": "2026-06-22 08:46:24",
+      "last_time": "2026-06-22T08:51:32+08:00",
+      "last_time_display": "2026-06-22 08:51:32",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -389,6 +389,15 @@
     }
   ],
   "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "市场简报",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
     {
       "level": "error",
       "level_label": "异常",
