@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T09:32:36.246070+08:00",
-  "generated_at_display": "2026-06-22 09:32:36",
+  "generated_at": "2026-06-22T09:37:47.645884+08:00",
+  "generated_at_display": "2026-06-22 09:37:47",
   "counts": {
-    "ok": 16,
-    "error": 3,
+    "ok": 17,
+    "error": 2,
     "pending": 0,
     "paused": 7,
     "events_error": 2,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 26,
-    "attention_count": 5,
-    "today_executed": 7,
+    "attention_count": 4,
+    "today_executed": 8,
     "future_waiting": 0,
-    "success_rate_24h": 0.7,
+    "success_rate_24h": 0.8,
     "attempts_24h": 10
   },
   "summary": {
@@ -72,7 +72,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-06-22T09:27:48+08:00",
       "last_time_display": "2026-06-22 09:27:48",
-      "age": "4 分钟前",
+      "age": "9 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-22 08:55:09",
       "issue_location": "",
       "needs_attention": false
@@ -85,7 +85,7 @@
       "schedule": "daily 09:15",
       "last_time": "2026-06-22T09:15:16+08:00",
       "last_time_display": "2026-06-22 09:15:16",
-      "age": "17 分钟前",
+      "age": "22 分钟前",
       "brief": "每日监管日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -215,7 +215,7 @@
       "schedule": "every 60 sec",
       "last_time": "2026-06-22T08:50:33.019899+08:00",
       "last_time_display": "2026-06-22 08:50:33",
-      "age": "42 分钟前",
+      "age": "47 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-20 08:43:59",
       "issue_location": "",
       "needs_attention": false
@@ -226,8 +226,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-22T09:28:17.980295+08:00",
-      "last_time_display": "2026-06-22 09:28:17",
+      "last_time": "2026-06-22T09:33:18.074342+08:00",
+      "last_time_display": "2026-06-22 09:33:18",
       "age": "4 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -241,7 +241,7 @@
       "schedule": "Monday 08:35",
       "last_time": "2026-06-22T08:35:02+08:00",
       "last_time_display": "2026-06-22 08:35:02",
-      "age": "57 分钟前",
+      "age": "1 小时前",
       "brief": "本周 RootData 提醒已处理",
       "issue_location": "",
       "needs_attention": false
@@ -262,15 +262,15 @@
     {
       "name": "每周安全检查",
       "group": "每周",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "Sunday 12:30",
-      "last_time": "2026-06-14T12:30:19+08:00",
-      "last_time_display": "2026-06-14 12:30:19",
-      "age": "7 天前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-06-22T09:37:43+08:00",
+      "last_time_display": "2026-06-22 09:37:43",
+      "age": "4 秒前",
+      "brief": "当前正常；最近一次失败 2026-06-21 12:30:09",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "团队 Skill 周更",
@@ -369,8 +369,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-22T09:27:36+08:00",
-      "last_time_display": "2026-06-22 09:27:36",
+      "last_time": "2026-06-22T09:32:47+08:00",
+      "last_time_display": "2026-06-22 09:32:47",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -411,15 +411,6 @@
       "level": "error",
       "level_label": "异常",
       "source": "Pre-watchlist 周报",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "每周安全检查",
       "message": "状态文件记录失败：需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
