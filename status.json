@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T07:58:39.495704+08:00",
-  "generated_at_display": "2026-06-23 07:58:39",
+  "generated_at": "2026-06-23T08:05:01.552262+08:00",
+  "generated_at_display": "2026-06-23 08:05:01",
   "counts": {
-    "ok": 22,
-    "error": 0,
+    "ok": 21,
+    "error": 1,
     "pending": 0,
     "paused": 7,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 29,
-    "attention_count": 0,
+    "attention_count": 1,
     "today_executed": 6,
     "future_waiting": 0,
-    "success_rate_24h": 1.0,
+    "success_rate_24h": 0.9286,
     "attempts_24h": 14
   },
   "summary": {
@@ -46,7 +46,7 @@
       "schedule": "daily 07:50",
       "last_time": "2026-06-23T07:50:08+08:00",
       "last_time_display": "2026-06-23 07:50:08",
-      "age": "8 分钟前",
+      "age": "14 分钟前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -228,7 +228,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-06-23T07:55:37.687451+08:00",
       "last_time_display": "2026-06-23 07:55:37",
-      "age": "3 分钟前",
+      "age": "9 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-23 01:54:36",
       "issue_location": "",
       "needs_attention": false
@@ -239,9 +239,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-23T07:53:54.577379+08:00",
-      "last_time_display": "2026-06-23 07:53:54",
-      "age": "4 分钟前",
+      "last_time": "2026-06-23T08:03:54.873899+08:00",
+      "last_time_display": "2026-06-23 08:03:54",
+      "age": "1 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -249,15 +249,15 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "every 60 min",
       "last_time": "2026-06-23T06:59:37.858248+08:00",
       "last_time_display": "2026-06-23 06:59:37",
-      "age": "59 分钟前",
-      "brief": "周期检查正常",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "1 小时前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "自动化任务",
@@ -265,9 +265,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-23T07:53:47.019819+08:00",
-      "last_time_display": "2026-06-23 07:53:47",
-      "age": "4 分钟前",
+      "last_time": "2026-06-23T08:03:47.339574+08:00",
+      "last_time_display": "2026-06-23 08:03:47",
+      "age": "1 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
       "needs_attention": false
@@ -345,7 +345,7 @@
       "schedule": "weekdays 07:50",
       "last_time": "2026-06-23T07:52:38+08:00",
       "last_time_display": "2026-06-23 07:52:38",
-      "age": "6 分钟前",
+      "age": "12 分钟前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -408,8 +408,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-23T07:53:39+08:00",
-      "last_time_display": "2026-06-23 07:53:39",
+      "last_time": "2026-06-23T08:00:01+08:00",
+      "last_time_display": "2026-06-23 08:00:01",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -417,6 +417,16 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "自动化任务",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
