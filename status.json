@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-06-29T08:30:49.429884+08:00",
-  "generated_at_display": "2026-06-29 08:30:49",
+  "generated_at": "2026-06-29T08:35:57.603436+08:00",
+  "generated_at_display": "2026-06-29 08:35:57",
   "counts": {
-    "ok": 23,
-    "error": 0,
+    "ok": 22,
+    "error": 1,
     "pending": 1,
     "paused": 7,
-    "events_error": 0,
+    "events_error": 1,
     "events_info": 0
   },
   "kpis": {
     "task_total": 31,
-    "attention_count": 1,
+    "attention_count": 3,
     "today_executed": 7,
     "future_waiting": 1,
-    "success_rate_24h": 1.0,
-    "attempts_24h": 10
+    "success_rate_24h": 0.9091,
+    "attempts_24h": 11
   },
   "summary": {
     "lp_price": null,
@@ -46,7 +46,7 @@
       "schedule": "daily 07:50",
       "last_time": "2026-06-29T07:50:25+08:00",
       "last_time_display": "2026-06-29 07:50:25",
-      "age": "40 分钟前",
+      "age": "45 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-28 07:52:39",
       "issue_location": "",
       "needs_attention": false
@@ -111,7 +111,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-06-29T08:14:22.280152+08:00",
       "last_time_display": "2026-06-29 08:14:22",
-      "age": "16 分钟前",
+      "age": "21 分钟前",
       "brief": "X 全网搜索日报已生成",
       "issue_location": "",
       "needs_attention": false
@@ -228,7 +228,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-06-29T08:07:34.343800+08:00",
       "last_time_display": "2026-06-29 08:07:34",
-      "age": "23 分钟前",
+      "age": "28 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-28 08:04:53",
       "issue_location": "",
       "needs_attention": false
@@ -239,8 +239,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-29T08:28:30.196334+08:00",
-      "last_time_display": "2026-06-29 08:28:30",
+      "last_time": "2026-06-29T08:33:30.362720+08:00",
+      "last_time_display": "2026-06-29 08:33:30",
       "age": "2 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -254,7 +254,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-06-29T08:03:32.066670+08:00",
       "last_time_display": "2026-06-29 08:03:32",
-      "age": "27 分钟前",
+      "age": "32 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-28 08:01:23",
       "issue_location": "",
       "needs_attention": false
@@ -265,8 +265,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-06-29T08:28:30.196351+08:00",
-      "last_time_display": "2026-06-29 08:28:30",
+      "last_time": "2026-06-29T08:33:30.362741+08:00",
+      "last_time_display": "2026-06-29 08:33:30",
       "age": "2 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -275,15 +275,15 @@
     {
       "name": "RootData 周提醒",
       "group": "每周",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "Monday 08:35",
       "last_time": "2026-06-22T08:35:02+08:00",
       "last_time_display": "2026-06-22 08:35:02",
-      "age": "6 天前",
-      "brief": "本周 RootData 提醒已处理",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "7 天前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "Pre-watchlist 周报",
@@ -371,7 +371,7 @@
       "schedule": "weekdays 07:50",
       "last_time": "2026-06-29T07:53:31+08:00",
       "last_time_display": "2026-06-29 07:53:31",
-      "age": "37 分钟前",
+      "age": "42 分钟前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -434,16 +434,35 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-06-29T08:25:49+08:00",
-      "last_time_display": "2026-06-29 08:25:49",
+      "last_time": "2026-06-29T08:30:57+08:00",
+      "last_time_display": "2026-06-29 08:30:57",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "RootData 周提醒",
+      "message": "wrapper 最近失败：{\"code\":11232,\"data\":{},\"msg\":\"frequency limited psm[lark.oapi.app_platform_runtime]appID[1500]\"}",
+      "issue_location": "任务 wrapper 状态文件",
+      "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
+      "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
+    }
+  ],
   "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "RootData 周提醒",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
     {
       "level": "pending",
       "level_label": "待确认",
@@ -452,6 +471,15 @@
       "issue_location": "状态文件未生成",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "RootData 周提醒",
+      "message": "wrapper 最近失败：{\"code\":11232,\"data\":{},\"msg\":\"frequency limited psm[lark.oapi.app_platform_runtime]appID[1500]\"}",
+      "issue_location": "任务 wrapper 状态文件",
+      "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
+      "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
     }
   ],
   "history": []
