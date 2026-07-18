@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-18T11:29:09.721176+08:00",
-  "generated_at_display": "2026-07-18 11:29:09",
+  "generated_at": "2026-07-18T11:34:19.406324+08:00",
+  "generated_at_display": "2026-07-18 11:34:19",
   "counts": {
-    "ok": 25,
-    "error": 2,
+    "ok": 24,
+    "error": 3,
     "pending": 0,
     "paused": 7,
     "events_error": 0,
@@ -11,7 +11,7 @@
   },
   "kpis": {
     "task_total": 34,
-    "attention_count": 2,
+    "attention_count": 3,
     "today_executed": 6,
     "future_waiting": 0,
     "success_rate_24h": 0.875,
@@ -72,7 +72,7 @@
       "schedule": "weekdays 18:30",
       "last_time": "2026-07-17T18:30:00+08:00",
       "last_time_display": "2026-07-17 18:30:00",
-      "age": "16 小时前",
+      "age": "17 小时前",
       "brief": "本地密文刷新正常",
       "issue_location": "",
       "needs_attention": false
@@ -93,15 +93,15 @@
     {
       "name": "每日监管日报",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "daily 09:15",
       "last_time": "2026-07-17T09:30:40+08:00",
       "last_time_display": "2026-07-17 09:30:40",
-      "age": "25 小时前",
-      "brief": "每日监管日报已完成",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "26 小时前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "最近运行超期",
+      "needs_attention": true
     },
     {
       "name": "X 全网搜索热点",
@@ -239,8 +239,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-18T11:26:25.836556+08:00",
-      "last_time_display": "2026-07-18 11:26:25",
+      "last_time": "2026-07-18T11:31:25.963781+08:00",
+      "last_time_display": "2026-07-18 11:31:25",
       "age": "2 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -254,7 +254,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-07-18T10:39:57.361510+08:00",
       "last_time_display": "2026-07-18 10:39:57",
-      "age": "49 分钟前",
+      "age": "54 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-17 14:38:52",
       "issue_location": "",
       "needs_attention": false
@@ -265,8 +265,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-18T11:26:25.816756+08:00",
-      "last_time_display": "2026-07-18 11:26:25",
+      "last_time": "2026-07-18T11:31:25.945985+08:00",
+      "last_time_display": "2026-07-18 11:31:25",
       "age": "2 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -384,7 +384,7 @@
       "schedule": "Sunday 11:30",
       "last_time": "2026-07-12T11:30:01+08:00",
       "last_time_display": "2026-07-12 11:30:01",
-      "age": "5 天前",
+      "age": "6 天前",
       "brief": "团队 Skill 共享更新正常",
       "issue_location": "",
       "needs_attention": false
@@ -473,8 +473,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-07-18T11:24:09+08:00",
-      "last_time_display": "2026-07-18 11:24:09",
+      "last_time": "2026-07-18T11:29:19+08:00",
+      "last_time_display": "2026-07-18 11:29:19",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -483,6 +483,15 @@
   ],
   "events": [],
   "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "每日监管日报",
+      "message": "最近运行超期：需要查看本地面板或日报",
+      "issue_location": "最近运行超期",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
     {
       "level": "error",
       "level_label": "异常",
