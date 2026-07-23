@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-07-23T10:10:18.639622+08:00",
-  "generated_at_display": "2026-07-23 10:10:18",
+  "generated_at": "2026-07-23T10:16:50.070326+08:00",
+  "generated_at_display": "2026-07-23 10:16:50",
   "counts": {
-    "ok": 24,
+    "ok": 25,
     "error": 4,
-    "pending": 1,
+    "pending": 0,
     "paused": 7,
     "events_error": 1,
     "events_info": 0
   },
   "kpis": {
     "task_total": 36,
-    "attention_count": 6,
-    "today_executed": 6,
-    "future_waiting": 1,
-    "success_rate_24h": 0.7273,
-    "attempts_24h": 11
+    "attention_count": 5,
+    "today_executed": 7,
+    "future_waiting": 0,
+    "success_rate_24h": 0.75,
+    "attempts_24h": 12
   },
   "summary": {
     "lp_price": null,
@@ -111,7 +111,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-07-23T08:12:00.125197+08:00",
       "last_time_display": "2026-07-23 08:12:00",
-      "age": "1 小时前",
+      "age": "2 小时前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "needs_attention": true
@@ -226,9 +226,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-07-23T09:15:14.838047+08:00",
-      "last_time_display": "2026-07-23 09:15:14",
-      "age": "55 分钟前",
+      "last_time": "2026-07-23T10:15:19.595206+08:00",
+      "last_time_display": "2026-07-23 10:15:19",
+      "age": "1 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-21 11:10:00",
       "issue_location": "",
       "needs_attention": false
@@ -239,9 +239,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-23T10:09:57.784313+08:00",
-      "last_time_display": "2026-07-23 10:09:57",
-      "age": "21 秒前",
+      "last_time": "2026-07-23T10:14:57.992342+08:00",
+      "last_time_display": "2026-07-23 10:14:57",
+      "age": "1 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -254,7 +254,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-07-23T09:47:35.195522+08:00",
       "last_time_display": "2026-07-23 09:47:35",
-      "age": "22 分钟前",
+      "age": "29 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-23 07:47:30",
       "issue_location": "",
       "needs_attention": false
@@ -265,9 +265,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-23T10:09:57.775677+08:00",
-      "last_time_display": "2026-07-23 10:09:57",
-      "age": "21 秒前",
+      "last_time": "2026-07-23T10:14:57.975285+08:00",
+      "last_time_display": "2026-07-23 10:14:57",
+      "age": "1 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
       "needs_attention": false
@@ -379,15 +379,15 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "pending",
-      "status_label": "待确认",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "Monday 09:40",
-      "last_time": "",
-      "last_time_display": "-",
-      "age": "-",
-      "brief": "等待首次自然触发或状态确认",
-      "issue_location": "状态文件未生成",
-      "needs_attention": true
+      "last_time": "2026-07-23T10:10:37+08:00",
+      "last_time_display": "2026-07-23 10:10:37",
+      "age": "6 分钟前",
+      "brief": "运行正常",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "每周安全检查",
@@ -499,8 +499,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-07-23T10:05:18+08:00",
-      "last_time_display": "2026-07-23 10:05:18",
+      "last_time": "2026-07-23T10:11:49+08:00",
+      "last_time_display": "2026-07-23 10:11:49",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -552,15 +552,6 @@
       "source": "X 全网搜索热点",
       "message": "状态文件记录失败：需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "pending",
-      "level_label": "待确认",
-      "source": "自动化任务",
-      "message": "状态文件未生成：等待首次自然触发或状态确认",
-      "issue_location": "状态文件未生成",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
     },
