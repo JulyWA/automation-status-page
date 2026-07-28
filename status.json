@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-07-28T10:54:31.612670+08:00",
-  "generated_at_display": "2026-07-28 10:54:31",
+  "generated_at": "2026-07-28T11:00:18.470318+08:00",
+  "generated_at_display": "2026-07-28 11:00:18",
   "counts": {
-    "ok": 29,
+    "ok": 30,
     "error": 0,
-    "pending": 0,
+    "pending": 1,
     "paused": 7,
     "events_error": 0,
     "events_info": 0
   },
   "kpis": {
-    "task_total": 36,
-    "attention_count": 0,
-    "today_executed": 9,
-    "future_waiting": 0,
+    "task_total": 38,
+    "attention_count": 1,
+    "today_executed": 10,
+    "future_waiting": 1,
     "success_rate_24h": 1.0,
-    "attempts_24h": 11
+    "attempts_24h": 12
   },
   "summary": {
     "lp_price": null,
@@ -78,6 +78,32 @@
       "needs_attention": false
     },
     {
+      "name": "自动化任务",
+      "group": "其他",
+      "status": "ok",
+      "status_label": "正常",
+      "schedule": "weekly Wed 10:00",
+      "last_time": "2026-07-28T10:55:36+08:00",
+      "last_time_display": "2026-07-28 10:55:36",
+      "age": "4 分钟前",
+      "brief": "运行正常",
+      "issue_location": "",
+      "needs_attention": false
+    },
+    {
+      "name": "自动化任务",
+      "group": "其他",
+      "status": "pending",
+      "status_label": "待确认",
+      "schedule": "monthly day23 09:00",
+      "last_time": "",
+      "last_time_display": "-",
+      "age": "-",
+      "brief": "等待首次自然触发或状态确认",
+      "issue_location": "状态文件未生成",
+      "needs_attention": true
+    },
+    {
       "name": "市场简报",
       "group": "每日",
       "status": "ok",
@@ -85,7 +111,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-07-28T08:55:46+08:00",
       "last_time_display": "2026-07-28 08:55:46",
-      "age": "1 小时前",
+      "age": "2 小时前",
       "brief": "当前正常；最近一次失败 2026-07-23 08:55:08",
       "issue_location": "",
       "needs_attention": false
@@ -228,7 +254,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-07-28T10:28:28.887853+08:00",
       "last_time_display": "2026-07-28 10:28:28",
-      "age": "26 分钟前",
+      "age": "31 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-21 11:10:00",
       "issue_location": "",
       "needs_attention": false
@@ -239,9 +265,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-28T10:54:11.003846+08:00",
-      "last_time_display": "2026-07-28 10:54:11",
-      "age": "21 秒前",
+      "last_time": "2026-07-28T10:59:11.160528+08:00",
+      "last_time_display": "2026-07-28 10:59:11",
+      "age": "1 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -252,9 +278,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-07-28T09:54:55.825191+08:00",
-      "last_time_display": "2026-07-28 09:54:55",
-      "age": "59 分钟前",
+      "last_time": "2026-07-28T10:54:59.109634+08:00",
+      "last_time_display": "2026-07-28 10:54:59",
+      "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-24 07:49:18",
       "issue_location": "",
       "needs_attention": false
@@ -265,9 +291,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-07-28T10:54:10.996052+08:00",
-      "last_time_display": "2026-07-28 10:54:10",
-      "age": "21 秒前",
+      "last_time": "2026-07-28T10:59:11.182119+08:00",
+      "last_time_display": "2026-07-28 10:59:11",
+      "age": "1 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
       "needs_attention": false
@@ -332,7 +358,7 @@
       "schedule": "Monday 08:55",
       "last_time": "2026-07-27T08:56:01+08:00",
       "last_time_display": "2026-07-27 08:56:01",
-      "age": "25 小时前",
+      "age": "26 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -499,8 +525,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-07-28T10:49:31+08:00",
-      "last_time_display": "2026-07-28 10:49:31",
+      "last_time": "2026-07-28T10:55:18+08:00",
+      "last_time_display": "2026-07-28 10:55:18",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -508,6 +534,16 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "pending",
+      "level_label": "待确认",
+      "source": "自动化任务",
+      "message": "状态文件未生成：等待首次自然触发或状态确认",
+      "issue_location": "状态文件未生成",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
