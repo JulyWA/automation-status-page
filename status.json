@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-05T09:10:23.584941+08:00",
-  "generated_at_display": "2026-08-05 09:10:23",
+  "generated_at": "2026-08-05T09:15:37.692720+08:00",
+  "generated_at_display": "2026-08-05 09:15:37",
   "counts": {
-    "ok": 28,
-    "error": 2,
+    "ok": 29,
+    "error": 1,
     "pending": 1,
     "paused": 7,
     "events_error": 0,
@@ -11,10 +11,10 @@
   },
   "kpis": {
     "task_total": 38,
-    "attention_count": 3,
+    "attention_count": 2,
     "today_executed": 8,
     "future_waiting": 1,
-    "success_rate_24h": 0.9091,
+    "success_rate_24h": 1.0,
     "attempts_24h": 11
   },
   "summary": {
@@ -111,7 +111,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-08-05T08:55:49+08:00",
       "last_time_display": "2026-08-05 08:55:49",
-      "age": "14 分钟前",
+      "age": "19 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-23 08:55:08",
       "issue_location": "",
       "needs_attention": false
@@ -137,7 +137,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-08-05T08:23:34.293112+08:00",
       "last_time_display": "2026-08-05 08:23:34",
-      "age": "46 分钟前",
+      "age": "52 分钟前",
       "brief": "X 全网搜索日报已生成",
       "issue_location": "",
       "needs_attention": false
@@ -254,7 +254,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-08-05T08:22:58.791079+08:00",
       "last_time_display": "2026-08-05 08:22:58",
-      "age": "47 分钟前",
+      "age": "52 分钟前",
       "brief": "当前正常；最近一次失败 2026-07-21 11:10:00",
       "issue_location": "",
       "needs_attention": false
@@ -265,8 +265,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-05T09:06:20.307353+08:00",
-      "last_time_display": "2026-08-05 09:06:20",
+      "last_time": "2026-08-05T09:11:20.490890+08:00",
+      "last_time_display": "2026-08-05 09:11:20",
       "age": "4 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -275,15 +275,15 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "error",
-      "status_label": "异常",
+      "status": "ok",
+      "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-08-05T07:10:57.505186+08:00",
-      "last_time_display": "2026-08-05 07:10:57",
-      "age": "1 小时前",
-      "brief": "需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
-      "needs_attention": true
+      "last_time": "2026-08-05T09:11:24.170375+08:00",
+      "last_time_display": "2026-08-05 09:11:24",
+      "age": "4 分钟前",
+      "brief": "当前正常；最近一次失败 2026-08-05 08:11:18",
+      "issue_location": "",
+      "needs_attention": false
     },
     {
       "name": "自动化任务",
@@ -291,8 +291,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-05T09:06:20.107592+08:00",
-      "last_time_display": "2026-08-05 09:06:20",
+      "last_time": "2026-08-05T09:11:20.300107+08:00",
+      "last_time_display": "2026-08-05 09:11:20",
       "age": "4 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -525,8 +525,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min if changed",
-      "last_time": "2026-08-05T09:05:23+08:00",
-      "last_time_display": "2026-08-05 09:05:23",
+      "last_time": "2026-08-05T09:10:37+08:00",
+      "last_time_display": "2026-08-05 09:10:37",
       "age": "5 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -550,15 +550,6 @@
       "source": "自动化任务",
       "message": "launchd 未加载：需要查看本地面板或日报",
       "issue_location": "launchd 未加载",
-      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
-      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "自动化任务",
-      "message": "状态文件记录失败：需要查看本地面板或日报",
-      "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
     }
