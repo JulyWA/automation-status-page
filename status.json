@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-08-25T09:30:32.338136+08:00",
-  "generated_at_display": "2026-08-25 09:30:32",
+  "generated_at": "2026-08-25T10:00:43.662914+08:00",
+  "generated_at_display": "2026-08-25 10:00:43",
   "counts": {
     "ok": 29,
     "error": 1,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
-    "events_error": 1,
+    "events_error": 0,
     "events_info": 0
   },
   "kpis": {
     "task_total": 31,
-    "attention_count": 2,
-    "today_executed": 7,
+    "attention_count": 1,
+    "today_executed": 8,
     "future_waiting": 0,
-    "success_rate_24h": 0.9091,
-    "attempts_24h": 11
+    "success_rate_24h": 0.9167,
+    "attempts_24h": 12
   },
   "summary": {
     "lp_price": null,
     "lp_outside": null,
     "lp_log_age_minutes": null,
-    "watchlist_last_run_date": "2026-08-24"
+    "watchlist_last_run_date": "2026-08-25"
   },
   "options_arb": {
     "available": true,
@@ -47,7 +47,7 @@
       "schedule": "daily 07:50",
       "last_time": "2026-08-24T07:50:07+08:00",
       "last_time_display": "2026-08-24 07:50:07",
-      "age": "25 小时前",
+      "age": "26 小时前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "needs_attention": true
@@ -86,7 +86,7 @@
       "schedule": "weekly Wed 10:00",
       "last_time": "2026-08-19T10:00:09+08:00",
       "last_time_display": "2026-08-19 10:00:09",
-      "age": "5 天前",
+      "age": "6 天前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -112,7 +112,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-08-25T08:55:45+08:00",
       "last_time_display": "2026-08-25 08:55:45",
-      "age": "34 分钟前",
+      "age": "1 小时前",
       "brief": "当前正常；最近一次失败 2026-08-19 08:55:03",
       "issue_location": "",
       "needs_attention": false
@@ -123,9 +123,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "daily 09:30",
-      "last_time": "2026-08-24T09:30:57+08:00",
-      "last_time_display": "2026-08-24 09:30:57",
-      "age": "23 小时前",
+      "last_time": "2026-08-25T09:31:03+08:00",
+      "last_time_display": "2026-08-25 09:31:03",
+      "age": "29 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-04 09:30:02",
       "issue_location": "",
       "needs_attention": false
@@ -162,9 +162,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-08-25T08:36:09.579253+08:00",
-      "last_time_display": "2026-08-25 08:36:09",
-      "age": "54 分钟前",
+      "last_time": "2026-08-25T09:36:12.966295+08:00",
+      "last_time_display": "2026-08-25 09:36:12",
+      "age": "24 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:30:12",
       "issue_location": "",
       "needs_attention": false
@@ -175,8 +175,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-25T09:26:52.403614+08:00",
-      "last_time_display": "2026-08-25 09:26:52",
+      "last_time": "2026-08-25T09:56:53.694737+08:00",
+      "last_time_display": "2026-08-25 09:56:53",
       "age": "3 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -190,7 +190,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-08-25T09:30:15.545149+08:00",
       "last_time_display": "2026-08-25 09:30:15",
-      "age": "17 秒前",
+      "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,8 +201,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-25T09:26:52.403526+08:00",
-      "last_time_display": "2026-08-25 09:26:52",
+      "last_time": "2026-08-25T09:56:53.694801+08:00",
+      "last_time_display": "2026-08-25 09:56:53",
       "age": "3 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -216,7 +216,7 @@
       "schedule": "Monday 08:35",
       "last_time": "2026-08-24T08:35:02+08:00",
       "last_time_display": "2026-08-24 08:35:02",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "当前正常；最近一次失败 2026-06-29 08:35:04",
       "issue_location": "",
       "needs_attention": false
@@ -229,7 +229,7 @@
       "schedule": "Monday 08:40",
       "last_time": "2026-08-24T08:43:09+08:00",
       "last_time_display": "2026-08-24 08:43:09",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "当前正常；最近一次失败 2026-06-22 09:41:33",
       "issue_location": "",
       "needs_attention": false
@@ -242,7 +242,7 @@
       "schedule": "Monday 08:45",
       "last_time": "2026-08-24T08:45:47+08:00",
       "last_time_display": "2026-08-24 08:45:47",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -255,7 +255,7 @@
       "schedule": "Monday 08:50",
       "last_time": "2026-08-24T08:50:51+08:00",
       "last_time_display": "2026-08-24 08:50:51",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -268,7 +268,7 @@
       "schedule": "Monday 08:55",
       "last_time": "2026-08-24T08:56:06+08:00",
       "last_time_display": "2026-08-24 08:56:06",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -281,7 +281,7 @@
       "schedule": "Monday 09:00",
       "last_time": "2026-08-24T09:00:22+08:00",
       "last_time_display": "2026-08-24 09:00:22",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "当前正常；最近一次失败 2026-07-13 09:00:18",
       "issue_location": "",
       "needs_attention": false
@@ -320,7 +320,7 @@
       "schedule": "Monday 09:40+13:00",
       "last_time": "2026-08-24T13:00:04+08:00",
       "last_time_display": "2026-08-24 13:00:04",
-      "age": "20 小时前",
+      "age": "21 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -333,7 +333,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-08-23T12:30:41+08:00",
       "last_time_display": "2026-08-23 12:30:41",
-      "age": "44 小时前",
+      "age": "45 小时前",
       "brief": "当前正常；最近一次失败 2026-06-21 12:30:09",
       "issue_location": "",
       "needs_attention": false
@@ -370,9 +370,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "weekdays 07:50",
-      "last_time": "2026-08-24T07:51:57+08:00",
-      "last_time_display": "2026-08-24 07:51:57",
-      "age": "25 小时前",
+      "last_time": "2026-08-25T09:33:34+08:00",
+      "last_time_display": "2026-08-25 09:33:34",
+      "age": "27 分钟前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -435,25 +435,15 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-08-25T09:00:32+08:00",
-      "last_time_display": "2026-08-25 09:00:32",
+      "last_time": "2026-08-25T09:30:43+08:00",
+      "last_time_display": "2026-08-25 09:30:43",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
     }
   ],
-  "events": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "项目跟踪日报",
-      "message": "今日未运行，最近 last_run_date=2026-08-24。恢复建议=高频但滚动窗任务：每次运行覆盖一个独立时间片，漏跑=该时间片永久丢失、明日窗口覆盖不到、不会自愈；网络恢复后须【当天手动 kickstart 补跑】",
-      "issue_location": "自然触发状态",
-      "diagnosis": "自检发现已过今日自然触发窗口，但今日成功标记没有更新。",
-      "next_step": "查看该任务的 run_task 状态文件和最近日志，确认 launchd 是否触发、脚本是否提前退出。"
-    }
-  ],
+  "events": [],
   "attention": [
     {
       "level": "error",
@@ -463,15 +453,6 @@
       "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
-    },
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "项目跟踪日报",
-      "message": "今日未运行，最近 last_run_date=2026-08-24。恢复建议=高频但滚动窗任务：每次运行覆盖一个独立时间片，漏跑=该时间片永久丢失、明日窗口覆盖不到、不会自愈；网络恢复后须【当天手动 kickstart 补跑】",
-      "issue_location": "自然触发状态",
-      "diagnosis": "自检发现已过今日自然触发窗口，但今日成功标记没有更新。",
-      "next_step": "查看该任务的 run_task 状态文件和最近日志，确认 launchd 是否触发、脚本是否提前退出。"
     }
   ],
   "history": []
