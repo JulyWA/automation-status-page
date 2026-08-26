@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-27T07:22:49.656465+08:00",
-  "generated_at_display": "2026-08-27 07:22:49",
+  "generated_at": "2026-08-27T07:52:58.432700+08:00",
+  "generated_at_display": "2026-08-27 07:52:58",
   "counts": {
-    "ok": 30,
-    "error": 0,
+    "ok": 28,
+    "error": 2,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
@@ -12,10 +12,10 @@
   },
   "kpis": {
     "task_total": 31,
-    "attention_count": 0,
+    "attention_count": 2,
     "today_executed": 5,
     "future_waiting": 0,
-    "success_rate_24h": 1.0,
+    "success_rate_24h": 0.8333,
     "attempts_24h": 12
   },
   "summary": {
@@ -42,15 +42,15 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "daily 07:50",
       "last_time": "2026-08-26T07:50:11+08:00",
       "last_time_display": "2026-08-26 07:50:11",
-      "age": "23 小时前",
-      "brief": "当前正常；最近一次失败 2026-08-25 07:52:38",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "24 小时前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "GitHub 配置备份",
@@ -73,7 +73,7 @@
       "schedule": "weekdays 18:30",
       "last_time": "2026-08-26T18:30:04+08:00",
       "last_time_display": "2026-08-26 18:30:04",
-      "age": "12 小时前",
+      "age": "13 小时前",
       "brief": "本地密文刷新正常",
       "issue_location": "",
       "needs_attention": false
@@ -125,7 +125,7 @@
       "schedule": "daily 09:30",
       "last_time": "2026-08-26T09:30:59+08:00",
       "last_time_display": "2026-08-26 09:30:59",
-      "age": "21 小时前",
+      "age": "22 小时前",
       "brief": "当前正常；最近一次失败 2026-08-04 09:30:02",
       "issue_location": "",
       "needs_attention": false
@@ -159,15 +159,15 @@
     {
       "name": "X 单用户股票监控",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "every 60 min",
       "last_time": "2026-08-27T06:42:45.618004+08:00",
       "last_time_display": "2026-08-27 06:42:45",
-      "age": "40 分钟前",
-      "brief": "当前正常；最近一次失败 2026-08-23 07:30:12",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "1 小时前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "X 单用户监控巡检",
@@ -175,8 +175,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-27T07:18:27.009840+08:00",
-      "last_time_display": "2026-08-27 07:18:27",
+      "last_time": "2026-08-27T07:48:27.818650+08:00",
+      "last_time_display": "2026-08-27 07:48:27",
       "age": "4 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -188,9 +188,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-08-27T06:33:08.657504+08:00",
-      "last_time_display": "2026-08-27 06:33:08",
-      "age": "49 分钟前",
+      "last_time": "2026-08-27T07:33:11.590082+08:00",
+      "last_time_display": "2026-08-27 07:33:11",
+      "age": "19 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,8 +201,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-27T07:18:27.009864+08:00",
-      "last_time_display": "2026-08-27 07:18:27",
+      "last_time": "2026-08-27T07:48:27.818667+08:00",
+      "last_time_display": "2026-08-27 07:48:27",
       "age": "4 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -372,7 +372,7 @@
       "schedule": "weekdays 07:50",
       "last_time": "2026-08-26T07:52:30+08:00",
       "last_time_display": "2026-08-26 07:52:30",
-      "age": "23 小时前",
+      "age": "24 小时前",
       "brief": "项目跟踪日报已完成",
       "issue_location": "",
       "needs_attention": false
@@ -435,8 +435,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-08-27T06:52:49+08:00",
-      "last_time_display": "2026-08-27 06:52:49",
+      "last_time": "2026-08-27T07:22:58+08:00",
+      "last_time_display": "2026-08-27 07:22:58",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -444,6 +444,25 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "自动化任务",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "X 单用户股票监控",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
