@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-31T08:23:28.484555+08:00",
-  "generated_at_display": "2026-08-31 08:23:28",
+  "generated_at": "2026-08-31T08:53:36.749691+08:00",
+  "generated_at_display": "2026-08-31 08:53:36",
   "counts": {
-    "ok": 28,
-    "error": 2,
+    "ok": 27,
+    "error": 3,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
-    "events_error": 0,
+    "events_error": 1,
     "events_info": 0
   },
   "kpis": {
     "task_total": 31,
-    "attention_count": 2,
-    "today_executed": 6,
+    "attention_count": 4,
+    "today_executed": 9,
     "future_waiting": 0,
-    "success_rate_24h": 0.8,
-    "attempts_24h": 10
+    "success_rate_24h": 0.7857,
+    "attempts_24h": 14
   },
   "summary": {
     "lp_price": null,
@@ -47,7 +47,7 @@
       "schedule": "daily 07:50",
       "last_time": "2026-08-30T07:50:06+08:00",
       "last_time_display": "2026-08-30 07:50:06",
-      "age": "24 小时前",
+      "age": "25 小时前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "needs_attention": true
@@ -125,7 +125,7 @@
       "schedule": "daily 09:30",
       "last_time": "2026-08-30T09:31:03+08:00",
       "last_time_display": "2026-08-30 09:31:03",
-      "age": "22 小时前",
+      "age": "23 小时前",
       "brief": "当前正常；最近一次失败 2026-08-04 09:30:02",
       "issue_location": "",
       "needs_attention": false
@@ -138,7 +138,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-08-31T08:17:48.899223+08:00",
       "last_time_display": "2026-08-31 08:17:48",
-      "age": "5 分钟前",
+      "age": "35 分钟前",
       "brief": "X 全网搜索日报已生成",
       "issue_location": "",
       "needs_attention": false
@@ -175,8 +175,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-31T08:21:08.918476+08:00",
-      "last_time_display": "2026-08-31 08:21:08",
+      "last_time": "2026-08-31T08:51:09.788229+08:00",
+      "last_time_display": "2026-08-31 08:51:09",
       "age": "2 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -188,9 +188,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-08-31T07:38:09.768841+08:00",
-      "last_time_display": "2026-08-31 07:38:09",
-      "age": "45 分钟前",
+      "last_time": "2026-08-31T08:38:12.973350+08:00",
+      "last_time_display": "2026-08-31 08:38:12",
+      "age": "15 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,8 +201,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-08-31T08:21:08.918457+08:00",
-      "last_time_display": "2026-08-31 08:21:08",
+      "last_time": "2026-08-31T08:51:09.788368+08:00",
+      "last_time_display": "2026-08-31 08:51:09",
       "age": "2 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -214,9 +214,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "Monday 08:35",
-      "last_time": "2026-08-24T08:35:02+08:00",
-      "last_time_display": "2026-08-24 08:35:02",
-      "age": "6 天前",
+      "last_time": "2026-08-31T08:35:03+08:00",
+      "last_time_display": "2026-08-31 08:35:03",
+      "age": "18 分钟前",
       "brief": "当前正常；最近一次失败 2026-06-29 08:35:04",
       "issue_location": "",
       "needs_attention": false
@@ -224,15 +224,15 @@
     {
       "name": "Pre-watchlist 周报",
       "group": "每周",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "Monday 08:40",
       "last_time": "2026-08-24T08:43:09+08:00",
       "last_time_display": "2026-08-24 08:43:09",
-      "age": "6 天前",
-      "brief": "当前正常；最近一次失败 2026-06-22 09:41:33",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "7 天前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "自动化任务",
@@ -240,9 +240,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "Monday 08:45",
-      "last_time": "2026-08-24T08:45:47+08:00",
-      "last_time_display": "2026-08-24 08:45:47",
-      "age": "6 天前",
+      "last_time": "2026-08-31T08:45:54+08:00",
+      "last_time_display": "2026-08-31 08:45:54",
+      "age": "7 分钟前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -253,9 +253,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "Monday 08:50",
-      "last_time": "2026-08-24T08:50:51+08:00",
-      "last_time_display": "2026-08-24 08:50:51",
-      "age": "6 天前",
+      "last_time": "2026-08-31T08:50:49+08:00",
+      "last_time_display": "2026-08-31 08:50:49",
+      "age": "2 分钟前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -333,7 +333,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-08-30T12:30:27+08:00",
       "last_time_display": "2026-08-30 12:30:27",
-      "age": "19 小时前",
+      "age": "20 小时前",
       "brief": "当前正常；最近一次失败 2026-06-21 12:30:09",
       "issue_location": "",
       "needs_attention": false
@@ -346,7 +346,7 @@
       "schedule": "Sunday 11:30",
       "last_time": "2026-08-30T11:30:01+08:00",
       "last_time_display": "2026-08-30 11:30:01",
-      "age": "20 小时前",
+      "age": "21 小时前",
       "brief": "团队 Skill 共享更新正常",
       "issue_location": "",
       "needs_attention": false
@@ -435,15 +435,25 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-08-31T07:53:28+08:00",
-      "last_time_display": "2026-08-31 07:53:28",
+      "last_time": "2026-08-31T08:23:36+08:00",
+      "last_time_display": "2026-08-31 08:23:36",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "Pre-watchlist 周报",
+      "message": "wrapper 最近失败：...正式布局 Season 2）\n[2026-08-17 08:45:05 CST] done ok (week=2026-W34)\n[2026-08-24 08:40:02 CST] start weekly pre-watchlist (2026-W35)\n周报预览如上（8 个 active 项目全覆盖，2 个升级候选待确认：Variational、KOR Protocol；1 个暂停候选待",
+      "issue_location": "任务 wrapper 状态文件",
+      "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
+      "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
+    }
+  ],
   "attention": [
     {
       "level": "error",
@@ -462,6 +472,24 @@
       "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
       "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "Pre-watchlist 周报",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "Pre-watchlist 周报",
+      "message": "wrapper 最近失败：...正式布局 Season 2）\n[2026-08-17 08:45:05 CST] done ok (week=2026-W34)\n[2026-08-24 08:40:02 CST] start weekly pre-watchlist (2026-W35)\n周报预览如上（8 个 active 项目全覆盖，2 个升级候选待确认：Variational、KOR Protocol；1 个暂停候选待",
+      "issue_location": "任务 wrapper 状态文件",
+      "diagnosis": "自检读到了 run_task wrapper 的失败记录，说明 launchd 已触发，但任务本体或通知链路返回了错误。",
+      "next_step": "以本地日志里的错误摘要为准，先复跑对应 run_task；若复跑成功，下一次刷新会自动恢复。"
     }
   ],
   "history": []
