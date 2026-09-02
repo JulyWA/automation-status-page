@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-03T06:45:49.045856+08:00",
-  "generated_at_display": "2026-09-03 06:45:49",
+  "generated_at": "2026-09-03T07:15:57.843934+08:00",
+  "generated_at_display": "2026-09-03 07:15:57",
   "counts": {
-    "ok": 26,
-    "error": 4,
+    "ok": 25,
+    "error": 5,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
@@ -12,10 +12,10 @@
   },
   "kpis": {
     "task_total": 31,
-    "attention_count": 6,
+    "attention_count": 7,
     "today_executed": 5,
     "future_waiting": 0,
-    "success_rate_24h": 0.75,
+    "success_rate_24h": 0.6667,
     "attempts_24h": 12
   },
   "summary": {
@@ -60,7 +60,7 @@
       "schedule": "weekdays 18:05",
       "last_time": "2026-09-02T18:05:04+08:00",
       "last_time_display": "2026-09-02 18:05:04",
-      "age": "12 小时前",
+      "age": "13 小时前",
       "brief": "配置与状态备份已完成",
       "issue_location": "",
       "needs_attention": false
@@ -86,7 +86,7 @@
       "schedule": "weekly Wed 10:00",
       "last_time": "2026-09-02T10:00:06+08:00",
       "last_time_display": "2026-09-02 10:00:06",
-      "age": "20 小时前",
+      "age": "21 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -138,7 +138,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-09-02T08:12:28.204793+08:00",
       "last_time_display": "2026-09-02 08:12:28",
-      "age": "22 小时前",
+      "age": "23 小时前",
       "brief": "需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "needs_attention": true
@@ -159,15 +159,15 @@
     {
       "name": "X 单用户股票监控",
       "group": "每日",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "every 60 min",
       "last_time": "2026-09-03T06:10:47.471093+08:00",
       "last_time_display": "2026-09-03 06:10:47",
-      "age": "35 分钟前",
-      "brief": "当前正常；最近一次失败 2026-08-31 07:57:43",
-      "issue_location": "",
-      "needs_attention": false
+      "age": "1 小时前",
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "needs_attention": true
     },
     {
       "name": "X 单用户监控巡检",
@@ -175,8 +175,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-03T06:43:06.339253+08:00",
-      "last_time_display": "2026-09-03 06:43:06",
+      "last_time": "2026-09-03T07:13:07.145333+08:00",
+      "last_time_display": "2026-09-03 07:13:07",
       "age": "2 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
@@ -190,7 +190,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-09-03T06:42:02.541596+08:00",
       "last_time_display": "2026-09-03 06:42:02",
-      "age": "3 分钟前",
+      "age": "33 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,8 +201,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-03T06:43:06.339276+08:00",
-      "last_time_display": "2026-09-03 06:43:06",
+      "last_time": "2026-09-03T07:13:07.145339+08:00",
+      "last_time_display": "2026-09-03 07:13:07",
       "age": "2 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -435,8 +435,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-09-03T06:15:48+08:00",
-      "last_time_display": "2026-09-03 06:15:48",
+      "last_time": "2026-09-03T06:45:57+08:00",
+      "last_time_display": "2026-09-03 06:45:57",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -486,6 +486,15 @@
       "level": "error",
       "level_label": "异常",
       "source": "X 全网搜索热点",
+      "message": "状态文件记录失败：需要查看本地面板或日报",
+      "issue_location": "状态文件记录失败",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    },
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "X 单用户股票监控",
       "message": "状态文件记录失败：需要查看本地面板或日报",
       "issue_location": "状态文件记录失败",
       "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
