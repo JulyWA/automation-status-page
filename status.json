@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-09T01:17:15.029009+08:00",
-  "generated_at_display": "2026-09-09 01:17:15",
+  "generated_at": "2026-09-09T01:47:24.148222+08:00",
+  "generated_at_display": "2026-09-09 01:47:24",
   "counts": {
-    "ok": 33,
-    "error": 0,
+    "ok": 32,
+    "error": 1,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
@@ -12,7 +12,7 @@
   },
   "kpis": {
     "task_total": 34,
-    "attention_count": 0,
+    "attention_count": 1,
     "today_executed": 7,
     "future_waiting": 0,
     "success_rate_24h": 1.0,
@@ -73,7 +73,7 @@
       "schedule": "weekdays 18:30",
       "last_time": "2026-09-08T18:30:03+08:00",
       "last_time_display": "2026-09-08 18:30:03",
-      "age": "6 小时前",
+      "age": "7 小时前",
       "brief": "本地密文刷新正常",
       "issue_location": "",
       "needs_attention": false
@@ -125,7 +125,7 @@
       "schedule": "daily 09:30",
       "last_time": "2026-09-08T09:30:58+08:00",
       "last_time_display": "2026-09-08 09:30:58",
-      "age": "15 小时前",
+      "age": "16 小时前",
       "brief": "当前正常；最近一次失败 2026-08-04 09:30:02",
       "issue_location": "",
       "needs_attention": false
@@ -162,9 +162,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-09-09T00:24:15.576028+08:00",
-      "last_time_display": "2026-09-09 00:24:15",
-      "age": "52 分钟前",
+      "last_time": "2026-09-09T01:24:41.776549+08:00",
+      "last_time_display": "2026-09-09 01:24:41",
+      "age": "22 分钟前",
       "brief": "当前正常；最近一次失败 2026-09-07 07:22:45",
       "issue_location": "",
       "needs_attention": false
@@ -175,9 +175,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T01:12:16.585571+08:00",
-      "last_time_display": "2026-09-09 01:12:16",
-      "age": "4 分钟前",
+      "last_time": "2026-09-09T01:47:17.595633+08:00",
+      "last_time_display": "2026-09-09 01:47:17",
+      "age": "6 秒前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -188,9 +188,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-09-09T00:20:43.583059+08:00",
-      "last_time_display": "2026-09-09 00:20:43",
-      "age": "56 分钟前",
+      "last_time": "2026-09-09T01:20:46.577059+08:00",
+      "last_time_display": "2026-09-09 01:20:46",
+      "age": "26 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,9 +201,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T01:12:16.585556+08:00",
-      "last_time_display": "2026-09-09 01:12:16",
-      "age": "4 分钟前",
+      "last_time": "2026-09-09T01:47:17.595620+08:00",
+      "last_time_display": "2026-09-09 01:47:17",
+      "age": "6 秒前",
       "brief": "周期检查正常",
       "issue_location": "",
       "needs_attention": false
@@ -214,9 +214,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-09-09T00:21:14.076006+08:00",
-      "last_time_display": "2026-09-09 00:21:14",
-      "age": "56 分钟前",
+      "last_time": "2026-09-09T01:21:16.987752+08:00",
+      "last_time_display": "2026-09-09 01:21:16",
+      "age": "26 分钟前",
       "brief": "当前正常；最近一次失败 2026-09-08 06:59:43",
       "issue_location": "",
       "needs_attention": false
@@ -227,8 +227,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T01:14:51.584470+08:00",
-      "last_time_display": "2026-09-09 01:14:51",
+      "last_time": "2026-09-09T01:44:52.386890+08:00",
+      "last_time_display": "2026-09-09 01:44:52",
       "age": "2 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -237,15 +237,15 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "ok",
-      "status_label": "正常",
+      "status": "error",
+      "status_label": "异常",
       "schedule": "every 60 min",
       "last_time": "",
       "last_time_display": "周期运行",
       "age": "每 60 分钟",
-      "brief": "周期检查正常",
-      "issue_location": "",
-      "needs_attention": false
+      "brief": "需要查看本地面板或日报",
+      "issue_location": "launchd 退出码",
+      "needs_attention": true
     },
     {
       "name": "RootData 周提醒",
@@ -255,7 +255,7 @@
       "schedule": "Monday 08:35",
       "last_time": "2026-09-07T08:35:03+08:00",
       "last_time_display": "2026-09-07 08:35:03",
-      "age": "40 小时前",
+      "age": "41 小时前",
       "brief": "当前正常；最近一次失败 2026-06-29 08:35:04",
       "issue_location": "",
       "needs_attention": false
@@ -268,7 +268,7 @@
       "schedule": "Monday 08:40",
       "last_time": "2026-09-08T09:41:24+08:00",
       "last_time_display": "2026-09-08 09:41:24",
-      "age": "15 小时前",
+      "age": "16 小时前",
       "brief": "当前正常；最近一次失败 2026-09-07 08:40:02",
       "issue_location": "",
       "needs_attention": false
@@ -281,7 +281,7 @@
       "schedule": "Monday 08:45",
       "last_time": "2026-09-07T08:45:52+08:00",
       "last_time_display": "2026-09-07 08:45:52",
-      "age": "40 小时前",
+      "age": "41 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -372,7 +372,7 @@
       "schedule": "Sunday 12:30",
       "last_time": "2026-09-08T09:36:51+08:00",
       "last_time_display": "2026-09-08 09:36:51",
-      "age": "15 小时前",
+      "age": "16 小时前",
       "brief": "当前正常；最近一次失败 2026-09-06 12:30:04",
       "issue_location": "",
       "needs_attention": false
@@ -474,8 +474,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-09-09T00:47:14+08:00",
-      "last_time_display": "2026-09-09 00:47:14",
+      "last_time": "2026-09-09T01:17:23+08:00",
+      "last_time_display": "2026-09-09 01:17:23",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
@@ -483,6 +483,16 @@
     }
   ],
   "events": [],
-  "attention": [],
+  "attention": [
+    {
+      "level": "error",
+      "level_label": "异常",
+      "source": "自动化任务",
+      "message": "launchd 退出码：需要查看本地面板或日报",
+      "issue_location": "launchd 退出码",
+      "diagnosis": "自检已读取 launchd 状态和任务状态文件，当前任务命中了异常或待确认规则。",
+      "next_step": "点击对应任务卡片查看调度、最近记录和问题位置；本地可进一步查看 run_task 状态文件与日志。"
+    }
+  ],
   "history": []
 }
