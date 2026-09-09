@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-09-09T17:53:42.456361+08:00",
-  "generated_at_display": "2026-09-09 17:53:42",
+  "generated_at": "2026-09-09T18:23:53.697068+08:00",
+  "generated_at_display": "2026-09-09 18:23:53",
   "counts": {
     "ok": 33,
     "error": 0,
     "degraded": 0,
     "pending": 0,
     "paused": 1,
-    "events_error": 1,
+    "events_error": 0,
     "events_info": 0
   },
   "kpis": {
     "task_total": 34,
-    "attention_count": 1,
-    "today_executed": 12,
+    "attention_count": 0,
+    "today_executed": 13,
     "future_waiting": 0,
     "success_rate_24h": 1.0,
     "attempts_24h": 14
@@ -58,9 +58,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "weekdays 18:05",
-      "last_time": "2026-09-08T18:05:08+08:00",
-      "last_time_display": "2026-09-08 18:05:08",
-      "age": "23 小时前",
+      "last_time": "2026-09-09T18:05:08+08:00",
+      "last_time_display": "2026-09-09 18:05:08",
+      "age": "18 分钟前",
       "brief": "配置与状态备份已完成",
       "issue_location": "",
       "needs_attention": false
@@ -86,7 +86,7 @@
       "schedule": "weekly Wed 10:00",
       "last_time": "2026-09-09T10:00:05+08:00",
       "last_time_display": "2026-09-09 10:00:05",
-      "age": "7 小时前",
+      "age": "8 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -112,7 +112,7 @@
       "schedule": "weekdays 08:55",
       "last_time": "2026-09-09T08:55:36+08:00",
       "last_time_display": "2026-09-09 08:55:36",
-      "age": "8 小时前",
+      "age": "9 小时前",
       "brief": "当前正常；最近一次失败 2026-09-07 08:55:04",
       "issue_location": "",
       "needs_attention": false
@@ -138,7 +138,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-09-09T08:12:34.076328+08:00",
       "last_time_display": "2026-09-09 08:12:34",
-      "age": "9 小时前",
+      "age": "10 小时前",
       "brief": "X 全网搜索日报已生成",
       "issue_location": "",
       "needs_attention": false
@@ -164,7 +164,7 @@
       "schedule": "every 60 min",
       "last_time": "2026-09-09T17:26:28.481008+08:00",
       "last_time_display": "2026-09-09 17:26:28",
-      "age": "27 分钟前",
+      "age": "57 分钟前",
       "brief": "当前正常；最近一次失败 2026-09-07 07:22:45",
       "issue_location": "",
       "needs_attention": false
@@ -175,9 +175,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T17:52:49.162519+08:00",
-      "last_time_display": "2026-09-09 17:52:49",
-      "age": "53 秒前",
+      "last_time": "2026-09-09T18:22:49.916872+08:00",
+      "last_time_display": "2026-09-09 18:22:49",
+      "age": "1 分钟前",
       "brief": "X 单用户监控巡检正常",
       "issue_location": "",
       "needs_attention": false
@@ -188,9 +188,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-09-09T17:21:33.515868+08:00",
-      "last_time_display": "2026-09-09 17:21:33",
-      "age": "32 分钟前",
+      "last_time": "2026-09-09T18:21:36.430628+08:00",
+      "last_time_display": "2026-09-09 18:21:36",
+      "age": "2 分钟前",
       "brief": "当前正常；最近一次失败 2026-08-23 07:27:21",
       "issue_location": "",
       "needs_attention": false
@@ -201,9 +201,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T17:52:49.162501+08:00",
-      "last_time_display": "2026-09-09 17:52:49",
-      "age": "53 秒前",
+      "last_time": "2026-09-09T18:22:49.916904+08:00",
+      "last_time_display": "2026-09-09 18:22:49",
+      "age": "1 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
       "needs_attention": false
@@ -214,9 +214,9 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 60 min",
-      "last_time": "2026-09-09T17:22:08.414984+08:00",
-      "last_time_display": "2026-09-09 17:22:08",
-      "age": "31 分钟前",
+      "last_time": "2026-09-09T18:22:11.581216+08:00",
+      "last_time_display": "2026-09-09 18:22:11",
+      "age": "1 分钟前",
       "brief": "当前正常；最近一次失败 2026-09-08 06:59:43",
       "issue_location": "",
       "needs_attention": false
@@ -227,8 +227,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 5 min",
-      "last_time": "2026-09-09T17:50:21.269219+08:00",
-      "last_time_display": "2026-09-09 17:50:21",
+      "last_time": "2026-09-09T18:20:22.002588+08:00",
+      "last_time_display": "2026-09-09 18:20:22",
       "age": "3 分钟前",
       "brief": "周期检查正常",
       "issue_location": "",
@@ -474,35 +474,15 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-09-09T17:23:42+08:00",
-      "last_time_display": "2026-09-09 17:23:42",
+      "last_time": "2026-09-09T17:53:53+08:00",
+      "last_time_display": "2026-09-09 17:53:53",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
       "needs_attention": false
     }
   ],
-  "events": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "GitHub 配置备份",
-      "message": "工作区存在未提交变更",
-      "issue_location": "Git 工作区",
-      "diagnosis": "自检发现同步窗口已过但工作区仍有未提交变更，通常是导出、提交或推送链路没有完成。",
-      "next_step": "检查周同步脚本的导出、commit、push 三段日志，确认目标仓库和 token 权限。"
-    }
-  ],
-  "attention": [
-    {
-      "level": "error",
-      "level_label": "异常",
-      "source": "GitHub 配置备份",
-      "message": "工作区存在未提交变更",
-      "issue_location": "Git 工作区",
-      "diagnosis": "自检发现同步窗口已过但工作区仍有未提交变更，通常是导出、提交或推送链路没有完成。",
-      "next_step": "检查周同步脚本的导出、commit、push 三段日志，确认目标仓库和 token 权限。"
-    }
-  ],
+  "events": [],
+  "attention": [],
   "history": []
 }
