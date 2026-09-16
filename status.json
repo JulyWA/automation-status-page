@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-16T15:57:38.539632+08:00",
-  "generated_at_display": "2026-09-16 15:57:38",
+  "generated_at": "2026-09-16T16:27:58.242562+08:00",
+  "generated_at_display": "2026-09-16 16:27:58",
   "counts": {
-    "ok": 28,
+    "ok": 27,
     "error": 1,
     "degraded": 0,
     "pending": 0,
-    "paused": 9,
+    "paused": 10,
     "events_error": 0,
     "events_info": 0
   },
@@ -15,8 +15,8 @@
     "attention_count": 1,
     "today_executed": 6,
     "future_waiting": 0,
-    "success_rate_24h": 0.6667,
-    "attempts_24h": 12
+    "success_rate_24h": 0.7778,
+    "attempts_24h": 9
   },
   "summary": {
     "lp_price": null,
@@ -60,7 +60,7 @@
       "schedule": "weekdays 18:05",
       "last_time": "2026-09-15T18:21:29+08:00",
       "last_time_display": "2026-09-15 18:21:29",
-      "age": "21 小时前",
+      "age": "22 小时前",
       "brief": "配置与状态备份已完成",
       "issue_location": "",
       "needs_attention": false
@@ -86,7 +86,7 @@
       "schedule": "weekly Wed 10:00",
       "last_time": "2026-09-16T10:00:08+08:00",
       "last_time_display": "2026-09-16 10:00:08",
-      "age": "5 小时前",
+      "age": "6 小时前",
       "brief": "运行正常",
       "issue_location": "",
       "needs_attention": false
@@ -138,7 +138,7 @@
       "schedule": "weekdays 08:05",
       "last_time": "2026-09-16T08:13:06.161633+08:00",
       "last_time_display": "2026-09-16 08:13:06",
-      "age": "7 小时前",
+      "age": "8 小时前",
       "brief": "X 全网搜索日报已生成",
       "issue_location": "",
       "needs_attention": false
@@ -177,7 +177,7 @@
       "schedule": "every 5 min (已退役)",
       "last_time": "2026-09-15T16:12:32.613827+08:00",
       "last_time_display": "2026-09-15 16:12:32",
-      "age": "23 小时前",
+      "age": "24 小时前",
       "brief": "按批复保留退路，当前暂停监管",
       "issue_location": "",
       "needs_attention": false
@@ -203,7 +203,7 @@
       "schedule": "every 5 min (已退役)",
       "last_time": "2026-09-15T16:12:32.613812+08:00",
       "last_time_display": "2026-09-15 16:12:32",
-      "age": "23 小时前",
+      "age": "24 小时前",
       "brief": "按批复保留退路，当前暂停监管",
       "issue_location": "",
       "needs_attention": false
@@ -229,7 +229,7 @@
       "schedule": "every 5 min (已退役)",
       "last_time": "2026-09-15T16:14:30.293300+08:00",
       "last_time_display": "2026-09-15 16:14:30",
-      "age": "23 小时前",
+      "age": "24 小时前",
       "brief": "按批复保留退路，当前暂停监管",
       "issue_location": "",
       "needs_attention": false
@@ -289,13 +289,13 @@
     {
       "name": "自动化任务",
       "group": "其他",
-      "status": "ok",
-      "status_label": "正常",
-      "schedule": "hourly :07",
-      "last_time": "2026-09-16T15:08:21+08:00",
-      "last_time_display": "2026-09-16 15:08:21",
-      "age": "49 分钟前",
-      "brief": "运行正常",
+      "status": "paused",
+      "status_label": "已暂停",
+      "schedule": "hourly :07 (暂停)",
+      "last_time": "2026-09-16T16:08:25+08:00",
+      "last_time_display": "2026-09-16 16:08:25",
+      "age": "19 分钟前",
+      "brief": "按批复保留退路，当前暂停监管",
       "issue_location": "",
       "needs_attention": false
     },
@@ -526,8 +526,8 @@
       "status": "ok",
       "status_label": "正常",
       "schedule": "every 30 min if changed",
-      "last_time": "2026-09-16T15:27:38+08:00",
-      "last_time_display": "2026-09-16 15:27:38",
+      "last_time": "2026-09-16T15:57:58+08:00",
+      "last_time_display": "2026-09-16 15:57:58",
       "age": "30 分钟前",
       "brief": "当前正常；最近一次失败 2026-05-25 17:03:13",
       "issue_location": "",
