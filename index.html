@@ -1,58 +1,918 @@
 <!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="1800"><meta name="robots" content="noindex,nofollow"><title>多机工作台</title><style>
-/* 2026-10-23 第六版配色：按 July 给的参考页（beastofreincarnation.online/ops）取的实际计算样式——灰绿底、白卡、薄荷高亮、深青字 */
-:root{--bg:#EDF3F2;--panel:#F8FBFA;--card:#FFFFFF;--fg:#193A35;--sub:#687F79;--label:#526E68;--num:#155D50;--line:#D3E1DE;--line2:#E4EEEB;
---mint:#E0F1EB;--acc:#2E7D6B;--acc-bg:#E0F1EB;--shadow:0 2px 8px rgba(21,55,45,.05);
---ok:#286C49;--ok-bg:#E6F3E9;--err:#A23F3C;--err-bg:#FBECEA;--warn:#9A6A12;--warn-bg:#FBF1DE;--info:#2B5C8A;--info-bg:#E5EEF7;--unk:#6A4FA0;--unk-bg:#EFEAF8;--mute-bg:#EEF3F1}
-@media (prefers-color-scheme:dark){:root{--bg:#101816;--panel:#16201E;--card:#1C2826;--fg:#DCE8E5;--sub:#8FA6A0;--label:#9DB3AD;--num:#7FD1B9;--line:#2A3936;--line2:#24312E;
---mint:#1D3A33;--acc:#7FD1B9;--acc-bg:#1D3A33;--shadow:none;
---ok:#7FD39D;--ok-bg:#183326;--err:#F0928D;--err-bg:#3B1E1C;--warn:#E8BE6A;--warn-bg:#3A2E14;--info:#8DB8E8;--info-bg:#1B2A3D;--unk:#BCA8EE;--unk-bg:#2A2340;--mute-bg:#22302D}}
-*{box-sizing:border-box} html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
-main{max-width:1440px;margin:0 auto;padding:0 28px 48px}
-.sub{color:var(--sub);font-size:12px} .err-t{color:var(--err)} .stale{color:var(--err);font-weight:700} b{font-weight:700} a{color:inherit;text-decoration:none}
+/* 2026-10-23 第七版：ChatGPT（Codex gpt-6.1-sol）按参考页风格出稿，Claude 审过合入 */
+/* 灰绿工作台：突出数字与待处理，收敛普通内容的视觉重量 */
+:root {
+  color-scheme: light;
+
+  --bg: #EDF3F2;
+  --panel: #F8FBFA;
+  --card: #FFFFFF;
+  --fg: #193A35;
+  --sub: #627A74;
+  --label: #526E68;
+  --num: #155D50;
+  --line: #D3E1DE;
+  --line2: #E4EEEB;
+
+  --mint: #E0F1EB;
+  --acc: #2E7D6B;
+  --acc-bg: #E0F1EB;
+  --shadow: 0 2px 8px rgba(21, 55, 45, .035);
+
+  --ok: #286C49;
+  --ok-bg: #E6F3E9;
+  --err: #A23F3C;
+  --err-bg: #FBECEA;
+  --warn: #875C13;
+  --warn-bg: #FBF1DE;
+  --info: #2B5C8A;
+  --info-bg: #E5EEF7;
+  --unk: #6A4FA0;
+  --unk-bg: #EFEAF8;
+  --mute-bg: #EEF3F1;
+
+  --err-line: #E7C4BF;
+  --warn-line: #E8D6AF;
+  --warn-surface: #FFFAF0;
+  --live-line: #94B9AC;
+  --focus: #2E7D6B;
+  --hover-line: #A9C5BC;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: #101816;
+    --panel: #16201E;
+    --card: #1C2826;
+    --fg: #DCE8E5;
+    --sub: #9AB0AA;
+    --label: #A6BCB5;
+    --num: #7FD1B9;
+    --line: #30413C;
+    --line2: #293934;
+
+    --mint: #1D3A33;
+    --acc: #7FD1B9;
+    --acc-bg: #1D3A33;
+    --shadow: none;
+
+    --ok: #7FD39D;
+    --ok-bg: #183326;
+    --err: #F0928D;
+    --err-bg: #3B1E1C;
+    --warn: #E8BE6A;
+    --warn-bg: #3A2E14;
+    --info: #8DB8E8;
+    --info-bg: #1B2A3D;
+    --unk: #BCA8EE;
+    --unk-bg: #2A2340;
+    --mute-bg: #22302D;
+
+    --err-line: #704541;
+    --warn-line: #665332;
+    --warn-surface: #292419;
+    --live-line: #467568;
+    --focus: #7FD1B9;
+    --hover-line: #527D70;
+  }
+}
+
+/* 基础排版 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+}
+
+main {
+  width: 100%;
+  max-width: 1360px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0 28px 48px;
+}
+
+.sub {
+  color: var(--sub);
+  font-size: 12px;
+}
+
+.err-t {
+  color: var(--err);
+}
+
+.stale {
+  color: var(--err);
+  font-weight: 700;
+}
+
+b {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
 /* 顶栏 */
-.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:26px 0 18px}
-h1{font-size:26px;margin:0;font-weight:800;letter-spacing:-.2px} .upd{color:var(--sub);font-size:13px}
-/* 大数字：一整条白底，内部竖线分隔，有数的格子薄荷高亮 */
-.tiles{display:grid;grid-template-columns:repeat(6,1fr);background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:20px}
-.tile{display:block;padding:16px 18px;min-width:0;border-left:1px solid var(--line2)} .tile:first-child{border-left:0}
-.tile .k{font-size:12px;font-weight:600;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile .v{font-size:30px;font-weight:750;line-height:1.2;color:var(--num);font-variant-numeric:tabular-nums;margin-top:4px} .tile .v small{font-size:14px;color:var(--sub);font-weight:500}
-.tile.ok{background:var(--mint)} .tile.err{background:var(--err-bg)} .tile.err .v{color:var(--err)} .tile.warn{background:var(--warn-bg)} .tile.warn .v{color:var(--warn)}
-@media (max-width:900px){.tiles{grid-template-columns:repeat(3,1fr)} .tile:nth-child(4){border-left:0} .tile:nth-child(n+4){border-top:1px solid var(--line2)}}
-/* 分区面板 */
-section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 18px;box-shadow:var(--shadow)}
-section>h2,details.sec>summary{font-size:16px;font-weight:750;margin:0}
-section>h2{margin:0 0 14px;display:flex;align-items:baseline;gap:10px} section>h2 span{font-size:12px;color:var(--sub);font-weight:400}
-details.sec>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px} details.sec>summary::-webkit-details-marker{display:none}
-details.sec>summary::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--sub);border-bottom:1.5px solid var(--sub);transform:rotate(-45deg);transition:transform .15s;flex:none;margin-right:2px;position:relative;top:-2px}
-details.sec[open]>summary::before{transform:rotate(45deg)} details.sec>summary span{font-size:12px;color:var(--sub);font-weight:400} details.sec[open]>summary{margin-bottom:14px}
-/* 待处理横幅 */
-.banner{background:var(--warn-bg);border-color:#EED9B0} .banner h2{color:var(--warn)}
-.act{padding:10px 0;border-top:1px solid rgba(0,0,0,.06)} .act:first-of-type{border-top:0;padding-top:0} .act .t{font-weight:750}
-.kv{display:grid;grid-template-columns:max-content 1fr;gap:2px 12px;margin:6px 0 0;font-size:13px} .kv dt{color:var(--sub)} .kv dd{margin:0}
-/* 卡片网格：白卡、细边、12 圆角 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.c{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:14px;min-width:0}
-.c .h{display:flex;justify-content:space-between;align-items:flex-start;gap:8px} .c .t{font-weight:750;line-height:1.4} .c .m{color:var(--sub);font-size:12px;margin-top:2px}
-.c .l{font-size:12px;margin-top:8px;color:var(--sub);overflow-wrap:anywhere} .c .l b{color:var(--fg)}
-.c.err{border-color:#EBC3BF} .c.warn{border-color:#EED9B0} .c.mute{opacity:.7}
-.c.live{border:1.5px solid var(--acc)}
-.chip{display:inline-block;white-space:nowrap;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;background:var(--mute-bg);color:var(--sub);line-height:1.5;flex:none}
-.chip.ok{background:var(--ok-bg);color:var(--ok)} .chip.err{background:var(--err-bg);color:var(--err)} .chip.warn{background:var(--warn-bg);color:var(--warn)} .chip.info{background:var(--info-bg);color:var(--info)} .chip.unk{background:var(--unk-bg);color:var(--unk)}
-.tag{display:inline-block;font-size:11px;font-weight:600;padding:0 7px;border-radius:999px;background:var(--mint);color:var(--acc);margin-left:6px;vertical-align:1px}
-.stats{display:flex;gap:14px;margin-top:10px;font-size:12px;color:var(--sub)} .stats b{color:var(--fg);font-size:14px;margin-right:3px;font-variant-numeric:tabular-nums} .stats .bad,.stats .bad b{color:var(--err)}
+.top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+  padding: 30px 0 20px;
+}
+
+h1 {
+  min-width: 0;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -.4px;
+}
+
+.upd {
+  min-width: 0;
+  margin-left: auto;
+  color: var(--sub);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 顶部数字：整条白底，状态只在对应格子强调 */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.tile {
+  display: block;
+  min-width: 0;
+  padding: 18px 20px 17px;
+  border-left: 1px solid var(--line2);
+  transition: box-shadow .15s ease;
+}
+
+.tile:first-child {
+  border-left: 0;
+}
+
+.tile .k {
+  overflow: hidden;
+  color: var(--label);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tile .v {
+  margin-top: 7px;
+  color: var(--num);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.6px;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.tile .v small {
+  margin-left: 3px;
+  color: var(--sub);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.tile.ok {
+  background: var(--mint);
+}
+
+.tile.err {
+  background: var(--err-bg);
+}
+
+.tile.err .v {
+  color: var(--err);
+}
+
+.tile.warn {
+  background: var(--warn-bg);
+}
+
+.tile.warn .v {
+  color: var(--warn);
+}
+
+.tile.err .k {
+  color: var(--err);
+}
+
+.tile.warn .k {
+  color: var(--warn);
+}
+
+.tile:focus-visible {
+  outline-offset: -3px;
+}
+
+/* 分区：闭合时保持紧凑摘要，展开后容纳完整内容 */
+section {
+  min-width: 0;
+  margin: 0 0 14px;
+  padding: 16px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  scroll-margin-top: 20px;
+}
+
+section > h2,
+details.sec > summary {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+section > h2 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0 0 14px;
+}
+
+section > h2 span {
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+details.sec {
+  min-width: 0;
+}
+
+details.sec > summary {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 26px;
+  list-style: none;
+  cursor: pointer;
+}
+
+details.sec > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.sec > summary::before {
+  position: relative;
+  top: -2px;
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  border-right: 1.5px solid var(--sub);
+  border-bottom: 1.5px solid var(--sub);
+  content: "";
+  transform: rotate(-45deg);
+  transition: transform .15s ease;
+}
+
+details.sec[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+details.sec > summary > b {
+  flex: none;
+}
+
+details.sec > summary span {
+  flex: 1;
+  min-width: 0;
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+details.sec[open] > summary {
+  margin-bottom: 16px;
+}
+
+/* 待处理：浅琥珀底与侧边线形成第一处理入口 */
+.banner {
+  padding: 18px 20px;
+  background: var(--warn-surface);
+  border-color: var(--warn-line);
+  border-inline-start: 3px solid var(--warn);
+}
+
+.banner h2 {
+  color: var(--warn);
+}
+
+.banner h2 > span {
+  padding: 1px 8px;
+  background: var(--warn-bg);
+  border-radius: 999px;
+  color: var(--warn);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.act {
+  min-width: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--warn-line);
+}
+
+.act:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.act:last-child {
+  padding-bottom: 0;
+}
+
+.act .t {
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px 14px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.kv dt {
+  color: var(--sub);
+}
+
+.kv dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* 卡片：白底、细边、12px 圆角 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 260px), 1fr)
+  );
+  gap: 12px;
+  min-width: 0;
+}
+
+.c {
+  min-width: 0;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+}
+
+.c .h {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.c .h > :first-child:not(.chip) {
+  flex: 1;
+  min-width: 0;
+}
+
+.c .t {
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.c .m {
+  margin-top: 4px;
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.c .l {
+  margin-top: 9px;
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.c .l b {
+  color: var(--fg);
+}
+
+.c .l.err-t {
+  color: var(--err);
+}
+
+.c.err {
+  border-color: var(--err-line);
+}
+
+.c.warn {
+  border-color: var(--warn-line);
+}
+
+.c.mute {
+  opacity: 1;
+  background: var(--mute-bg);
+}
+
+.c.mute .t {
+  color: var(--sub);
+}
+
+.c.live {
+  border: 1px solid var(--live-line);
+}
+
+/* 状态胶囊：保留红、琥珀、绿、蓝、紫的语义 */
+.chip {
+  display: inline-block;
+  flex: none;
+  max-width: 100%;
+  padding: 2px 8px;
+  overflow: hidden;
+  background: var(--mute-bg);
+  border-radius: 999px;
+  color: var(--sub);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.65;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.chip.ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.chip.err {
+  background: var(--err-bg);
+  color: var(--err);
+}
+
+.chip.warn {
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+
+.chip.info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.chip.unk {
+  background: var(--unk-bg);
+  color: var(--unk);
+}
+
+.chip.mute {
+  background: var(--mute-bg);
+  color: var(--sub);
+}
+
+.c.mute .chip.mute {
+  background: var(--panel);
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 7px;
+  background: var(--mint);
+  border-radius: 999px;
+  color: var(--acc);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.7;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 16px;
+  margin-top: 12px;
+  color: var(--sub);
+  font-size: 12px;
+}
+
+.stats b {
+  margin-right: 4px;
+  color: var(--fg);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats .bad,
+.stats .bad b {
+  color: var(--err);
+}
+
 /* 任务分组 */
-.agentgrp{margin-top:18px} .agentgrp:first-of-type{margin-top:0} .agentgrp>h3{font-size:14px;font-weight:750;margin:0 0 10px;display:flex;align-items:baseline;gap:8px} .agentgrp>h3 span{font-size:12px;color:var(--sub);font-weight:400}
+.agentgrp {
+  min-width: 0;
+  margin-top: 22px;
+}
+
+.agentgrp:first-of-type {
+  margin-top: 0;
+}
+
+.agentgrp > h3 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.agentgrp > h3 span {
+  min-width: 0;
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 400;
+}
+
 /* 进度条 */
-.prog{display:flex;align-items:center;gap:10px;margin:10px 0 2px} .bar{flex:1;height:6px;background:var(--mute-bg);border-radius:999px;overflow:hidden} .bar i{display:block;height:100%;background:var(--acc);border-radius:999px} .pn{font-size:12px;color:var(--sub);white-space:nowrap}
-/* 折叠与列表 */
-details.inl>summary{cursor:pointer;color:var(--sub);font-size:12px;margin-top:10px;list-style:none} details.inl>summary::-webkit-details-marker{display:none} details.inl>summary::before{content:"▸ ";font-size:11px} details.inl[open]>summary::before{content:"▾ "}
-.list{list-style:none;margin:8px 0 0;padding:0;background:var(--card);border:1px solid var(--line2);border-radius:12px;overflow:hidden}
-.row{display:flex;align-items:flex-start;gap:12px;padding:9px 14px;border-top:1px solid var(--line2)} .row:first-child{border-top:0}
-.row .name{flex:1;min-width:0;overflow-wrap:anywhere} .row .name .sub{display:block} .row .time{font-variant-numeric:tabular-nums;color:var(--sub);width:46px;flex:none;font-size:12px;padding-top:1px}
-.row.done .name{color:var(--sub)} .row.next{background:var(--mint)} .row.next .name{color:var(--num);font-weight:600} .row.bad{background:var(--err-bg)} .row.bad .name{color:var(--err)}
-.nodes .row{align-items:center} .nodes .avatar{width:28px;height:28px;border-radius:8px;background:var(--mint);color:var(--acc);font-weight:750;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
-.nodes .err .avatar{background:var(--err-bg);color:var(--err)}
-code{font-size:12px} footer{color:var(--sub);font-size:12px;margin-top:28px;text-align:center}
-</style></head><body><main><div class="top"><h1>多机工作台 · 运行状态</h1><span class="upd">数据时间 <span id="gen" data-ts="2026-10-23T16:32:31+08:00">10-23 16:32</span>（<span id="age"></span>）</span></div><div class="tiles"><a class="tile warn" href="#pending"><div class="k">待处理</div><div class="v">1<small></small></div></a><a class="tile " href="#nodes"><div class="k">失联</div><div class="v">0<small>/3</small></div></a><a class="tile " href="#today"><div class="k">今日失败</div><div class="v">0<small></small></div></a><a class="tile " href="#today"><div class="k">今日完成</div><div class="v">7<small>/12</small></div></a><a class="tile " href="#migration"><div class="k">迁移中</div><div class="v">3<small></small></div></a><a class="tile " href="#incidents"><div class="k">异常待恢复</div><div class="v">0<small></small></div></a></div><section class="banner" id="pending"><h2>待处理<span>1 件</span></h2><div class="act"><div class="t">1号 GitHub 配置备份 异常</div><dl class="kv"><dt>原因</dt><dd>工作区存在未提交变更。</dd><dt>处理办法</dt><dd>跟我说一声。</dd></dl></div></section><section id="agents"><details class="sec" ><summary><b>Agent</b><span>3 可用 · Claude 第二账号 待登录</span></summary><div class="grid"><div class="c live"><div class="h"><div><div class="t">Claude<span class="tag">1号</span></div><div class="m">1 号主电脑 · 2.1.305</div></div><span class="chip ok">可用</span></div><div class="l">登录态正常（16:10 探测）</div><div class=l>本周额度已用 7%，10-30 重置</div><div class="stats"><span><b>9</b>任务</span><span><b>5</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c "><div class="h"><div><div class="t">ChatGPT<span class="tag">1号</span></div><div class="m">1 号主电脑 · codex-cli</div></div><span class="chip ok">可用</span></div><div class="l">已登录（本地凭据）</div><div class="stats"><span><b>1</b>任务</span><span><b>0</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c live"><div class="h"><div><div class="t">Antigravity<span class="tag">2号</span></div><div class="m">2 号 · 1.4.6</div></div><span class="chip ok">可用</span></div><div class="l">最近真实调用成功（10-23 16:11）</div><div class="stats"><span><b>1</b>任务</span><span><b>1</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c "><div class="h"><div><div class="t">Claude 第二账号<span class="tag">3号</span></div><div class="m">3 号</div></div><span class="chip info">待登录</span></div><div class="l">第二个 Claude 账号还没装、没登录（迁 Claude 任务时再做）</div></div></div></details></section><section id="tasks"><details class="sec" ><summary><b>定时任务</b><span>61 个全部正常或暂停 · 按 Agent 分组</span></summary><div class="agentgrp"><h3>Claude 的任务<span>9 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">Claude 用量探测</div><span class="chip ok">正常</span></div><div class="m">每周五 04:50 05:10</div><div class="l">上次 11 小时前 · 下次 10-30 04:50</div></div><div class="c "><div class="h"><div class="t">Claude 登录态检查</div><span class="chip ok">正常</span></div><div class="m">每天 07:50</div><div class="l">上次 21 分钟前 · 下次 明天 07:50</div><div class="l">claude auth healthy (attempt 1/3): pong，在线。</div></div><div class="c "><div class="h"><div class="t">Claude 阶段工作汇报</div><span class="chip ok">正常</span></div><div class="m">每天 13:00 18:00</div><div class="l">上次 3 小时前 · 下次 今天 18:00</div></div><div class="c "><div class="h"><div class="t">候选项目 周报</div><span class="chip ok">正常</span></div><div class="m">周一 08:40</div><div class="l">上次 4 天前 · 下次 周一 08:40</div></div><div class="c "><div class="h"><div class="t">热点搜索</div><span class="chip ok">正常</span></div><div class="m">工作日 08:05</div><div class="l">上次 8 小时前 · 下次 周一 08:05</div></div><div class="c mute"><div class="h"><div class="t">市场简报</div><span class="chip mute">暂停</span></div><div class="m">工作日 08:55</div><div class="l">上次 7 小时前</div><div class="l">2026-10-23 负责人 定切到 2 号 agy 版；1 号 Claude 版 plist 原地保留+disabled 作退路，恢复=launchctl enable+bootstrap 并删本行 paused</div></div><div class="c "><div class="h"><div class="t">每周安全检查</div><span class="chip ok">正常</span></div><div class="m">周日 12:30</div><div class="l">上次 5 天前 · 下次 周日 12:30</div></div><div class="c "><div class="h"><div class="t">项目跟踪日报</div><span class="chip ok">正常</span></div><div class="m">工作日 07:50</div><div class="l">上次 8 小时前 · 下次 周一 07:50</div></div><div class="c "><div class="h"><div class="t">飞书机器人</div><span class="chip ok">正常</span></div><div class="m">常驻</div><div class="l">还没跑过</div></div></div></div><div class="agentgrp"><h3>ChatGPT 的任务<span>1 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">社媒账号监控</div><span class="chip ok">正常</span></div><div class="m">每 5 分钟</div><div class="l">还没跑过</div></div></div></div><div class="agentgrp"><h3>Antigravity 的任务<span>1 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">市场简报（2 号）</div><span class="chip ok">正常</span></div><div class="m">工作日 08:55</div><div class="l">上次 21 分钟前 · 下次 周一 08:55</div><div class="l">{&quot;StatusCode&quot;:0,&quot;StatusMessage&quot;:&quot;success&quot;,&quot;code&quot;:0,&quot;data&quot;:{},&quot;msg&quot;:&quot;success&quot;} | briefing pushed (47s)</div></div></div></div><div class="agentgrp"><h3>稳定脚本<span>不用 AI 的 50 个，默认只显示需关注的 0 个</span></h3><div class="sub">全部正常或暂停。</div><details class="inl"><summary>全部 50 个（50 个正常或暂停）</summary><ul class="list"><li class="row"><span class="name">协议 C 周报<span class="tag">1号</span><span class="sub">周一 10:40 · 上次 4 天前 · 下次 周一 10:40</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">GitHub Token 到期检查<span class="tag">1号</span><span class="sub">每周三 10:00 · 上次 2 天前 · 下次 周三 10:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">GitHub 配置备份<span class="tag">1号</span><span class="sub">工作日 18:05 · 上次 5 小时前 · 下次 今天 18:05</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">Agent 网关<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 E 周报<span class="tag">1号</span><span class="sub">周一 11:00 · 上次 4 天前 · 下次 周一 11:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 E 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 研究归档检查<span class="tag">1号</span><span class="sub">每天 21:30 · 上次 19 小时前 · 下次 今天 21:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 F 周报<span class="tag">1号</span><span class="sub">周一 11:10 · 上次 4 天前 · 下次 周一 11:10</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 D 周报<span class="tag">1号</span><span class="sub">周一 10:50 · 上次 4 天前 · 下次 周一 10:50</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议汇总周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 B 周报<span class="tag">1号</span><span class="sub">周一 11:40 · 上次 4 天前 · 下次 周一 11:40</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 H 周报<span class="tag">1号</span><span class="sub">周一 11:30 · 上次 4 天前 · 下次 周一 11:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 H 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">API 续费提醒<span class="tag">1号</span><span class="sub">每月 23 日 09:00 · 上次 7 小时前 · 下次 11-23 09:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 周报（旧）<span class="tag">1号</span><span class="sub">- · 上次 39 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 采集器<span class="tag">1号</span><span class="sub">每小时（暂停） · 上次 37 天前</span></span><span class="chip mute">暂停</span></li><li class="row"><span class="name">项目数据库 周提醒<span class="tag">1号</span><span class="sub">周一 08:35 · 上次 4 天前 · 下次 周一 08:35</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 G 周报<span class="tag">1号</span><span class="sub">周一 11:20 · 上次 4 天前 · 下次 周一 11:20</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 G 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 A LP 监控<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip mute">暂停</span></li><li class="row"><span class="name">协议 A 周报<span class="tag">1号</span><span class="sub">周一 10:30 · 上次 4 天前 · 下次 周一 10:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 A 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">热点搜索测试（旧）<span class="tag">1号</span><span class="sub">- · 上次 156 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">claude-work-summary-daily<span class="tag">1号</span><span class="sub">- · 上次 2 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">status-dashboard-public<span class="tag">1号</span><span class="sub">- · 上次 36 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">workbench-feishu<span class="tag">1号</span><span class="sub">- · 上次 6 小时前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">1号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">2号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">3号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">2号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">3号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议汇总周报<span class="tag">1号</span><span class="sub">周一 12:00 13:00 · 上次 4 天前 · 下次 周一 12:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">内存压力监控<span class="tag">1号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">团队 Skill 周更<span class="tag">1号</span><span class="sub">周日 11:30 · 上次 5 天前 · 下次 周日 11:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">链上交易监控（影子）<span class="tag">2号</span><span class="sub">- · 上次 37 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">链上交易监控<span class="tag">1号</span><span class="sub">每 60 分钟 · 上次 26 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台公开页发布<span class="tag">1号</span><span class="sub">每 30 分钟 · 上次 13 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">1号</span><span class="sub">每 5 分钟 · 上次 9 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">2号</span><span class="sub">每 5 分钟 · 上次 8 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">3号</span><span class="sub">每 5 分钟 · 上次 9 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台看板生成<span class="tag">1号</span><span class="sub">每 5 分钟 · 上次 7 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台网页服务<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">影子对比日报<span class="tag">1号</span><span class="sub">每天 19:00 · 上次 21 小时前 · 下次 今天 19:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">提醒调度<span class="tag">1号</span><span class="sub">调度器（周一 08:35 / 周三 10:00 / 每月 23 日 09:00）（周一 08:35 / 周三 10:00 / 每月 23 日 09:00） · 上次 7 小时前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">文档一致性周检<span class="tag">1号</span><span class="sub">每周日 10:30 · 上次 5 天前 · 下次 周日 10:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">本地密文刷新<span class="tag">1号</span><span class="sub">工作日 18:30 · 上次 22 小时前 · 下次 今天 18:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">每日监管日报<span class="tag">1号</span><span class="sub">每天 09:30（周一 13:30） · 上次 7 小时前 · 下次 明天 09:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">港股期权日报（旧）<span class="tag">1号</span><span class="sub">- · 上次 167 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">阶段画像周草稿<span class="tag">1号</span><span class="sub">每周五 17:00 · 上次 6 天前 · 下次 今天 17:00</span></span><span class="chip ok">正常</span></li></ul></details></div></details></section><section id="migration"><details class="sec" open><summary><b>流转</b><span>3 项迁移进行中，已完成 9 项</span></summary><div class="grid"><div class="c"><div class="h"><div><div class="t">链上交易监控迁到 2 号</div><div class="m">脚本（1 号） → 脚本（2 号） · 3 天前更新</div></div><span class="chip info">待验收</span></div><div class="prog"><div class="bar"><i style="width:28%"></i></div><span class="pn">2 / 7</span></div><div class="l">影子对比通过 2 次，未通过 1 次</div><div class="l err-t">最近未通过：10-20 ⚠️ 2 号失败 4 次</div><div class="l"><b>在等</b> 影子观察中，等一天真实交易做对照</div><details class="inl"><summary>验收标准</summary><div class="l">影子 ≥7 天且其中一天有真实交易，两边推送一致、2 号无连续失败</div></details></div><div class="c"><div class="h"><div><div class="t">协议周报链 9 条迁到 2 号</div><div class="m">脚本（1 号） → 脚本（2 号） · 3 天前更新</div></div><span class="chip info">待验收</span></div><div class="prog"><div class="bar"><i style="width:0%"></i></div><span class="pn">0 / 1</span></div><div class="l">还没有对比记录，日报每天 19:00</div><div class="l"><b>在等</b> 等 10-26 周一首次同时刻影子；周一前勿手动跑 1 号 协议周报 管道</div><details class="inl"><summary>验收标准</summary><div class="l">10-26 周一同时刻影子：197 个数据文件逐字段一致，9 张卡片齐全</div></details></div><div class="c"><div class="h"><div><div class="t">今日清单告警校准（过点未跑/失败是否接告警）</div><div class="m">1号 · 3 天前更新</div></div><span class="chip mute">待分配</span></div><div class="l"><b>在等</b> 11-03 起有两周数据（[路径]），届时算误报率再决定</div><details class="inl"><summary>验收标准</summary><div class="l">用 ≥14 天落盘数据算误报率；误报为 0 才接告警</div></details></div></div><details class="inl"><summary>已完成 9 项</summary><ul class="list"><li class="row done"><span class="name">多电脑 AI 协作工作台 第一阶段 MVP</span><span class="sub">10-20 11:29</span></li><li class="row done"><span class="name">市场简报迁到 2 号（agy 版）<span class=sub>Claude（1 号） → Antigravity（2 号）</span></span><span class="sub">11:03</span></li><li class="row done"><span class="name">轮换 搜索服务 key 并清理旧明文</span><span class="sub">10-20 16:01</span></li><li class="row done"><span class="name">修共享告警脚本的错误归类</span><span class="sub">10-20 11:34</span></li><li class="row done"><span class="name">看板改版与手机公开页 july.nibajie.cc</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">告警降噪四项（[路径] 3 次才推/代报去重）</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">2 号盯防 1 号心跳</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">旧面板三件套退役</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">公开仓历史清理（去掉带真名的版本）</span><span class="sub">10-20 15:01</span></li></ul></details></details></section><section id="nodes" class="nodes"><details class="sec" ><summary><b>电脑</b><span>3/3 在线</span></summary><ul class="list"><li class="row ok"><span class="avatar">1</span><span class="name">1 号主电脑<span class="sub">主开发/审查 · 正常 45 · 异常 0 · 暂停 3 · 心跳 4 分钟前</span></span><span class="chip ok">在线</span></li><li class="row ok"><span class="avatar">2</span><span class="name">2 号<span class="sub">Antigravity/稳定脚本 · 正常 10 · 异常 0 · 暂停 0 · 心跳 2 分钟前</span></span><span class="chip ok">在线</span></li><li class="row ok"><span class="avatar">3</span><span class="name">3 号<span class="sub">第二 Claude/稳定脚本 · 正常 3 · 异常 0 · 暂停 0 · 心跳 4 分钟前</span></span><span class="chip ok">在线</span></li></ul></details></section><section id="incidents"><details class="inl" ><summary><b>异常跟踪</b>　0 条已确认待恢复 · 最近恢复 5 条</summary><ul class="list"></ul><div class=sub style=margin-top:10px>最近恢复</div><ul class=list><li class="row done"><span class="name">2号 · 整机 失联<span class="sub">持续 2 分钟</span></span><span class="sub">15:48</span></li><li class="row done"><span class="name">1号 · 工作台公开页发布 失败<span class="sub">持续 32 分钟</span></span><span class="sub">15:09</span></li><li class="row done"><span class="name">1号 · 工作台公开页发布 产出过期<span class="sub">持续 32 分钟</span></span><span class="sub">15:09</span></li><li class="row done"><span class="name">3号 · 代理自动刷新 失败<span class="sub">持续 5 分钟</span></span><span class="sub">11:54</span></li><li class="row done"><span class="name">3号 · 代理自动刷新 产出过期<span class="sub">持续 5 分钟</span></span><span class="sub">11:54</span></li></ul></details></section><section id="today"><details class="inl" ><summary><b>今天的定时任务</b>　全部正常，下一个 17:00 阶段画像周草稿</summary><ul class="list"><li class="row done"><span class="time">05:10</span><span class="name">Claude 用量探测</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">07:50</span><span class="name">项目跟踪日报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">08:13</span><span class="name">热点搜索</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">09:30</span><span class="name">每日监管日报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">13:00</span><span class="name">Claude 阶段工作汇报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">16:10</span><span class="name">Claude 登录态检查</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">16:10</span><span class="name">市场简报（2 号）<span class=tag>2号</span></span><span class="chip ok">已完成</span></li><li class="row next"><span class="time">17:00</span><span class="name">阶段画像周草稿</span><span class="chip info">下一个</span></li><li class="row "><span class="time">18:05</span><span class="name">GitHub 配置备份</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">18:30</span><span class="name">本地密文刷新</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">19:00</span><span class="name">影子对比日报</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">21:30</span><span class="name">LP 研究归档检查</span><span class="chip mute">未到点</span></li></ul></details></section><footer>只读页面：每 30 分钟发布一次，已去掉路径、密钥名、链接和原始报错；操作在飞书私信机器人（状态 / 重跑 X / 暂停 X …）。</footer></main><script>(function(){var el=document.getElementById('gen'),g=new Date(el.dataset.ts),a=document.getElementById('age');function tick(){var m=Math.round((Date.now()-g)/60000);a.textContent=m<1?'刚刚':m<90?m+' 分钟前':Math.floor(m/60)+' 小时前';var lim=90;if(m>lim){a.className='stale';a.textContent+='，已过期，生成任务可能停了';}}tick();setInterval(tick,30000);})();</script></body></html>
+.prog {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 12px 0 2px;
+}
+
+.bar {
+  flex: 1;
+  min-width: 0;
+  height: 5px;
+  overflow: hidden;
+  background: var(--mute-bg);
+  border-radius: 999px;
+}
+
+.bar i {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  background: var(--acc);
+  border-radius: 999px;
+}
+
+.pn {
+  flex: none;
+  color: var(--sub);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 内联折叠与列表 */
+details.inl {
+  min-width: 0;
+}
+
+details.inl > summary {
+  margin-top: 10px;
+  padding: 4px 0;
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.6;
+  list-style: none;
+  cursor: pointer;
+}
+
+details.inl > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.inl > summary::before {
+  content: "▸ ";
+  font-size: 11px;
+}
+
+details.inl[open] > summary::before {
+  content: "▾ ";
+}
+
+.list {
+  min-width: 0;
+  margin: 8px 0 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line2);
+  border-radius: 12px;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 11px 14px;
+  border-top: 1px solid var(--line2);
+}
+
+.row:first-child {
+  border-top: 0;
+}
+
+.row .name {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.row .name .sub {
+  display: block;
+  margin-top: 2px;
+  line-height: 1.65;
+}
+
+.row .time {
+  flex: none;
+  width: 46px;
+  padding-top: 2px;
+  color: var(--sub);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row.done .name {
+  color: var(--sub);
+}
+
+.row.next {
+  background: var(--mint);
+}
+
+.row.next .name {
+  color: var(--num);
+  font-weight: 600;
+}
+
+.row.bad {
+  background: var(--err-bg);
+}
+
+.row.bad .name {
+  color: var(--err);
+}
+
+.nodes .row {
+  align-items: center;
+}
+
+.nodes .avatar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--mint);
+  border-radius: 8px;
+  color: var(--acc);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.nodes .err .avatar {
+  background: var(--err-bg);
+  color: var(--err);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  min-width: 0;
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin-top: 28px;
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* 悬停只提示可操作内容 */
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover {
+    box-shadow: inset 0 0 0 1px var(--hover-line);
+  }
+
+  details.sec > summary:hover > b,
+  details.inl > summary:hover {
+    color: var(--acc);
+  }
+}
+
+/* 平板与手机：顶部固定三列 */
+@media (max-width: 900px) {
+  main {
+    padding: 0 20px 36px;
+  }
+
+  .top {
+    padding-top: 24px;
+  }
+
+  .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tile {
+    padding: 16px;
+  }
+
+  .tile:nth-child(4) {
+    border-left: 0;
+  }
+
+  .tile:nth-child(n+4) {
+    border-top: 1px solid var(--line2);
+  }
+}
+
+/* 窄屏：缩减外边距，让卡片与长文本自然向下展开 */
+@media (max-width: 600px) {
+  main {
+    padding: 0 12px 28px;
+  }
+
+  .top {
+    gap: 6px 12px;
+    padding: 22px 0 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+    letter-spacing: -.3px;
+  }
+
+  .upd {
+    flex-basis: 100%;
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .tiles {
+    margin-bottom: 16px;
+  }
+
+  .tile {
+    padding: 14px 10px;
+  }
+
+  .tile .v {
+    margin-top: 6px;
+    font-size: 30px;
+  }
+
+  .tile .v small {
+    margin-left: 2px;
+    font-size: 12px;
+  }
+
+  section {
+    margin-bottom: 12px;
+    padding: 14px;
+  }
+
+  section > h2,
+  details.sec > summary {
+    font-size: 15px;
+  }
+
+  details.sec > summary {
+    gap: 8px;
+  }
+
+  details.sec > summary::before {
+    margin-right: 1px;
+  }
+
+  details.sec[open] > summary {
+    margin-bottom: 14px;
+  }
+
+  .banner {
+    padding: 16px 14px;
+  }
+
+  .kv {
+    gap: 4px 10px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .c {
+    padding: 14px;
+  }
+
+  .agentgrp {
+    margin-top: 20px;
+  }
+
+  .row {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .row .time {
+    width: 40px;
+  }
+
+  footer {
+    margin-top: 22px;
+  }
+}
+
+/* 尊重系统的减少动态效果设置 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tile,
+  details.sec > summary::before {
+    transition: none;
+  }
+}
+</style></head><body><main><div class="top"><h1>多机工作台 · 运行状态</h1><span class="upd">数据时间 <span id="gen" data-ts="2026-10-23T16:40:09+08:00">10-23 16:40</span>（<span id="age"></span>）</span></div><div class="tiles"><a class="tile warn" href="#pending"><div class="k">待处理</div><div class="v">1<small></small></div></a><a class="tile " href="#nodes"><div class="k">失联</div><div class="v">0<small>/3</small></div></a><a class="tile " href="#today"><div class="k">今日失败</div><div class="v">0<small></small></div></a><a class="tile " href="#today"><div class="k">今日完成</div><div class="v">7<small>/12</small></div></a><a class="tile " href="#migration"><div class="k">迁移中</div><div class="v">3<small></small></div></a><a class="tile " href="#incidents"><div class="k">异常待恢复</div><div class="v">0<small></small></div></a></div><section class="banner" id="pending"><h2>待处理<span>1 件</span></h2><div class="act"><div class="t">1号 GitHub 配置备份 异常</div><dl class="kv"><dt>原因</dt><dd>工作区存在未提交变更。</dd><dt>处理办法</dt><dd>跟我说一声。</dd></dl></div></section><section id="agents"><details class="sec" ><summary><b>Agent</b><span>3 可用 · Claude 第二账号 待登录</span></summary><div class="grid"><div class="c live"><div class="h"><div><div class="t">Claude<span class="tag">1号</span></div><div class="m">1 号主电脑 · 2.1.305</div></div><span class="chip ok">可用</span></div><div class="l">登录态正常（16:10 探测）</div><div class=l>本周额度已用 7%，10-30 重置</div><div class="stats"><span><b>9</b>任务</span><span><b>5</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c "><div class="h"><div><div class="t">ChatGPT<span class="tag">1号</span></div><div class="m">1 号主电脑 · codex-cli</div></div><span class="chip ok">可用</span></div><div class="l">已登录（本地凭据）</div><div class="stats"><span><b>1</b>任务</span><span><b>0</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c live"><div class="h"><div><div class="t">Antigravity<span class="tag">2号</span></div><div class="m">2 号 · 1.4.6</div></div><span class="chip ok">可用</span></div><div class="l">最近真实调用成功（10-23 16:11）</div><div class="stats"><span><b>1</b>任务</span><span><b>1</b>今日成功</span><span class=""><b>0</b>失败</span></div></div><div class="c "><div class="h"><div><div class="t">Claude 第二账号<span class="tag">3号</span></div><div class="m">3 号</div></div><span class="chip info">待登录</span></div><div class="l">第二个 Claude 账号还没装、没登录（迁 Claude 任务时再做）</div></div></div></details></section><section id="tasks"><details class="sec" ><summary><b>定时任务</b><span>61 个全部正常或暂停 · 按 Agent 分组</span></summary><div class="agentgrp"><h3>Claude 的任务<span>9 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">Claude 用量探测</div><span class="chip ok">正常</span></div><div class="m">每周五 04:50 05:10</div><div class="l">上次 11 小时前 · 下次 10-30 04:50</div></div><div class="c "><div class="h"><div class="t">Claude 登录态检查</div><span class="chip ok">正常</span></div><div class="m">每天 07:50</div><div class="l">上次 29 分钟前 · 下次 明天 07:50</div><div class="l">claude auth healthy (attempt 1/3): pong，在线。</div></div><div class="c "><div class="h"><div class="t">Claude 阶段工作汇报</div><span class="chip ok">正常</span></div><div class="m">每天 13:00 18:00</div><div class="l">上次 3 小时前 · 下次 今天 18:00</div></div><div class="c "><div class="h"><div class="t">候选项目 周报</div><span class="chip ok">正常</span></div><div class="m">周一 08:40</div><div class="l">上次 4 天前 · 下次 周一 08:40</div></div><div class="c "><div class="h"><div class="t">热点搜索</div><span class="chip ok">正常</span></div><div class="m">工作日 08:05</div><div class="l">上次 8 小时前 · 下次 周一 08:05</div></div><div class="c mute"><div class="h"><div class="t">市场简报</div><span class="chip mute">暂停</span></div><div class="m">工作日 08:55</div><div class="l">上次 7 小时前</div><div class="l">2026-10-23 负责人 定切到 2 号 agy 版；1 号 Claude 版 plist 原地保留+disabled 作退路，恢复=launchctl enable+bootstrap 并删本行 paused</div></div><div class="c "><div class="h"><div class="t">每周安全检查</div><span class="chip ok">正常</span></div><div class="m">周日 12:30</div><div class="l">上次 5 天前 · 下次 周日 12:30</div></div><div class="c "><div class="h"><div class="t">项目跟踪日报</div><span class="chip ok">正常</span></div><div class="m">工作日 07:50</div><div class="l">上次 8 小时前 · 下次 周一 07:50</div></div><div class="c "><div class="h"><div class="t">飞书机器人</div><span class="chip ok">正常</span></div><div class="m">常驻</div><div class="l">还没跑过</div></div></div></div><div class="agentgrp"><h3>ChatGPT 的任务<span>1 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">社媒账号监控</div><span class="chip ok">正常</span></div><div class="m">每 5 分钟</div><div class="l">还没跑过</div></div></div></div><div class="agentgrp"><h3>Antigravity 的任务<span>1 个</span></h3><div class="grid"><div class="c "><div class="h"><div class="t">市场简报（2 号）</div><span class="chip ok">正常</span></div><div class="m">工作日 08:55</div><div class="l">上次 29 分钟前 · 下次 周一 08:55</div><div class="l">{&quot;StatusCode&quot;:0,&quot;StatusMessage&quot;:&quot;success&quot;,&quot;code&quot;:0,&quot;data&quot;:{},&quot;msg&quot;:&quot;success&quot;} | briefing pushed (47s)</div></div></div></div><div class="agentgrp"><h3>稳定脚本<span>不用 AI 的 50 个，默认只显示需关注的 0 个</span></h3><div class="sub">全部正常或暂停。</div><details class="inl"><summary>全部 50 个（50 个正常或暂停）</summary><ul class="list"><li class="row"><span class="name">协议 C 周报<span class="tag">1号</span><span class="sub">周一 10:40 · 上次 4 天前 · 下次 周一 10:40</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">GitHub Token 到期检查<span class="tag">1号</span><span class="sub">每周三 10:00 · 上次 2 天前 · 下次 周三 10:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">GitHub 配置备份<span class="tag">1号</span><span class="sub">工作日 18:05 · 上次 5 小时前 · 下次 今天 18:05</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">Agent 网关<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 E 周报<span class="tag">1号</span><span class="sub">周一 11:00 · 上次 4 天前 · 下次 周一 11:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 E 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 研究归档检查<span class="tag">1号</span><span class="sub">每天 21:30 · 上次 19 小时前 · 下次 今天 21:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 F 周报<span class="tag">1号</span><span class="sub">周一 11:10 · 上次 4 天前 · 下次 周一 11:10</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 D 周报<span class="tag">1号</span><span class="sub">周一 10:50 · 上次 4 天前 · 下次 周一 10:50</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议汇总周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 B 周报<span class="tag">1号</span><span class="sub">周一 11:40 · 上次 4 天前 · 下次 周一 11:40</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 H 周报<span class="tag">1号</span><span class="sub">周一 11:30 · 上次 4 天前 · 下次 周一 11:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 H 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">API 续费提醒<span class="tag">1号</span><span class="sub">每月 23 日 09:00 · 上次 7 小时前 · 下次 11-23 09:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 周报（旧）<span class="tag">1号</span><span class="sub">- · 上次 39 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">LP 采集器<span class="tag">1号</span><span class="sub">每小时（暂停） · 上次 37 天前</span></span><span class="chip mute">暂停</span></li><li class="row"><span class="name">项目数据库 周提醒<span class="tag">1号</span><span class="sub">周一 08:35 · 上次 4 天前 · 下次 周一 08:35</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 G 周报<span class="tag">1号</span><span class="sub">周一 11:20 · 上次 4 天前 · 下次 周一 11:20</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 G 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 A LP 监控<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip mute">暂停</span></li><li class="row"><span class="name">协议 A 周报<span class="tag">1号</span><span class="sub">周一 10:30 · 上次 4 天前 · 下次 周一 10:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议 A 周报（影子）<span class="tag">2号</span><span class="sub">- · 上次 3 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">热点搜索测试（旧）<span class="tag">1号</span><span class="sub">- · 上次 156 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">claude-work-summary-daily<span class="tag">1号</span><span class="sub">- · 上次 2 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">status-dashboard-public<span class="tag">1号</span><span class="sub">- · 上次 36 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">workbench-feishu<span class="tag">1号</span><span class="sub">- · 上次 6 小时前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">1号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">2号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">代理自动刷新<span class="tag">3号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">2号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">保持电脑运行<span class="tag">3号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">协议汇总周报<span class="tag">1号</span><span class="sub">周一 12:00 13:00 · 上次 4 天前 · 下次 周一 12:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">内存压力监控<span class="tag">1号</span><span class="sub">每 5 分钟</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">团队 Skill 周更<span class="tag">1号</span><span class="sub">周日 11:30 · 上次 5 天前 · 下次 周日 11:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">链上交易监控（影子）<span class="tag">2号</span><span class="sub">- · 上次 45 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">链上交易监控<span class="tag">1号</span><span class="sub">每 60 分钟 · 上次 33 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台公开页发布<span class="tag">1号</span><span class="sub">每 30 分钟 · 上次 7 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">1号</span><span class="sub">每 5 分钟 · 上次 6 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">2号</span><span class="sub">每 5 分钟 · 上次 10 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台状态上报<span class="tag">3号</span><span class="sub">每 5 分钟 · 上次 6 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台看板生成<span class="tag">1号</span><span class="sub">每 5 分钟 · 上次 2 分钟前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">工作台网页服务<span class="tag">1号</span><span class="sub">常驻</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">影子对比日报<span class="tag">1号</span><span class="sub">每天 19:00 · 上次 21 小时前 · 下次 今天 19:00</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">提醒调度<span class="tag">1号</span><span class="sub">调度器（周一 08:35 / 周三 10:00 / 每月 23 日 09:00）（周一 08:35 / 周三 10:00 / 每月 23 日 09:00） · 上次 7 小时前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">文档一致性周检<span class="tag">1号</span><span class="sub">每周日 10:30 · 上次 5 天前 · 下次 周日 10:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">本地密文刷新<span class="tag">1号</span><span class="sub">工作日 18:30 · 上次 22 小时前 · 下次 今天 18:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">每日监管日报<span class="tag">1号</span><span class="sub">每天 09:30（周一 13:30） · 上次 7 小时前 · 下次 明天 09:30</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">港股期权日报（旧）<span class="tag">1号</span><span class="sub">- · 上次 167 天前</span></span><span class="chip ok">正常</span></li><li class="row"><span class="name">阶段画像周草稿<span class="tag">1号</span><span class="sub">每周五 17:00 · 上次 6 天前 · 下次 今天 17:00</span></span><span class="chip ok">正常</span></li></ul></details></div></details></section><section id="migration"><details class="sec" open><summary><b>流转</b><span>3 项迁移进行中，已完成 9 项</span></summary><div class="grid"><div class="c"><div class="h"><div><div class="t">链上交易监控迁到 2 号</div><div class="m">脚本（1 号） → 脚本（2 号） · 3 天前更新</div></div><span class="chip info">待验收</span></div><div class="prog"><div class="bar"><i style="width:28%"></i></div><span class="pn">2 / 7</span></div><div class="l">影子对比通过 2 次，未通过 1 次</div><div class="l err-t">最近未通过：10-20 ⚠️ 2 号失败 4 次</div><div class="l"><b>在等</b> 影子观察中，等一天真实交易做对照</div><details class="inl"><summary>验收标准</summary><div class="l">影子 ≥7 天且其中一天有真实交易，两边推送一致、2 号无连续失败</div></details></div><div class="c"><div class="h"><div><div class="t">协议周报链 9 条迁到 2 号</div><div class="m">脚本（1 号） → 脚本（2 号） · 3 天前更新</div></div><span class="chip info">待验收</span></div><div class="prog"><div class="bar"><i style="width:0%"></i></div><span class="pn">0 / 1</span></div><div class="l">还没有对比记录，日报每天 19:00</div><div class="l"><b>在等</b> 等 10-26 周一首次同时刻影子；周一前勿手动跑 1 号 协议周报 管道</div><details class="inl"><summary>验收标准</summary><div class="l">10-26 周一同时刻影子：197 个数据文件逐字段一致，9 张卡片齐全</div></details></div><div class="c"><div class="h"><div><div class="t">今日清单告警校准（过点未跑/失败是否接告警）</div><div class="m">1号 · 3 天前更新</div></div><span class="chip mute">待分配</span></div><div class="l"><b>在等</b> 11-03 起有两周数据（[路径]），届时算误报率再决定</div><details class="inl"><summary>验收标准</summary><div class="l">用 ≥14 天落盘数据算误报率；误报为 0 才接告警</div></details></div></div><details class="inl"><summary>已完成 9 项</summary><ul class="list"><li class="row done"><span class="name">多电脑 AI 协作工作台 第一阶段 MVP</span><span class="sub">10-20 11:29</span></li><li class="row done"><span class="name">市场简报迁到 2 号（agy 版）<span class=sub>Claude（1 号） → Antigravity（2 号）</span></span><span class="sub">11:03</span></li><li class="row done"><span class="name">轮换 搜索服务 key 并清理旧明文</span><span class="sub">10-20 16:01</span></li><li class="row done"><span class="name">修共享告警脚本的错误归类</span><span class="sub">10-20 11:34</span></li><li class="row done"><span class="name">看板改版与手机公开页 july.nibajie.cc</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">告警降噪四项（[路径] 3 次才推/代报去重）</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">2 号盯防 1 号心跳</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">旧面板三件套退役</span><span class="sub">10-20 15:01</span></li><li class="row done"><span class="name">公开仓历史清理（去掉带真名的版本）</span><span class="sub">10-20 15:01</span></li></ul></details></details></section><section id="nodes" class="nodes"><details class="sec" ><summary><b>电脑</b><span>3/3 在线</span></summary><ul class="list"><li class="row ok"><span class="avatar">1</span><span class="name">1 号主电脑<span class="sub">主开发/审查 · 正常 45 · 异常 0 · 暂停 3 · 心跳 64 秒前</span></span><span class="chip ok">在线</span></li><li class="row ok"><span class="avatar">2</span><span class="name">2 号<span class="sub">Antigravity/稳定脚本 · 正常 10 · 异常 0 · 暂停 0 · 心跳 5 分钟前</span></span><span class="chip ok">在线</span></li><li class="row ok"><span class="avatar">3</span><span class="name">3 号<span class="sub">第二 Claude/稳定脚本 · 正常 3 · 异常 0 · 暂停 0 · 心跳 1 分钟前</span></span><span class="chip ok">在线</span></li></ul></details></section><section id="incidents"><details class="inl" ><summary><b>异常跟踪</b>　0 条已确认待恢复 · 最近恢复 5 条</summary><ul class="list"></ul><div class=sub style=margin-top:10px>最近恢复</div><ul class=list><li class="row done"><span class="name">2号 · 整机 失联<span class="sub">持续 2 分钟</span></span><span class="sub">15:48</span></li><li class="row done"><span class="name">1号 · 工作台公开页发布 失败<span class="sub">持续 32 分钟</span></span><span class="sub">15:09</span></li><li class="row done"><span class="name">1号 · 工作台公开页发布 产出过期<span class="sub">持续 32 分钟</span></span><span class="sub">15:09</span></li><li class="row done"><span class="name">3号 · 代理自动刷新 失败<span class="sub">持续 5 分钟</span></span><span class="sub">11:54</span></li><li class="row done"><span class="name">3号 · 代理自动刷新 产出过期<span class="sub">持续 5 分钟</span></span><span class="sub">11:54</span></li></ul></details></section><section id="today"><details class="inl" ><summary><b>今天的定时任务</b>　全部正常，下一个 17:00 阶段画像周草稿</summary><ul class="list"><li class="row done"><span class="time">05:10</span><span class="name">Claude 用量探测</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">07:50</span><span class="name">项目跟踪日报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">08:13</span><span class="name">热点搜索</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">09:30</span><span class="name">每日监管日报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">13:00</span><span class="name">Claude 阶段工作汇报</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">16:10</span><span class="name">Claude 登录态检查</span><span class="chip ok">已完成</span></li><li class="row done"><span class="time">16:10</span><span class="name">市场简报（2 号）<span class=tag>2号</span></span><span class="chip ok">已完成</span></li><li class="row next"><span class="time">17:00</span><span class="name">阶段画像周草稿</span><span class="chip info">下一个</span></li><li class="row "><span class="time">18:05</span><span class="name">GitHub 配置备份</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">18:30</span><span class="name">本地密文刷新</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">19:00</span><span class="name">影子对比日报</span><span class="chip mute">未到点</span></li><li class="row "><span class="time">21:30</span><span class="name">LP 研究归档检查</span><span class="chip mute">未到点</span></li></ul></details></section><footer>只读页面：每 30 分钟发布一次，已去掉路径、密钥名、链接和原始报错；操作在飞书私信机器人（状态 / 重跑 X / 暂停 X …）。</footer></main><script>(function(){var el=document.getElementById('gen'),g=new Date(el.dataset.ts),a=document.getElementById('age');function tick(){var m=Math.round((Date.now()-g)/60000);a.textContent=m<1?'刚刚':m<90?m+' 分钟前':Math.floor(m/60)+' 小时前';var lim=90;if(m>lim){a.className='stale';a.textContent+='，已过期，生成任务可能停了';}}tick();setInterval(tick,30000);})();</script></body></html>
